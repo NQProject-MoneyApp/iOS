@@ -9,9 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var textLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupTitle()
+        setupBackground()
+    }
+    
+    func setupTitle() {
+        textLabel.text = "Hello world"
+        textLabel.textColor = UIColor.white
+        navigationItem.title = Config.APP_NAME
+    }
+    
+    func setupBackground() {
+        view.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
+        navigationController?.navigationBar.barTintColor = UIColor.gray
     }
 }
 

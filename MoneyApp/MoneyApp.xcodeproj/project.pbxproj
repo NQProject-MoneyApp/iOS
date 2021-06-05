@@ -15,6 +15,7 @@
 		92893E62266BD963000CED03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92893E60266BD963000CED03 /* LaunchScreen.storyboard */; };
 		92893E6D266BD963000CED03 /* MoneyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E6C266BD963000CED03 /* MoneyAppTests.swift */; };
 		92893E78266BD963000CED03 /* MoneyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E77266BD963000CED03 /* MoneyAppUITests.swift */; };
+		92893E86266BDD28000CED03 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E85266BDD28000CED03 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		92893E73266BD963000CED03 /* MoneyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92893E77266BD963000CED03 /* MoneyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyAppUITests.swift; sourceTree = "<group>"; };
 		92893E79266BD963000CED03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92893E85266BDD28000CED03 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				92893E55266BD961000CED03 /* AppDelegate.swift */,
 				92893E57266BD961000CED03 /* SceneDelegate.swift */,
 				92893E59266BD961000CED03 /* ViewController.swift */,
+				92893E85266BDD28000CED03 /* Config.swift */,
 				92893E5B266BD961000CED03 /* Main.storyboard */,
 				92893E5E266BD963000CED03 /* Assets.xcassets */,
 				92893E60266BD963000CED03 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92893E5A266BD961000CED03 /* ViewController.swift in Sources */,
+				92893E86266BDD28000CED03 /* Config.swift in Sources */,
 				92893E56266BD961000CED03 /* AppDelegate.swift in Sources */,
 				92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */,
 			);

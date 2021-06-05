@@ -4,10 +4,33 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MoneyApp.xcscheme_^#shared#^_</key>
+		<key>Debug.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+		<key>Release.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>92893E51266BD961000CED03</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>92893E67266BD963000CED03</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>92893E72266BD963000CED03</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

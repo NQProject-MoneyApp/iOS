@@ -15,25 +15,10 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unw-We-Zcs">
-                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="unw-We-Zcs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9eP-zY-LmR"/>
-                            <constraint firstItem="unw-We-Zcs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZwI-pk-T9N"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Test" id="JGc-hi-Luc"/>
-                    <connections>
-                        <outlet property="textLabel" destination="unw-We-Zcs" id="Fk6-tk-c1D"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

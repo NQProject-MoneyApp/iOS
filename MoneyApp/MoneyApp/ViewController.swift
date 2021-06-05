@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
@@ -18,9 +19,17 @@ class ViewController: UIViewController {
     }
     
     func setupTitle() {
-        textLabel.text = "Hello world"
-        textLabel.textColor = UIColor.white
-        navigationItem.title = Config.APP_NAME
+        let label = UILabel()
+        label.text = "Hello world"
+        label.textColor = UIColor.white
+        
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.centerX.equalTo(view.snp.centerX)
+            make.centerY.equalTo(view.snp.centerY)
+        }
+        
+        navigationItem.title = Config.APP_NAME        
     }
     
     func setupBackground() {

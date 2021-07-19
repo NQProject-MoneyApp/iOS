@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,14 @@
 		92893E6D266BD963000CED03 /* MoneyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E6C266BD963000CED03 /* MoneyAppTests.swift */; };
 		92893E78266BD963000CED03 /* MoneyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E77266BD963000CED03 /* MoneyAppUITests.swift */; };
 		92893E86266BDD28000CED03 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E85266BDD28000CED03 /* Config.swift */; };
+		92FEA6F126A5E5D0008BFAA3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA6F026A5E5D0008BFAA3 /* TableViewController.swift */; };
+		92FEA6F626A5E604008BFAA3 /* TableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FEA6F526A5E604008BFAA3 /* TableView.storyboard */; };
+		92FEA6F826A5E60F008BFAA3 /* ScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FEA6F726A5E60F008BFAA3 /* ScrollView.storyboard */; };
+		92FEA6FA26A5E61B008BFAA3 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA6F926A5E61B008BFAA3 /* ScrollViewController.swift */; };
+		92FEA6FC26A5E625008BFAA3 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA6FB26A5E625008BFAA3 /* ControlViewController.swift */; };
+		92FEA6FE26A5E62F008BFAA3 /* ControlView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FEA6FD26A5E62F008BFAA3 /* ControlView.storyboard */; };
+		92FEA70226A5E856008BFAA3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA70126A5E856008BFAA3 /* UIViewController+Extensions.swift */; };
+		92FEA70426A5ED27008BFAA3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA70326A5ED27008BFAA3 /* TableViewCell.swift */; };
 		BCE3808BC330E79B1DFBC30E /* Pods_MoneyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C28A05241A1E507FDC84C2A /* Pods_MoneyApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +68,14 @@
 		92893E77266BD963000CED03 /* MoneyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyAppUITests.swift; sourceTree = "<group>"; };
 		92893E79266BD963000CED03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92893E85266BDD28000CED03 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		92FEA6F026A5E5D0008BFAA3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		92FEA6F526A5E604008BFAA3 /* TableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableView.storyboard; sourceTree = "<group>"; };
+		92FEA6F726A5E60F008BFAA3 /* ScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScrollView.storyboard; sourceTree = "<group>"; };
+		92FEA6F926A5E61B008BFAA3 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		92FEA6FB26A5E625008BFAA3 /* ControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
+		92FEA6FD26A5E62F008BFAA3 /* ControlView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ControlView.storyboard; sourceTree = "<group>"; };
+		92FEA70126A5E856008BFAA3 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		92FEA70326A5ED27008BFAA3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C899D24842896264E2AC522C /* Pods-MoneyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp.debug.xcconfig"; path = "Target Support Files/Pods-MoneyApp/Pods-MoneyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D96D3DE344EBDFCD506A35EC /* Pods-MoneyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyAppTests/Pods-MoneyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ECC44239D85A7FEEA15048C6 /* Pods_MoneyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +129,6 @@
 				D96D3DE344EBDFCD506A35EC /* Pods-MoneyAppTests.debug.xcconfig */,
 				81DE3A7461FB20B90373FFF4 /* Pods-MoneyAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -142,6 +157,7 @@
 		92893E54266BD961000CED03 /* MoneyApp */ = {
 			isa = PBXGroup;
 			children = (
+				92FEA6EF26A5E5B7008BFAA3 /* Example */,
 				92893E55266BD961000CED03 /* AppDelegate.swift */,
 				92893E57266BD961000CED03 /* SceneDelegate.swift */,
 				92893E59266BD961000CED03 /* ViewController.swift */,
@@ -170,6 +186,61 @@
 				92893E79266BD963000CED03 /* Info.plist */,
 			);
 			path = MoneyAppUITests;
+			sourceTree = "<group>";
+		};
+		92FEA6EF26A5E5B7008BFAA3 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				92FEA6FF26A5E839008BFAA3 /* Utils */,
+				92FEA6F426A5E5E8008BFAA3 /* Control */,
+				92FEA6F326A5E5DD008BFAA3 /* ScrollView */,
+				92FEA6F226A5E5D5008BFAA3 /* TableView */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		92FEA6F226A5E5D5008BFAA3 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				92FEA6F026A5E5D0008BFAA3 /* TableViewController.swift */,
+				92FEA6F526A5E604008BFAA3 /* TableView.storyboard */,
+				92FEA70326A5ED27008BFAA3 /* TableViewCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		92FEA6F326A5E5DD008BFAA3 /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				92FEA6F926A5E61B008BFAA3 /* ScrollViewController.swift */,
+				92FEA6F726A5E60F008BFAA3 /* ScrollView.storyboard */,
+			);
+			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		92FEA6F426A5E5E8008BFAA3 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				92FEA6FB26A5E625008BFAA3 /* ControlViewController.swift */,
+				92FEA6FD26A5E62F008BFAA3 /* ControlView.storyboard */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		92FEA6FF26A5E839008BFAA3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				92FEA70026A5E83E008BFAA3 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		92FEA70026A5E83E008BFAA3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				92FEA70126A5E856008BFAA3 /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +352,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				92893E62266BD963000CED03 /* LaunchScreen.storyboard in Resources */,
+				92FEA6FE26A5E62F008BFAA3 /* ControlView.storyboard in Resources */,
 				92893E5F266BD963000CED03 /* Assets.xcassets in Resources */,
+				92FEA6F826A5E60F008BFAA3 /* ScrollView.storyboard in Resources */,
+				92FEA6F626A5E604008BFAA3 /* TableView.storyboard in Resources */,
 				92893E5D266BD961000CED03 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,9 +485,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				92893E5A266BD961000CED03 /* ViewController.swift in Sources */,
+				92FEA6FA26A5E61B008BFAA3 /* ScrollViewController.swift in Sources */,
 				92893E86266BDD28000CED03 /* Config.swift in Sources */,
+				92FEA70426A5ED27008BFAA3 /* TableViewCell.swift in Sources */,
 				92893E56266BD961000CED03 /* AppDelegate.swift in Sources */,
+				92FEA70226A5E856008BFAA3 /* UIViewController+Extensions.swift in Sources */,
+				92FEA6F126A5E5D0008BFAA3 /* TableViewController.swift in Sources */,
 				92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */,
+				92FEA6FC26A5E625008BFAA3 /* ControlViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

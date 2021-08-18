@@ -25,7 +25,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         Member(name: "Szymon Dolan", amount: 312.53),
         Member(name: "Ada Dolan", amount: 87.12),
     ]
-    
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return members.count
     }

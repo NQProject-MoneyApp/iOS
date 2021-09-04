@@ -8,9 +8,18 @@
 import Foundation
 import UIKit
 
+protocol GroupComponentDelegate {
+    func didPressGroupComponent(group: Group)
+}
+
 class GroupComponentView: UIView {
     
-    func create(group: Group) {
+    private var delegate: GroupComponentDelegate?
+    private var group: Group?
+    
+    func create(group: Group, delegate: GroupComponentDelegate) {
+        self.delegate = delegate
+        self.group = group
         setupView()
         
         let star = UIImageView()
@@ -53,7 +62,7 @@ class GroupComponentView: UIView {
         let textContainer = UIView()
         
         let titleLabel = createTitleLabel(text: text)
-        let balanceLabel = createBalanceLabel(balace: balance)
+        let balanceLabel = createBalanceLabel(balance: balance)
 
         textContainer.addSubview(titleLabel)
         textContainer.addSubview(balanceLabel)
@@ -77,6 +86,13 @@ class GroupComponentView: UIView {
         snp.makeConstraints { make in
             make.height.equalTo(137)
         }
+        
+        addTapGesture(tapNumber: 1, target: self, action: #selector(didPressView))
+    }
+    
+    @objc func didPressView() {
+        guard let group = group else { return }
+        delegate?.didPressGroupComponent(group: group)
     }
     
     private func createTitleLabel(text: String) -> UILabel {
@@ -89,10 +105,10 @@ class GroupComponentView: UIView {
         return titleLabel
     }
     
-    private func createBalanceLabel(balace: Double) -> UILabel {
+    private func createBalanceLabel(balance: Double) -> UILabel {
         let balanceLabel = UILabel()
-        let sign = balace < 0 ? "" : "+"
-        balanceLabel.text = "$ \(sign)\(balace.format(".2"))"
+        let sign = balance < 0 ? "" : "+"
+        balanceLabel.text = "$ \(sign)\(balance.format(".2"))"
         balanceLabel.textColor = UIColor.white
         return balanceLabel
     }

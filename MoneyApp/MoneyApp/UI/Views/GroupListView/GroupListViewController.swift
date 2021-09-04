@@ -8,7 +8,8 @@
 import UIKit
 import SnapKit
 
-class GroupListViewController: UIViewController {
+class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
+    
     
     private let scrollView = ScrollView()
     private var groups: [Group] = []
@@ -27,16 +28,24 @@ class GroupListViewController: UIViewController {
         setupScrollView()
         
         // todo add activity indicator
-        service.fetchGroups(completion: { result in
-            if result.isEmpty {
-                // todo add information about no groups
-                print("EMPTY GROUPS")
-            }
-            
-            self.groups = result
-            self.appendGroupsList()
-        })
-//        groups = Mock.shared.fetchGroups()
+//        service.fetchGroups(completion: { result in
+//            if result.isEmpty {
+//                // todo add information about no groups
+//                print("EMPTY GROUPS")
+//            }
+//
+//            self.groups = result
+//            self.appendGroupsList()
+//        })
+        groups = Mock.shared.fetchGroups()
+        self.appendGroupsList()
+    }
+    
+    // ScrollView refresh indicator callback
+    func didRefreshList(completion: @escaping () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            completion()
+        }
     }
     
     @objc private func logout() {
@@ -59,6 +68,7 @@ class GroupListViewController: UIViewController {
     private func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.create()
+        scrollView.setRefreshDelegate(delegate: self)
         
         scrollView.snp.makeConstraints { make in
             make.left.equalTo(view.snp.left)
@@ -78,11 +88,11 @@ class GroupListViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        let rightBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createGroupOptionMenu())
-        let leftBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createUserMenu())
+//        let rightBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createGroupOptionMenu())
+//        let leftBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createUserMenu())
         
-        navigationItem.leftBarButtonItem = leftBarItem
-        navigationItem.rightBarButtonItem = rightBarItem
+//        navigationItem.leftBarButtonItem = leftBarItem
+//        navigationItem.rightBarButtonItem = rightBarItem
 
     }
     

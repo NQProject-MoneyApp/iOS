@@ -577,11 +577,8 @@
 				92893E62266BD963000CED03 /* LaunchScreen.storyboard in Resources */,
 				92FEA6FE26A5E62F008BFAA3 /* ControlView.storyboard in Resources */,
 				92893E5F266BD963000CED03 /* Assets.xcassets in Resources */,
-<<<<<<< HEAD
 				92BCE42D26E3D69F00E4E929 /* AddGroupView.storyboard in Resources */,
-=======
 				E3F1EEED26E3A78A00C6814B /* GroupDetailsView.storyboard in Resources */,
->>>>>>> f83e5e61f5ed7b322741f477783ba4e2dbade82f
 				92E4569626D0E9160024F598 /* GroupListView.storyboard in Resources */,
 				92FEA6F826A5E60F008BFAA3 /* ScrollView.storyboard in Resources */,
 				92E4568326CED8220024F598 /* LoginView.storyboard in Resources */,

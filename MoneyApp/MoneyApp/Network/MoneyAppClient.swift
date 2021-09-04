@@ -11,6 +11,7 @@ import Foundation
 enum MoneyAppApi {
 
     case login(username: String, password: String)
+    case register(username: String, email: String, password: String)
     case groups
 }
 
@@ -83,6 +84,8 @@ extension MoneyAppApi: TargetType {
         switch self {
         case .login:
             return "/login/"
+        case .register:
+            return "/registration/"
         case .groups:
             return "/groups/"
         }
@@ -121,6 +124,8 @@ extension MoneyAppApi: TargetType {
         switch self {
         case .login:
             return .post
+        case .register:
+            return .post
         case .groups:
             return .get
         }
@@ -131,6 +136,8 @@ extension MoneyAppApi: TargetType {
         switch self {
         case .login(let username, let password):
             return .requestParameters(parameters: ["username": username, "password": password], encoding: URLEncoding.default)
+        case .register(let username, let email, let password):
+            return .requestParameters(parameters: ["username": username, "email": email, "password1": password, "password2": password], encoding: URLEncoding.default)
         case .groups:
             return .requestPlain
         }

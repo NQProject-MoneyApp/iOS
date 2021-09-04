@@ -10,6 +10,9 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
+    
+    private let service = LoginService()
+    
     private let image = UIImageView()
     private let label = UILabel()
     private let usernameTextField = UITextField()
@@ -132,6 +135,32 @@ class RegisterViewController: UIViewController {
     
     @objc func didPressRegisterButton() {
         
+        guard let username = usernameTextField.text, !username.isEmpty else {
+            Toast.shared.presentToast("Please enter username")
+            return
+        }
+        
+        guard let email = emailTextField.text, !email.isEmpty else {
+            Toast.shared.presentToast("Please enter email")
+            return
+        }
+        
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            Toast.shared.presentToast("Please enter password")
+            return
+        }
+        
+        service.register(username: username, email: email, password: password, completion: { result in
+            switch result {
+            
+            case .success(let result):
+                Toast.shared.presentToast(result)
+                self.navigateToGroupList()
+                
+            case .failure(let error):
+                Toast.shared.presentToast(error.localizedDescription)
+            }
+        })
     }
 
 
@@ -139,5 +168,12 @@ class RegisterViewController: UIViewController {
         view.backgroundColor = UIColor.black
     }
     
+    
+    private func navigateToGroupList() {
+        guard let vc = GroupListViewController.loadFromStoryboard() else { return }
+        let root = UINavigationController(rootViewController: vc)
+        root.modalPresentationStyle = .fullScreen
+        present(root, animated: true, completion: nil)
+    }
     
 }

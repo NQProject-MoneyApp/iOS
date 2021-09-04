@@ -13,6 +13,7 @@
 		4DDEBC1526E3BB19000894B6 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC1426E3BB19000894B6 /* TextField.swift */; };
 		4DDEBC1726E3C327000894B6 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC1626E3C327000894B6 /* Button.swift */; };
 		4DDEBC1926E3C601000894B6 /* TextWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC1826E3C601000894B6 /* TextWithButton.swift */; };
+		4DDEBC1B26E3CE24000894B6 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC1A26E3CE24000894B6 /* RegisterResponse.swift */; };
 		70DFAD49855C64FAE178143B /* Pods_MoneyApp_MoneyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BE08076C189D8CC6C663A5 /* Pods_MoneyApp_MoneyAppUITests.framework */; };
 		92893E56266BD961000CED03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E55266BD961000CED03 /* AppDelegate.swift */; };
 		92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E57266BD961000CED03 /* SceneDelegate.swift */; };
@@ -78,6 +79,7 @@
 		4DDEBC1426E3BB19000894B6 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		4DDEBC1626E3C327000894B6 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		4DDEBC1826E3C601000894B6 /* TextWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWithButton.swift; sourceTree = "<group>"; };
+		4DDEBC1A26E3CE24000894B6 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		6D848F9CDA51F8C248338DD7 /* Pods-MoneyApp-MoneyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp-MoneyAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MoneyApp-MoneyAppUITests/Pods-MoneyApp-MoneyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		81DE3A7461FB20B90373FFF4 /* Pods-MoneyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyAppTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyAppTests/Pods-MoneyAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		8827E214D6520A96C0AE83D5 /* Pods-MoneyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp.release.xcconfig"; path = "Target Support Files/Pods-MoneyApp/Pods-MoneyApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 			children = (
 				92E4568D26CEE9700024F598 /* LoginResponse.swift */,
 				92E456A326D107050024F598 /* GroupResponse.swift */,
+				4DDEBC1A26E3CE24000894B6 /* RegisterResponse.swift */,
 			);
 			path = NetworkModel;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				4D6342C726DEC90A0065209B /* RegisterViewController.swift in Sources */,
 				92E4567C26CED67F0024F598 /* Authentication.swift in Sources */,
 				92E456A226D1057A0024F598 /* GroupRepository.swift in Sources */,
+				4DDEBC1B26E3CE24000894B6 /* RegisterResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

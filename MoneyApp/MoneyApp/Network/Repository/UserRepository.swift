@@ -53,4 +53,33 @@ class UserRepository {
             }
         }
     }
+    
+    func register(username: String, email: String, password: String, completion: @escaping((Result<String?, CustomError>) -> Void)) {
+                
+        _ = defaultRequest(api: .register(username: username, email: email, password: password)) { result in
+
+            if case let .success(response) = result {
+
+                if 200 ... 299 ~= response.statusCode {
+
+                    do {
+
+                        let registerResponse = try JSONDecoder().decode(RegisterResponse.self, from: response.data)
+                        completion(.success(registerResponse.key))
+
+                    } catch let error {
+                        print("error while decoding \(error.localizedDescription)")
+                        completion(.failure(CustomError(description: error.localizedDescription)))
+                    }
+                } else {
+                    print("UserRepository.login error: \(String(decoding: response.data, as: UTF8.self))")
+                    completion(.failure(CustomError(description: "Failed to register")))
+                }
+
+            } else if case let .failure(error) = result {
+                print("error \(error.localizedDescription)")
+                completion(.failure(CustomError(description: error.localizedDescription)))
+            }
+        }
+    }
 }

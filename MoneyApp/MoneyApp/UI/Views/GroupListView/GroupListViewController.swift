@@ -86,8 +86,8 @@ class GroupListViewController: UIViewController {
     
     private func createGroupOptionMenu() -> UIMenu {
         
-        let join = UIAction(title: "Join", image: UIImage()) { _ in }
-        let add = UIAction(title: "Add", image: UIImage()) { _ in }
+        let join = UIAction(title: "Join", image: UIImage()) { _ in } //TODO
+        let add = UIAction(title: "Add", image: UIImage()) { _ in } //TODO
 
         return UIMenu( title: "What would you like to do?", children: [join, add])
     }

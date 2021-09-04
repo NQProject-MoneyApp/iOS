@@ -41,8 +41,10 @@ class GroupListViewController: UIViewController {
     
     @objc private func logout() {
         guard let vc = LoginViewController.loadFromStoryboard() else { return }
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
+        let controller = UINavigationController(rootViewController: vc)
+        
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true, completion: nil)
     }
     
     private func appendGroupsList() {

@@ -52,7 +52,7 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
         })
     }
     
-    @objc private func logout() {
+    @objc private func onLogout() {
         guard let vc = LoginViewController.loadFromStoryboard() else { return }
         let controller = UINavigationController(rootViewController: vc)
         
@@ -91,7 +91,7 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
     }
 
     private func setupObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(logout), name: NSNotification.Name("logout"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onLogout), name: NSNotification.Name("logout"), object: nil)
     }
     
     private func setupNavigationController() {
@@ -104,6 +104,7 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
 //        let leftBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createUserMenu())
         
         let leftBarItem = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
+        leftBarItem.tintColor = UIColor.brand.yellow
         
         navigationItem.leftBarButtonItem = leftBarItem
         
@@ -114,11 +115,12 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
 
         let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
-            self.logout()
+            Authentication.shared.logout()
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.overrideUserInterfaceStyle = .dark
+        alert.view.tintColor = UIColor.brand.yellow
         
         alert.addAction(logoutAction)
         alert.addAction(cancelAction)

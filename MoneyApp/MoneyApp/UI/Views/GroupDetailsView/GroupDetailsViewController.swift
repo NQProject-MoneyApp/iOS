@@ -6,3 +6,87 @@
 //
 
 import Foundation
+import UIKit
+
+class GroupDetailsViewController: UIViewController {
+    
+    var group: Group?
+    private let scrollView = ScrollView()
+    
+    static func loadFromStoryboard() -> GroupDetailsViewController? {
+        let storyboard = UIStoryboard(name: "GroupDetailsView", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "GroupDetailsView") as? GroupDetailsViewController
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor.brand.blackBackground
+//            setupObserver()
+//            setupNavigationController()
+        setupScrollView()
+        guard let group = group else { return }
+        
+        let icon = createIconComponent(icon: group.icon)
+
+        let groupValuesView = GroupValuesComponentView()
+        groupValuesView.create(group: group)
+        
+        let settleUpButton = UIButton()
+        setupSettleUpButton(button: settleUpButton)
+
+        let newExpenseButton = UIButton()
+        setupExpenseButton(button: newExpenseButton)
+        
+        let groupUsersList = GroupUsersListComponentView()
+        groupUsersList.create()
+        
+        scrollView.appendVertical(component: icon, last: false)
+        scrollView.appendVertical(component: groupValuesView, last: false)
+        scrollView.appendVertical(component: settleUpButton, last: false)
+        scrollView.appendVertical(component: newExpenseButton, last: false)
+        scrollView.appendVertical(component: groupUsersList, last: true)
+    }
+    
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.create()
+        
+        scrollView.snp.makeConstraints { make in
+            make.left.equalTo(view.snp.left)
+            make.right.equalTo(view.snp.right)
+            make.top.equalTo(view.snp.top)
+            make.bottom.equalTo(view.snp.bottom)
+        }
+    }
+    
+    private func createIconComponent(icon: String) -> UIView {
+        let container = UIView()
+        let iconView = UIImageView()
+        iconView.image = UIImage(named: icon)
+        
+        container.addSubview(iconView)
+        iconView.snp.makeConstraints { make in
+            make.centerX.equalTo(container.snp.centerX)
+            make.top.equalTo(container.snp.top)
+            make.bottom.equalTo(container.snp.bottom)
+            make.width.equalTo(100)
+            make.height.equalTo(72)
+        }
+        
+        return container
+    }
+    
+    private func setupSettleUpButton(button: UIButton) {
+        button.setTitle("Settle up", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+        button.setTitleColor(UIColor.brand.yellow, for: .normal)
+    }
+    
+    private func setupExpenseButton(button: UIButton) {
+        button.setTitle("New expense", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.backgroundColor = UIColor.brand.yellow
+        button.layer.cornerRadius = 10
+    }
+}

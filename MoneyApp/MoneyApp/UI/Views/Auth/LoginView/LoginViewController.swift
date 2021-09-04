@@ -105,7 +105,7 @@ class LoginViewController: UIViewController {
     private func addBottomTexts() {
         let forgotPasswordView = TextWithButton()
         forgotPasswordView.create(
-            labelText: "Forgot password?", buttonText: "Reset", onTap: { [self] in navigateToForgot() })
+            labelText: "Forgot password?", buttonText: "Reset", onTap: { [self] in self.navigateToForgot() })
         view.addSubview(forgotPasswordView)
         forgotPasswordView.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
@@ -115,7 +115,7 @@ class LoginViewController: UIViewController {
         
         let registerView = TextWithButton()
         registerView.create(
-            labelText: "No account yet?", buttonText: "Register", onTap: { [self] in navigateToRegister() })
+            labelText: "No account yet?", buttonText: "Register", onTap: { [self] in self.navigateToRegister() })
         view.addSubview(registerView)
         registerView.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)

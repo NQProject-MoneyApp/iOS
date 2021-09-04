@@ -8,8 +8,14 @@
 import UIKit
 import SnapKit
 
-class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
+class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollViewRefreshDelegate {
     
+    func didPressGroupComponent(group: Group) {
+        guard let vc = GroupDetailsViewController.loadFromStoryboard() else { return }
+        vc.group = group
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     private let scrollView = ScrollView()
     private var groups: [Group] = []
@@ -29,7 +35,7 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(didEnterFromBackground), name:
                 UIApplication.willEnterForegroundNotification, object: nil)
-        loadGroups()
+        scrollView.startRefresh()
         // todo add activity indicator
     }
     
@@ -62,19 +68,26 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
     
     private func updateGroupsList(groups: [Group]) {
         
-        if groups.isEmpty {
-            // todo add information about no groups
-            print("TODO: EMPTY GROUPS")
-        }
-        
         self.groups = groups
         scrollView.clearComponents()
         
-        for (idx, group) in groups.enumerated() {
-            let groupView = GroupComponentView()
-            groupView.create(group: group)
-            scrollView.appendVertical(component: groupView, last: idx == groups.count - 1)
+        if groups.isEmpty {
+            let text = UILabel()
+            text.text = "No groups yet"
+            text.textColor = UIColor.brand.yellow
+            text.font = UIFont.systemFont(ofSize: 32)
+            text.textAlignment = .center
+            
+            scrollView.setSingleContent(content: text)
         }
+        else {
+            for (idx, group) in groups.enumerated() {
+                let groupView = GroupComponentView()
+                groupView.create(group: group, delegate: self)
+                scrollView.appendVertical(component: groupView, last: idx == groups.count - 1)
+            }
+        }
+        
     }
     
     private func setupScrollView() {
@@ -100,15 +113,11 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-//        let rightBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createGroupOptionMenu())
-//        let leftBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createUserMenu())
-        
         let leftBarItem = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
         leftBarItem.tintColor = UIColor.brand.yellow
         
         navigationItem.leftBarButtonItem = leftBarItem
-        
-
+    
     }
     
     @objc func onProfileButtonTapped() {
@@ -121,7 +130,7 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.overrideUserInterfaceStyle = .dark
         alert.view.tintColor = UIColor.brand.yellow
-        
+
         alert.addAction(logoutAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)

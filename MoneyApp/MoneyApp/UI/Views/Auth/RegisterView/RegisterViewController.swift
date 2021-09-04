@@ -120,7 +120,7 @@ class RegisterViewController: UIViewController {
     private func addLoginText() {
         let forgotPasswordView = TextWithButton()
         forgotPasswordView.create(
-            labelText: "Already have an account?", buttonText: "Login", onTap: { [self] in navigateToLogin() })
+            labelText: "Already have an account?", buttonText: "Login", onTap: { [self] in self.navigateToLogin() })
         view.addSubview(forgotPasswordView)
         forgotPasswordView.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)

@@ -35,7 +35,7 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         
         NotificationCenter.default.addObserver(self, selector: #selector(didEnterFromBackground), name:
                 UIApplication.willEnterForegroundNotification, object: nil)
-        loadGroups()
+        scrollView.startRefresh()
         // todo add activity indicator
     }
     
@@ -68,19 +68,26 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     
     private func updateGroupsList(groups: [Group]) {
         
-        if groups.isEmpty {
-            // todo add information about no groups
-            print("TODO: EMPTY GROUPS")
-        }
-        
         self.groups = groups
         scrollView.clearComponents()
         
-        for (idx, group) in groups.enumerated() {
-            let groupView = GroupComponentView()
-            groupView.create(group: group, delegate: self)
-            scrollView.appendVertical(component: groupView, last: idx == groups.count - 1)
+        if groups.isEmpty {
+            let text = UILabel()
+            text.text = "No groups yet"
+            text.textColor = UIColor.brand.yellow
+            text.font = UIFont.systemFont(ofSize: 32)
+            text.textAlignment = .center
+            
+            scrollView.setSingleContent(content: text)
         }
+        else {
+            for (idx, group) in groups.enumerated() {
+                let groupView = GroupComponentView()
+                groupView.create(group: group, delegate: self)
+                scrollView.appendVertical(component: groupView, last: idx == groups.count - 1)
+            }
+        }
+        
     }
     
     private func setupScrollView() {
@@ -123,7 +130,7 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.overrideUserInterfaceStyle = .dark
         alert.view.tintColor = UIColor.brand.yellow
-        
+
         alert.addAction(logoutAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
@@ -134,7 +141,10 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         let join = UIAction(title: "Join",image: UIImage()) { _ in
             self.showJoinAlert()
         }
-        let add = UIAction(title: "Add", image: UIImage()) { _ in } //TODO
+        let add = UIAction(title: "Add", image: UIImage()) { _ in
+            
+            
+        } //TODO
 
         return UIMenu( title: "What would you like to do?", children: [join, add])
     }

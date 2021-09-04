@@ -69,8 +69,8 @@ class LoginViewController: UIViewController {
         view.addSubview(usernameTextField)
         view.addSubview(passwordTextField)
         
-        setupTextField(textField: usernameTextField, placeholder: "Username")
-        setupTextField(textField: passwordTextField, placeholder: "Password")
+        usernameTextField.defaultStyle(placeholder: "Username")
+        passwordTextField.defaultStyle(placeholder: "Password")
  
         usernameTextField.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
@@ -86,28 +86,11 @@ class LoginViewController: UIViewController {
             make.height.equalTo(49)
         }
     }
-    
-    private func setupTextField(textField: UITextField, placeholder: String) {
-        textField.textColor = UIColor.white
-        textField.backgroundColor = UIColor.brand.darkGray
-        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.brand.middleGray])
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .none
-        
-        
-        textField.layer.cornerRadius = 10.0
-        // left text offset
-        textField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
-
-    }
 
     private func addLoginButton() {
         view.addSubview(loginButton)
         
-        loginButton.setTitle("Log in", for: .normal)
-        loginButton.backgroundColor = UIColor.brand.yellow
-        loginButton.setTitleColor(UIColor.black, for: .normal)
-        loginButton.layer.cornerRadius = 10.0
+        loginButton.defaultStyle(title: "Log in")
 
         loginButton.addTarget(self, action: #selector(didPressLogInButton), for: .touchUpInside)
         
@@ -120,8 +103,9 @@ class LoginViewController: UIViewController {
     }
     
     private func addBottomTexts() {
-        let forgotPasswordView = createBottomText(
-            labelText: "Forgot password?", buttonText: "Reset", onTap: #selector(navigateToForgot))
+        let forgotPasswordView = TextWithButton()
+        forgotPasswordView.create(
+            labelText: "Forgot password?", buttonText: "Reset", onTap: { [self] in self.navigateToForgot() })
         view.addSubview(forgotPasswordView)
         forgotPasswordView.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
@@ -129,9 +113,10 @@ class LoginViewController: UIViewController {
         
         }
         
-        let registerView = createBottomText(
-            labelText: "No account yet?", buttonText: "Register", onTap: #selector(navigateToRegister))
-        view.addSubview(forgotPasswordView)
+        let registerView = TextWithButton()
+        registerView.create(
+            labelText: "No account yet?", buttonText: "Register", onTap: { [self] in self.navigateToRegister() })
+        view.addSubview(registerView)
         registerView.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(forgotPasswordView.snp.bottom).offset(20)

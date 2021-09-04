@@ -14,11 +14,20 @@ class Mock {
     func fetchGroups() -> [Group] {
         
         return [
-            Group(id: 0, name: "Coffe at Sturbucks ", totalCost: 123, userBalance: 12, icon: "coffee", createDate: Date(), isFavourite: true),
+            Group(id: 0, name: "Coffee at Starbucks ", totalCost: 123, userBalance: 12, icon: "coffee", createDate: Date(), isFavourite: true),
             Group(id: 0, name: "Burger with Julia", totalCost: 123, userBalance: -12.44, icon: "coffee", createDate: Date(), isFavourite: true),
             Group(id: 0, name: "My birthday", totalCost: 123, userBalance: 12, icon: "coffee", createDate: Date(), isFavourite: false),
             Group(id: 0, name: "Coffe long coffe long long long", totalCost: 123, userBalance: -12, icon: "coffee", createDate: Date(), isFavourite: false),
             Group(id: 0, name: "Burger", totalCost: 123, userBalance: 12, icon: "coffee", createDate: Date(), isFavourite: false),
             Group(id: 0, name: "Birthday", totalCost: 123, userBalance: 12.1234, icon: "coffee", createDate: Date(), isFavourite: false)]
+    }
+    
+    func fetchUserBalances() -> [User] {
+        return [
+            User(pk: 0, name: "Miłosz", email: "milosz@gmail.com", balance: -300),
+            User(pk: 1, name: "Szymon", email: "szym@gmail.com", balance: -100),
+            User(pk: 2, name: "Speerit", email: "speerit@gmail.com", balance: 5),
+            User(pk: 3, name: "Danielle", email: "dan@gmail.com", balance: -20)
+        ]
     }
 }

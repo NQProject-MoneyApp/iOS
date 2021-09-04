@@ -107,8 +107,7 @@ class GroupComponentView: UIView {
     
     private func createBalanceLabel(balance: Double) -> UILabel {
         let balanceLabel = UILabel()
-        let sign = balance < 0 ? "" : "+"
-        balanceLabel.text = "$ \(sign)\(balance.format(".2"))"
+        balanceLabel.text = "$ \(balance.format(".2"))"
         balanceLabel.textColor = UIColor.white
         return balanceLabel
     }

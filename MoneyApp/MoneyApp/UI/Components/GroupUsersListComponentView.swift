@@ -11,6 +11,7 @@ import UIKit
 class GroupUsersListComponentView: UIView {
     
     private var components: [UIView] = []
+    private var groupUsers: [User] = Mock.shared.fetchUserBalances()
     
     func create() {
         backgroundColor = UIColor.brand.gray
@@ -19,7 +20,18 @@ class GroupUsersListComponentView: UIView {
         let titleRow = GroupBalanceComponentView()
         titleRow.create(user: "Member", attribute: "Balance", color: UIColor.brand.yellow)
        
-        appendRow(row: titleRow, last: true)
+        appendRow(row: titleRow, last: false)
+        
+        for groupUser in groupUsers {
+            let row = GroupBalanceComponentView()
+            let balanceText = "\(groupUser.balance.format(".2"))"
+            row.create(user: groupUser.name, attribute: balanceText, color: UIColor.white)
+            appendRow(row: row, last: false)
+        }
+        
+        let allExpensesButton = UIButton()
+        setUpAllExpensesButton(button: allExpensesButton)
+        appendRow(row: allExpensesButton, last: true)
     }
     
     private func appendRow(row: UIView, last: Bool) {
@@ -41,5 +53,11 @@ class GroupUsersListComponentView: UIView {
             
             components.append(row)
         }
+    }
+    
+    private func setUpAllExpensesButton(button: UIButton) {
+        button.setTitle("All expenses", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+        button.setTitleColor(UIColor.brand.yellow, for: .normal)
     }
 }

@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if Authentication.shared.isLoggedIn() {
             rootViewController = UINavigationController(rootViewController: GroupListViewController())
         } else {
-            rootViewController = LoginViewController()
+            rootViewController = UINavigationController(rootViewController: LoginViewController())
         }
         
         window?.rootViewController = rootViewController

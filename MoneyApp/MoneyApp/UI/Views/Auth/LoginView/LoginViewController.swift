@@ -15,6 +15,13 @@ class LoginViewController: UIViewController {
         return storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.setBackgroundColor(color: UIColor.black)
+    }
+    
     override func viewDidLoad() {
         // from SGSwiftExtensions
         hideKeyboardWhenTappedOutside()
@@ -23,12 +30,14 @@ class LoginViewController: UIViewController {
         addHelloText()
         addTextField()
         addLoginButton()
+        addBottomTexts()
     }
 
     private let image = UIImageView()
     private let label = UILabel()
     private let usernameTextField = UITextField()
     private let passwordTextField = UITextField()
+    private let loginButton = UIButton()
     private let service = LoginService()
     
     private func addIcon() {
@@ -62,7 +71,7 @@ class LoginViewController: UIViewController {
         
         setupTextField(textField: usernameTextField, placeholder: "Username")
         setupTextField(textField: passwordTextField, placeholder: "Password")
-
+ 
         usernameTextField.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(label.snp.bottom).offset(39)
@@ -72,7 +81,7 @@ class LoginViewController: UIViewController {
         
         passwordTextField.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
-            make.top.equalTo(usernameTextField.snp.bottom).offset(39)
+            make.top.equalTo(usernameTextField.snp.bottom).offset(21)
             make.right.left.equalTo(view).inset(34)
             make.height.equalTo(49)
         }
@@ -82,7 +91,10 @@ class LoginViewController: UIViewController {
         textField.textColor = UIColor.white
         textField.backgroundColor = UIColor.brand.darkGray
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.brand.middleGray])
-
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        
+        
         textField.layer.cornerRadius = 10.0
         // left text offset
         textField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
@@ -90,21 +102,75 @@ class LoginViewController: UIViewController {
     }
 
     private func addLoginButton() {
-        let button = UIButton()
-        view.addSubview(button)
+        view.addSubview(loginButton)
         
-        button.setTitle("Log in", for: .normal)
-        button.backgroundColor = UIColor.brand.yellow
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.layer.cornerRadius = 10.0
+        loginButton.setTitle("Log in", for: .normal)
+        loginButton.backgroundColor = UIColor.brand.yellow
+        loginButton.setTitleColor(UIColor.black, for: .normal)
+        loginButton.layer.cornerRadius = 10.0
 
-        button.addTarget(self, action: #selector(didPressLogInButton), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(didPressLogInButton), for: .touchUpInside)
         
-        button.snp.makeConstraints { make in
+        loginButton.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
-            make.top.equalTo(passwordTextField.snp.bottom).offset(39)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(21)
             make.right.left.equalTo(view).inset(34)
+            make.height.equalTo(49)
         }
+    }
+    
+    private func addBottomTexts() {
+        let forgotPasswordView = createBottomText(
+            labelText: "Forgot password?", buttonText: "Reset", onTap: #selector(navigateToForgot))
+        view.addSubview(forgotPasswordView)
+        forgotPasswordView.snp.makeConstraints { make in
+            make.centerX.equalTo(view.snp.centerX)
+            make.top.equalTo(loginButton.snp.bottom).offset(20)
+        
+        }
+        
+        let registerView = createBottomText(
+            labelText: "No account yet?", buttonText: "Register", onTap: #selector(navigateToRegister))
+        view.addSubview(forgotPasswordView)
+        registerView.snp.makeConstraints { make in
+            make.centerX.equalTo(view.snp.centerX)
+            make.top.equalTo(forgotPasswordView.snp.bottom).offset(20)
+        
+        }
+    }
+    
+    private func createBottomText(labelText: String, buttonText: String, onTap: Selector) -> UIView {
+        let container = UIView()
+        view.addSubview(container)
+        let text = UILabel()
+        
+        text.text = labelText
+        text.textColor = UIColor.white
+        text.font = UIFont.systemFont(ofSize: 18)
+        
+        container.addSubview(text)
+        
+        text.snp.makeConstraints { make in
+            make.left.equalTo(container.snp.left)
+            make.centerY.equalTo(container.snp.centerY)
+            make.top.equalTo(container.snp.top)
+            make.bottom.equalTo(container.snp.bottom)
+        }
+        
+        let resetButton = UIButton()
+        resetButton.setTitle(buttonText, for: .normal)
+        resetButton.setTitleColor(UIColor.brand.yellow, for: .normal)
+        
+        resetButton.addTarget(self, action: onTap, for: .touchUpInside)
+        
+        container.addSubview(resetButton)
+    
+        resetButton.snp.makeConstraints { make in
+            make.left.equalTo(text.snp.right).offset(13)
+            make.right.equalTo(container.snp.right)
+            make.centerY.equalTo(container.snp.centerY)
+        }
+        return container
     }
     
     @objc private func didPressLogInButton() {
@@ -141,5 +207,14 @@ class LoginViewController: UIViewController {
         let root = UINavigationController(rootViewController: vc)
         root.modalPresentationStyle = .fullScreen
         present(root, animated: true, completion: nil)
+    }
+    
+    @objc private func navigateToForgot() {
+        Toast.shared.presentToast("Password reset not implemented yet!")
+    }
+    
+    @objc private func navigateToRegister() {
+        guard let vc = RegisterViewController.loadFromStoryboard() else { return }
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

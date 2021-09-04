@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		23D4B68BAD98D21F125534E6 /* Pods_MoneyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC44239D85A7FEEA15048C6 /* Pods_MoneyAppTests.framework */; };
+		4D6342C726DEC90A0065209B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6342C626DEC90A0065209B /* RegisterViewController.swift */; };
+		4D6342C926DEC9240065209B /* RegisterView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D6342C826DEC9240065209B /* RegisterView.storyboard */; };
 		70DFAD49855C64FAE178143B /* Pods_MoneyApp_MoneyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BE08076C189D8CC6C663A5 /* Pods_MoneyApp_MoneyAppUITests.framework */; };
 		92893E56266BD961000CED03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E55266BD961000CED03 /* AppDelegate.swift */; };
 		92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E57266BD961000CED03 /* SceneDelegate.swift */; };
@@ -67,6 +69,8 @@
 /* Begin PBXFileReference section */
 		28BE08076C189D8CC6C663A5 /* Pods_MoneyApp_MoneyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyApp_MoneyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C28A05241A1E507FDC84C2A /* Pods_MoneyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6342C626DEC90A0065209B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		4D6342C826DEC9240065209B /* RegisterView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterView.storyboard; sourceTree = "<group>"; };
 		6D848F9CDA51F8C248338DD7 /* Pods-MoneyApp-MoneyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp-MoneyAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MoneyApp-MoneyAppUITests/Pods-MoneyApp-MoneyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		81DE3A7461FB20B90373FFF4 /* Pods-MoneyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyAppTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyAppTests/Pods-MoneyAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		8827E214D6520A96C0AE83D5 /* Pods-MoneyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp.release.xcconfig"; path = "Target Support Files/Pods-MoneyApp/Pods-MoneyApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +157,15 @@
 				ECC44239D85A7FEEA15048C6 /* Pods_MoneyAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D6342C526DEC8E50065209B /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				4D6342C626DEC90A0065209B /* RegisterViewController.swift */,
+				4D6342C826DEC9240065209B /* RegisterView.storyboard */,
+			);
+			path = RegisterView;
 			sourceTree = "<group>";
 		};
 		6F8908BF32BC4C121A296A9D /* Pods */ = {
@@ -287,6 +300,7 @@
 		92E4567E26CED7DA0024F598 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				4D6342C526DEC8E50065209B /* RegisterView */,
 				92E4567F26CED7DF0024F598 /* LoginView */,
 			);
 			path = Auth;
@@ -501,6 +515,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D6342C926DEC9240065209B /* RegisterView.storyboard in Resources */,
 				92893E62266BD963000CED03 /* LaunchScreen.storyboard in Resources */,
 				92FEA6FE26A5E62F008BFAA3 /* ControlView.storyboard in Resources */,
 				92893E5F266BD963000CED03 /* Assets.xcassets in Resources */,
@@ -659,6 +674,7 @@
 				92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */,
 				92E4568826CEE6520024F598 /* MoneyAppClient.swift in Sources */,
 				92FEA6FC26A5E625008BFAA3 /* ControlViewController.swift in Sources */,
+				4D6342C726DEC90A0065209B /* RegisterViewController.swift in Sources */,
 				92E4567C26CED67F0024F598 /* Authentication.swift in Sources */,
 				92E456A226D1057A0024F598 /* GroupRepository.swift in Sources */,
 			);
@@ -845,7 +861,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.NQProject.MoneyApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NQProjectd.MoneyAppp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -867,7 +883,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.NQProject.MoneyApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NQProjectd.MoneyAppp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

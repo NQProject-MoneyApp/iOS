@@ -136,10 +136,57 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
     
     private func createGroupOptionMenu() -> UIMenu {
         
-        let join = UIAction(title: "Join", image: UIImage()) { _ in } //TODO
+        let join = UIAction(title: "Join",image: UIImage()) { _ in
+            self.showJoinAlert()
+        }
         let add = UIAction(title: "Add", image: UIImage()) { _ in } //TODO
 
         return UIMenu( title: "What would you like to do?", children: [join, add])
+    }
+    
+    private func showJoinAlert() {
+        let alert = UIAlertController(title: "Enter the code", message: nil, preferredStyle: .alert)
+        alert.overrideUserInterfaceStyle = .dark;
+        alert.view.tintColor = UIColor.brand.yellow
+        
+        alert.addTextField { textField in
+            textField.placeholder = "Code"
+            textField.tintColor = UIColor.brand.yellow
+            textField.addTarget(self, action: #selector(self.textChanged), for: .editingChanged)
+        }
+        
+        alert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Join", style: .default, handler: { _ in
+            self.joinToGroup(code: alert.textFields?.first?.text)
+        }))
+        
+        alert.actions[1].isEnabled = false
+ 
+        present(alert, animated: true)
+    }
+    
+    @objc func textChanged(_ sender: Any) {
+        if let textField = sender as? UITextField{
+            var resp : UIResponder! = textField
+            while !(resp is UIAlertController) { resp = resp.next }
+            let alert = resp as! UIAlertController
+            alert.actions[1].isEnabled = (textField.text != "")}
+    }
+    
+    private func joinToGroup(code: String?) {
+        if let code = code, !code.isEmpty {
+            GroupListService.shared.joinGroup(code: code) { result in
+                Toast.shared.presentToast(result)
+            }
+        }
+    }
+    
+    private func createUserMenu() -> UIMenu {
+        let logout = UIAction(title: "Logout", image: UIImage()) { _ in
+            Authentication.shared.logout()
+        }
+
+        return UIMenu( title: "What would you like to do?", children: [logout])
     }
 }
 

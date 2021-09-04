@@ -8,7 +8,15 @@
 import UIKit
 import SnapKit
 
-class GroupListViewController: UIViewController {
+class GroupListViewController: UIViewController, GroupComponentDelegate {
+    
+    func didPressGroupComponent(group: Group) {
+        guard let vc = GroupDetailsViewController.loadFromStoryboard() else { return }
+        vc.group = group
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     private let scrollView = ScrollView()
     private var groups: [Group] = []
@@ -49,7 +57,7 @@ class GroupListViewController: UIViewController {
         
         for (idx, group) in groups.enumerated() {
             let groupView = GroupComponentView()
-            groupView.create(group: group)
+            groupView.create(group: group, delegate: self)
             scrollView.appendVertical(component: groupView, last: idx == groups.count - 1)
         }
     }
@@ -76,11 +84,11 @@ class GroupListViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        let rightBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createGroupOptionMenu())
-        let leftBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createUserMenu())
-        
-        navigationItem.leftBarButtonItem = leftBarItem
-        navigationItem.rightBarButtonItem = rightBarItem
+//        let rightBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createGroupOptionMenu())
+//        let leftBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createUserMenu())
+//
+//        navigationItem.leftBarButtonItem = leftBarItem
+//        navigationItem.rightBarButtonItem = rightBarItem
 
     }
     

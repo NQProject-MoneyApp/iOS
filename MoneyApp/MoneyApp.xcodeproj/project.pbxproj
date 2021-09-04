@@ -47,7 +47,12 @@
 		92FEA70226A5E856008BFAA3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA70126A5E856008BFAA3 /* UIViewController+Extensions.swift */; };
 		92FEA70426A5ED27008BFAA3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA70326A5ED27008BFAA3 /* TableViewCell.swift */; };
 		BCE3808BC330E79B1DFBC30E /* Pods_MoneyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C28A05241A1E507FDC84C2A /* Pods_MoneyApp.framework */; };
+		E30CABB026E3CC0D00285E34 /* GroupUsersListComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30CABAF26E3CC0D00285E34 /* GroupUsersListComponentView.swift */; };
+		E37AF72526E3CF7300BD5C0B /* GroupBalanceComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37AF72426E3CF7300BD5C0B /* GroupBalanceComponentView.swift */; };
 		E39B036226E3952C00EFE780 /* GroupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */; };
+		E39B036426E3999600EFE780 /* GroupDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B036326E3999600EFE780 /* GroupDetailsService.swift */; };
+		E3F1EEED26E3A78A00C6814B /* GroupDetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F1EEEC26E3A78A00C6814B /* GroupDetailsView.storyboard */; };
+		E3F1EEEF26E3BA2300C6814B /* GroupValuesComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F1EEEE26E3BA2300C6814B /* GroupValuesComponentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,7 +124,12 @@
 		92FEA70326A5ED27008BFAA3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C899D24842896264E2AC522C /* Pods-MoneyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp.debug.xcconfig"; path = "Target Support Files/Pods-MoneyApp/Pods-MoneyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D96D3DE344EBDFCD506A35EC /* Pods-MoneyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyAppTests/Pods-MoneyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E30CABAF26E3CC0D00285E34 /* GroupUsersListComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUsersListComponentView.swift; sourceTree = "<group>"; };
+		E37AF72426E3CF7300BD5C0B /* GroupBalanceComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBalanceComponentView.swift; sourceTree = "<group>"; };
 		E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsViewController.swift; sourceTree = "<group>"; };
+		E39B036326E3999600EFE780 /* GroupDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsService.swift; sourceTree = "<group>"; };
+		E3F1EEEC26E3A78A00C6814B /* GroupDetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupDetailsView.storyboard; sourceTree = "<group>"; };
+		E3F1EEEE26E3BA2300C6814B /* GroupValuesComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupValuesComponentView.swift; sourceTree = "<group>"; };
 		ECC44239D85A7FEEA15048C6 /* Pods_MoneyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -273,8 +283,11 @@
 		92E4567726CED4BB0024F598 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				92E4569726D0F7440024F598 /* ScrollView.swift */,
 				92E4569B26D0F8AE0024F598 /* GroupComponentView.swift */,
+				E3F1EEEE26E3BA2300C6814B /* GroupValuesComponentView.swift */,
+				92E4569726D0F7440024F598 /* ScrollView.swift */,
+				E30CABAF26E3CC0D00285E34 /* GroupUsersListComponentView.swift */,
+				E37AF72426E3CF7300BD5C0B /* GroupBalanceComponentView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -414,6 +427,8 @@
 			isa = PBXGroup;
 			children = (
 				E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */,
+				E39B036326E3999600EFE780 /* GroupDetailsService.swift */,
+				E3F1EEEC26E3A78A00C6814B /* GroupDetailsView.storyboard */,
 			);
 			path = GroupDetailsView;
 			sourceTree = "<group>";
@@ -530,6 +545,7 @@
 				92893E62266BD963000CED03 /* LaunchScreen.storyboard in Resources */,
 				92FEA6FE26A5E62F008BFAA3 /* ControlView.storyboard in Resources */,
 				92893E5F266BD963000CED03 /* Assets.xcassets in Resources */,
+				E3F1EEED26E3A78A00C6814B /* GroupDetailsView.storyboard in Resources */,
 				92E4569626D0E9160024F598 /* GroupListView.storyboard in Resources */,
 				92FEA6F826A5E60F008BFAA3 /* ScrollView.storyboard in Resources */,
 				92E4568326CED8220024F598 /* LoginView.storyboard in Resources */,
@@ -664,11 +680,14 @@
 			files = (
 				92E4569026CEE9C60024F598 /* LoginService.swift in Sources */,
 				92E4569826D0F7440024F598 /* ScrollView.swift in Sources */,
+				E3F1EEEF26E3BA2300C6814B /* GroupValuesComponentView.swift in Sources */,
 				92E4569226CEED5C0024F598 /* Brand.swift in Sources */,
 				92E4569A26D0F87F0024F598 /* Group.swift in Sources */,
+				E39B036426E3999600EFE780 /* GroupDetailsService.swift in Sources */,
 				92E4568526CEE4A90024F598 /* Toast.swift in Sources */,
 				92E4569C26D0F8AE0024F598 /* GroupComponentView.swift in Sources */,
 				92E456A626D108100024F598 /* GroupListService.swift in Sources */,
+				E37AF72526E3CF7300BD5C0B /* GroupBalanceComponentView.swift in Sources */,
 				92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */,
 				E39B036226E3952C00EFE780 /* GroupDetailsViewController.swift in Sources */,
 				92893E5A266BD961000CED03 /* GroupListViewController.swift in Sources */,
@@ -676,6 +695,7 @@
 				92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */,
 				92893E86266BDD28000CED03 /* Config.swift in Sources */,
 				92E456A026D0F9BA0024F598 /* Mock.swift in Sources */,
+				E30CABB026E3CC0D00285E34 /* GroupUsersListComponentView.swift in Sources */,
 				92E4568E26CEE9700024F598 /* LoginResponse.swift in Sources */,
 				92FEA70426A5ED27008BFAA3 /* TableViewCell.swift in Sources */,
 				92893E56266BD961000CED03 /* AppDelegate.swift in Sources */,

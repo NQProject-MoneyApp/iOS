@@ -34,7 +34,6 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
     }
     
     @objc func didEnterFromBackground() {
-        print("didEnterFromBackground")
         loadGroups()
     }
     
@@ -104,9 +103,26 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
 //        let rightBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createGroupOptionMenu())
 //        let leftBarItem = UIBarButtonItem(title: nil, image: UIImage(named: "add"), primaryAction: nil, menu: createUserMenu())
         
-//        navigationItem.leftBarButtonItem = leftBarItem
-//        navigationItem.rightBarButtonItem = rightBarItem
+        let leftBarItem = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
+        
+        navigationItem.leftBarButtonItem = leftBarItem
+        
 
+    }
+    
+    @objc func onProfileButtonTapped() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+
+        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+            self.logout()
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.overrideUserInterfaceStyle = .dark
+        
+        alert.addAction(logoutAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     private func createGroupOptionMenu() -> UIMenu {

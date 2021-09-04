@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		23D4B68BAD98D21F125534E6 /* Pods_MoneyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC44239D85A7FEEA15048C6 /* Pods_MoneyAppTests.framework */; };
+		4D6342C726DEC90A0065209B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6342C626DEC90A0065209B /* RegisterViewController.swift */; };
+		4D6342C926DEC9240065209B /* RegisterView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D6342C826DEC9240065209B /* RegisterView.storyboard */; };
+		4DDEBC1526E3BB19000894B6 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC1426E3BB19000894B6 /* TextField.swift */; };
+		4DDEBC1726E3C327000894B6 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC1626E3C327000894B6 /* Button.swift */; };
+		4DDEBC1926E3C601000894B6 /* TextWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC1826E3C601000894B6 /* TextWithButton.swift */; };
+		4DDEBC1B26E3CE24000894B6 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC1A26E3CE24000894B6 /* RegisterResponse.swift */; };
 		70DFAD49855C64FAE178143B /* Pods_MoneyApp_MoneyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BE08076C189D8CC6C663A5 /* Pods_MoneyApp_MoneyAppUITests.framework */; };
 		92893E56266BD961000CED03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E55266BD961000CED03 /* AppDelegate.swift */; };
 		92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E57266BD961000CED03 /* SceneDelegate.swift */; };
@@ -46,6 +52,7 @@
 		92FEA70226A5E856008BFAA3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA70126A5E856008BFAA3 /* UIViewController+Extensions.swift */; };
 		92FEA70426A5ED27008BFAA3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA70326A5ED27008BFAA3 /* TableViewCell.swift */; };
 		BCE3808BC330E79B1DFBC30E /* Pods_MoneyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C28A05241A1E507FDC84C2A /* Pods_MoneyApp.framework */; };
+		E39B036226E3952C00EFE780 /* GroupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +75,12 @@
 /* Begin PBXFileReference section */
 		28BE08076C189D8CC6C663A5 /* Pods_MoneyApp_MoneyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyApp_MoneyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C28A05241A1E507FDC84C2A /* Pods_MoneyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6342C626DEC90A0065209B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		4D6342C826DEC9240065209B /* RegisterView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterView.storyboard; sourceTree = "<group>"; };
+		4DDEBC1426E3BB19000894B6 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		4DDEBC1626E3C327000894B6 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		4DDEBC1826E3C601000894B6 /* TextWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWithButton.swift; sourceTree = "<group>"; };
+		4DDEBC1A26E3CE24000894B6 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		6D848F9CDA51F8C248338DD7 /* Pods-MoneyApp-MoneyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp-MoneyAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MoneyApp-MoneyAppUITests/Pods-MoneyApp-MoneyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		81DE3A7461FB20B90373FFF4 /* Pods-MoneyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyAppTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyAppTests/Pods-MoneyAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		8827E214D6520A96C0AE83D5 /* Pods-MoneyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp.release.xcconfig"; path = "Target Support Files/Pods-MoneyApp/Pods-MoneyApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +129,7 @@
 		92FEA70326A5ED27008BFAA3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C899D24842896264E2AC522C /* Pods-MoneyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp.debug.xcconfig"; path = "Target Support Files/Pods-MoneyApp/Pods-MoneyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D96D3DE344EBDFCD506A35EC /* Pods-MoneyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyAppTests/Pods-MoneyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsViewController.swift; sourceTree = "<group>"; };
 		ECC44239D85A7FEEA15048C6 /* Pods_MoneyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,6 +169,15 @@
 				ECC44239D85A7FEEA15048C6 /* Pods_MoneyAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D6342C526DEC8E50065209B /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				4D6342C626DEC90A0065209B /* RegisterViewController.swift */,
+				4D6342C826DEC9240065209B /* RegisterView.storyboard */,
+			);
+			path = RegisterView;
 			sourceTree = "<group>";
 		};
 		6F8908BF32BC4C121A296A9D /* Pods */ = {
@@ -250,6 +273,7 @@
 		92E4567626CED4B30024F598 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E39B036026E394E300EFE780 /* GroupDetailsView */,
 				92E4567E26CED7DA0024F598 /* Auth */,
 				92E4567D26CED7CF0024F598 /* GroupListView */,
 			);
@@ -261,6 +285,9 @@
 			children = (
 				92E4569726D0F7440024F598 /* ScrollView.swift */,
 				92E4569B26D0F8AE0024F598 /* GroupComponentView.swift */,
+				4DDEBC1426E3BB19000894B6 /* TextField.swift */,
+				4DDEBC1626E3C327000894B6 /* Button.swift */,
+				4DDEBC1826E3C601000894B6 /* TextWithButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -289,6 +316,7 @@
 		92E4567E26CED7DA0024F598 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				4D6342C526DEC8E50065209B /* RegisterView */,
 				92E4567F26CED7DF0024F598 /* LoginView */,
 			);
 			path = Auth;
@@ -329,6 +357,7 @@
 				92E4568D26CEE9700024F598 /* LoginResponse.swift */,
 				92E456A326D107050024F598 /* GroupResponse.swift */,
 				92BCE42526E3CC9B00E4E929 /* JoinResponse.swift */,
+				4DDEBC1A26E3CE24000894B6 /* RegisterResponse.swift */,
 			);
 			path = NetworkModel;
 			sourceTree = "<group>";
@@ -394,6 +423,14 @@
 				92FEA70126A5E856008BFAA3 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E39B036026E394E300EFE780 /* GroupDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */,
+			);
+			path = GroupDetailsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,6 +541,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D6342C926DEC9240065209B /* RegisterView.storyboard in Resources */,
 				92893E62266BD963000CED03 /* LaunchScreen.storyboard in Resources */,
 				92FEA6FE26A5E62F008BFAA3 /* ControlView.storyboard in Resources */,
 				92893E5F266BD963000CED03 /* Assets.xcassets in Resources */,
@@ -643,11 +681,15 @@
 				92E4569826D0F7440024F598 /* ScrollView.swift in Sources */,
 				92E4569226CEED5C0024F598 /* Brand.swift in Sources */,
 				92E4569A26D0F87F0024F598 /* Group.swift in Sources */,
+				4DDEBC1726E3C327000894B6 /* Button.swift in Sources */,
 				92E4568526CEE4A90024F598 /* Toast.swift in Sources */,
 				92E4569C26D0F8AE0024F598 /* GroupComponentView.swift in Sources */,
 				92BCE42626E3CC9B00E4E929 /* JoinResponse.swift in Sources */,
 				92E456A626D108100024F598 /* GroupListService.swift in Sources */,
 				92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */,
+				E39B036226E3952C00EFE780 /* GroupDetailsViewController.swift in Sources */,
+				4DDEBC1926E3C601000894B6 /* TextWithButton.swift in Sources */,
+				4DDEBC1526E3BB19000894B6 /* TextField.swift in Sources */,
 				92893E5A266BD961000CED03 /* GroupListViewController.swift in Sources */,
 				92FEA6FA26A5E61B008BFAA3 /* ScrollViewController.swift in Sources */,
 				92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */,
@@ -663,8 +705,10 @@
 				92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */,
 				92E4568826CEE6520024F598 /* MoneyAppClient.swift in Sources */,
 				92FEA6FC26A5E625008BFAA3 /* ControlViewController.swift in Sources */,
+				4D6342C726DEC90A0065209B /* RegisterViewController.swift in Sources */,
 				92E4567C26CED67F0024F598 /* Authentication.swift in Sources */,
 				92E456A226D1057A0024F598 /* GroupRepository.swift in Sources */,
+				4DDEBC1B26E3CE24000894B6 /* RegisterResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,7 +814,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -825,7 +869,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -849,7 +893,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.NQProject.MoneyApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NQProjectd.MoneyAppp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -871,7 +915,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.NQProject.MoneyApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NQProjectd.MoneyAppp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -888,7 +932,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R69482HBMQ;
 				INFOPLIST_FILE = MoneyAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -911,7 +955,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R69482HBMQ;
 				INFOPLIST_FILE = MoneyAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,25 +1,36 @@
 //
-//  LoginViewController.swift
+//  RegisterViewController.swift
 //  MoneyApp
 //
-//  Created by Szymon Gęsicki on 19/08/2021.
+//  Created by aidmed on 31/08/2021.
 //
 
 import Foundation
 import UIKit
 
-class LoginViewController: UIViewController {
+class RegisterViewController: UIViewController {
     
-    static func loadFromStoryboard() -> LoginViewController? {
-        let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController
+    
+    private let service = LoginService()
+    
+    private let image = UIImageView()
+    private let label = UILabel()
+    private let usernameTextField = UITextField()
+    private let emailTextField = UITextField()
+    private let passwordTextField = UITextField()
+    private let registerButton = UIButton()
+    
+    static func loadFromStoryboard() -> RegisterViewController? {
+        let storyboard = UIStoryboard(name: "RegisterView", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "RegisterView") as? RegisterViewController
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.setBackgroundColor(color: UIColor.black)
+//        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     override func viewDidLoad() {
@@ -28,17 +39,10 @@ class LoginViewController: UIViewController {
         setupBackground()
         addIcon()
         addHelloText()
-        addTextField()
-        addLoginButton()
-        addBottomTexts()
+        addTextFields()
+        addRegisterButton()
+        addLoginText()
     }
-
-    private let image = UIImageView()
-    private let label = UILabel()
-    private let usernameTextField = UITextField()
-    private let passwordTextField = UITextField()
-    private let loginButton = UIButton()
-    private let service = LoginService()
     
     private func addIcon() {
         image.image = UIImage(named: "icon")
@@ -65,11 +69,13 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private func addTextField() {
+    private func addTextFields() {
         view.addSubview(usernameTextField)
+        view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         
         usernameTextField.defaultStyle(placeholder: "Username")
+        emailTextField.defaultStyle(placeholder: "Email")
         passwordTextField.defaultStyle(placeholder: "Password")
  
         usernameTextField.snp.makeConstraints { make in
@@ -79,22 +85,31 @@ class LoginViewController: UIViewController {
             make.height.equalTo(49)
         }
         
-        passwordTextField.snp.makeConstraints { make in
+        emailTextField.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(usernameTextField.snp.bottom).offset(21)
             make.right.left.equalTo(view).inset(34)
             make.height.equalTo(49)
         }
+        
+        passwordTextField.snp.makeConstraints { make in
+            make.centerX.equalTo(view.snp.centerX)
+            make.top.equalTo(emailTextField.snp.bottom).offset(21)
+            make.right.left.equalTo(view).inset(34)
+            make.height.equalTo(49)
+        }
+        
+        
     }
-
-    private func addLoginButton() {
-        view.addSubview(loginButton)
+    
+    private func addRegisterButton() {
+        view.addSubview(registerButton)
         
-        loginButton.defaultStyle(title: "Log in")
+        registerButton.defaultStyle(title: "Register")
 
-        loginButton.addTarget(self, action: #selector(didPressLogInButton), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(didPressRegisterButton), for: .touchUpInside)
         
-        loginButton.snp.makeConstraints { make in
+        registerButton.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(passwordTextField.snp.bottom).offset(21)
             make.right.left.equalTo(view).inset(34)
@@ -102,75 +117,40 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private func addBottomTexts() {
+    private func addLoginText() {
         let forgotPasswordView = TextWithButton()
         forgotPasswordView.create(
-            labelText: "Forgot password?", buttonText: "Reset", onTap: { [self] in navigateToForgot() })
+            labelText: "Already have an account?", buttonText: "Login", onTap: { [self] in navigateToLogin() })
         view.addSubview(forgotPasswordView)
         forgotPasswordView.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
-            make.top.equalTo(loginButton.snp.bottom).offset(20)
-        
-        }
-        
-        let registerView = TextWithButton()
-        registerView.create(
-            labelText: "No account yet?", buttonText: "Register", onTap: { [self] in navigateToRegister() })
-        view.addSubview(registerView)
-        registerView.snp.makeConstraints { make in
-            make.centerX.equalTo(view.snp.centerX)
-            make.top.equalTo(forgotPasswordView.snp.bottom).offset(20)
+            make.top.equalTo(registerButton.snp.bottom).offset(20)
         
         }
     }
     
-    private func createBottomText(labelText: String, buttonText: String, onTap: Selector) -> UIView {
-        let container = UIView()
-        view.addSubview(container)
-        let text = UILabel()
-        
-        text.text = labelText
-        text.textColor = UIColor.white
-        text.font = UIFont.systemFont(ofSize: 18)
-        
-        container.addSubview(text)
-        
-        text.snp.makeConstraints { make in
-            make.left.equalTo(container.snp.left)
-            make.centerY.equalTo(container.snp.centerY)
-            make.top.equalTo(container.snp.top)
-            make.bottom.equalTo(container.snp.bottom)
-        }
-        
-        let resetButton = UIButton()
-        resetButton.setTitle(buttonText, for: .normal)
-        resetButton.setTitleColor(UIColor.brand.yellow, for: .normal)
-        
-        resetButton.addTarget(self, action: onTap, for: .touchUpInside)
-        
-        container.addSubview(resetButton)
-    
-        resetButton.snp.makeConstraints { make in
-            make.left.equalTo(text.snp.right).offset(13)
-            make.right.equalTo(container.snp.right)
-            make.centerY.equalTo(container.snp.centerY)
-        }
-        return container
+    private func navigateToLogin() {
+        _ = navigationController?.popViewController(animated: true)
     }
     
-    @objc private func didPressLogInButton() {
+    @objc func didPressRegisterButton() {
         
         guard let username = usernameTextField.text, !username.isEmpty else {
             Toast.shared.presentToast("Please enter username")
             return
         }
         
-        guard let email = passwordTextField.text, !email.isEmpty else {
+        guard let email = emailTextField.text, !email.isEmpty else {
+            Toast.shared.presentToast("Please enter email")
+            return
+        }
+        
+        guard let password = passwordTextField.text, !password.isEmpty else {
             Toast.shared.presentToast("Please enter password")
             return
         }
         
-        service.login(username: username, password: email, completion: { result in
+        service.register(username: username, email: email, password: password, completion: { result in
             switch result {
             
             case .success(let result):
@@ -182,10 +162,12 @@ class LoginViewController: UIViewController {
             }
         })
     }
-    
+
+
     private func setupBackground() {
         view.backgroundColor = UIColor.black
     }
+    
     
     private func navigateToGroupList() {
         guard let vc = GroupListViewController.loadFromStoryboard() else { return }
@@ -194,12 +176,4 @@ class LoginViewController: UIViewController {
         present(root, animated: true, completion: nil)
     }
     
-    @objc private func navigateToForgot() {
-        Toast.shared.presentToast("Password reset not implemented yet!")
-    }
-    
-    @objc private func navigateToRegister() {
-        guard let vc = RegisterViewController.loadFromStoryboard() else { return }
-        navigationController?.pushViewController(vc, animated: true)
-    }
 }

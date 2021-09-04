@@ -145,7 +145,6 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
         alert.addTextField { textField in
             textField.placeholder = "Code"
             textField.tintColor = UIColor.brand.yellow
-            textField.delegate = self
             textField.addTarget(self, action: #selector(self.textChanged), for: .editingChanged)
         }
         

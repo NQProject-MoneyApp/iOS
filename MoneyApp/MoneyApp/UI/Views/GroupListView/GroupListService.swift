@@ -9,6 +9,8 @@ import Foundation
 
 class GroupListService {
     
+    static let shared = GroupListService()
+    
     func fetchGroups(completion: @escaping (([Group]) -> Void)) {
         // todo completion result!
         GroupRepository.shared.fetchGroup(completion: { result in
@@ -24,6 +26,20 @@ class GroupListService {
             }
         })
     }
+    
+    func joinGroup(code: String, completion: @escaping ((String) -> Void)) {
+        // todo completion result!
+        GroupRepository.shared.joinGroup(code: code, completion: { result in
+            switch result {
+            case .success:
+                completion("Success! You joined a new group")
+            case .failure(let error):
+                print("error \(error.localizedDescription)")
+                completion(error.localizedDescription)
+            }
+        })
+    }
+    
     
     // todo move to utilities
     private func stringToDate(stringDate: String) -> Date {

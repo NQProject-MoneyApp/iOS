@@ -12,6 +12,7 @@ enum MoneyAppApi {
 
     case login(username: String, password: String)
     case groups
+    case joinGroup(code: String)
 }
 
 let endpointClosure = { (target: MoneyAppApi) -> Endpoint in
@@ -85,6 +86,8 @@ extension MoneyAppApi: TargetType {
             return "/login/"
         case .groups:
             return "/groups/"
+        case .joinGroup(let code):
+            return "/join/\(code)/"
         }
     }
     
@@ -123,6 +126,8 @@ extension MoneyAppApi: TargetType {
             return .post
         case .groups:
             return .get
+        case .joinGroup:
+            return .put
         }
     }
    
@@ -132,6 +137,8 @@ extension MoneyAppApi: TargetType {
         case .login(let username, let password):
             return .requestParameters(parameters: ["username": username, "password": password], encoding: URLEncoding.default)
         case .groups:
+            return .requestPlain
+        case .joinGroup:
             return .requestPlain
         }
     }

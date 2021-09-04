@@ -18,6 +18,7 @@
 		92893E6D266BD963000CED03 /* MoneyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E6C266BD963000CED03 /* MoneyAppTests.swift */; };
 		92893E78266BD963000CED03 /* MoneyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E77266BD963000CED03 /* MoneyAppUITests.swift */; };
 		92893E86266BDD28000CED03 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E85266BDD28000CED03 /* Config.swift */; };
+		92BCE42626E3CC9B00E4E929 /* JoinResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE42526E3CC9B00E4E929 /* JoinResponse.swift */; };
 		92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567926CED5790024F598 /* UserDefaultsKeys.swift */; };
 		92E4567C26CED67F0024F598 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567B26CED67F0024F598 /* Authentication.swift */; };
 		92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4568026CED7F40024F598 /* LoginViewController.swift */; };
@@ -86,6 +87,7 @@
 		92893E77266BD963000CED03 /* MoneyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyAppUITests.swift; sourceTree = "<group>"; };
 		92893E79266BD963000CED03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92893E85266BDD28000CED03 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		92BCE42526E3CC9B00E4E929 /* JoinResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinResponse.swift; sourceTree = "<group>"; };
 		92E4567926CED5790024F598 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		92E4567B26CED67F0024F598 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		92E4568026CED7F40024F598 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			children = (
 				92E4568D26CEE9700024F598 /* LoginResponse.swift */,
 				92E456A326D107050024F598 /* GroupResponse.swift */,
+				92BCE42526E3CC9B00E4E929 /* JoinResponse.swift */,
 			);
 			path = NetworkModel;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				92E4569A26D0F87F0024F598 /* Group.swift in Sources */,
 				92E4568526CEE4A90024F598 /* Toast.swift in Sources */,
 				92E4569C26D0F8AE0024F598 /* GroupComponentView.swift in Sources */,
+				92BCE42626E3CC9B00E4E929 /* JoinResponse.swift in Sources */,
 				92E456A626D108100024F598 /* GroupListService.swift in Sources */,
 				92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */,
 				92893E5A266BD961000CED03 /* GroupListViewController.swift in Sources */,

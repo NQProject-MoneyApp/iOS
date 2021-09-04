@@ -46,9 +46,18 @@ class ScrollView: UIView {
         scrollView.refreshControl?.addTarget(self, action:
                                               #selector(handleRefreshControl),
                                               for: .valueChanged)
+   }
+    
+    func startRefresh() {
+        
+        let offsetPoint = CGPoint.init(x: 0, y: scrollView.contentOffset.y - scrollView.refreshControl!.frame.size.height)
+        scrollView.setContentOffset(offsetPoint, animated: true)
+        scrollView.refreshControl?.beginRefreshing()
+        handleRefreshControl()
+        
     }
     
-    @objc func handleRefreshControl() {
+    @objc private func handleRefreshControl() {
         refreshDelegate!.didRefreshList(refreshCompletion: {
             DispatchQueue.main.async {
               self.scrollView.refreshControl?.endRefreshing()
@@ -82,5 +91,18 @@ class ScrollView: UIView {
         }
         
         components.append(component)
+    }
+    
+    func setSingleContent(content: UIView) {
+        clearComponents()
+        
+        contentView.addSubview(content)
+        
+        content.snp.makeConstraints { make in
+            make.left.right.equalTo(contentView).inset(edgeInsets.left)
+            make.top.equalTo(contentView).offset(edgeInsets.top).offset(128)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-32)
+     
+        }
     }
 }

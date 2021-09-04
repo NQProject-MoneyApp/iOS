@@ -143,8 +143,13 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     @objc func onAddButtonTapped() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
 
-        let joinAction = UIAlertAction(title: "Join group", style: .destructive) { _ in
+        let joinAction = UIAlertAction(title: "Join a group", style: .default) { _ in
             self.showJoinAlert()
+        }
+        
+        let addAction = UIAlertAction(title: "Create a new group", style: .default) { _ in
+            guard let vc = AddGroupViewController.loadFromStoryboard() else { return }
+            self.navigationController?.pushViewController(vc, animated: true)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -152,6 +157,7 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         alert.view.tintColor = UIColor.brand.yellow
 
         alert.addAction(joinAction)
+        alert.addAction(addAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }

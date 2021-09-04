@@ -132,7 +132,10 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
         let join = UIAction(title: "Join",image: UIImage()) { _ in
             self.showJoinAlert()
         }
-        let add = UIAction(title: "Add", image: UIImage()) { _ in } //TODO
+        let add = UIAction(title: "Add", image: UIImage()) { _ in
+            
+            
+        } //TODO
 
         return UIMenu( title: "What would you like to do?", children: [join, add])
     }

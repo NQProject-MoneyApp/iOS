@@ -25,6 +25,9 @@
 		92893E78266BD963000CED03 /* MoneyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E77266BD963000CED03 /* MoneyAppUITests.swift */; };
 		92893E86266BDD28000CED03 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E85266BDD28000CED03 /* Config.swift */; };
 		92BCE42626E3CC9B00E4E929 /* JoinResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE42526E3CC9B00E4E929 /* JoinResponse.swift */; };
+		92BCE42926E3D65F00E4E929 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE42826E3D65F00E4E929 /* AddGroupViewController.swift */; };
+		92BCE42B26E3D67400E4E929 /* AddGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE42A26E3D67400E4E929 /* AddGroupService.swift */; };
+		92BCE42D26E3D69F00E4E929 /* AddGroupView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BCE42C26E3D69F00E4E929 /* AddGroupView.storyboard */; };
 		92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567926CED5790024F598 /* UserDefaultsKeys.swift */; };
 		92E4567C26CED67F0024F598 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567B26CED67F0024F598 /* Authentication.swift */; };
 		92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4568026CED7F40024F598 /* LoginViewController.swift */; };
@@ -101,6 +104,9 @@
 		92893E79266BD963000CED03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92893E85266BDD28000CED03 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		92BCE42526E3CC9B00E4E929 /* JoinResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinResponse.swift; sourceTree = "<group>"; };
+		92BCE42826E3D65F00E4E929 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
+		92BCE42A26E3D67400E4E929 /* AddGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupService.swift; sourceTree = "<group>"; };
+		92BCE42C26E3D69F00E4E929 /* AddGroupView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGroupView.storyboard; sourceTree = "<group>"; };
 		92E4567926CED5790024F598 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		92E4567B26CED67F0024F598 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		92E4568026CED7F40024F598 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +259,16 @@
 			path = MoneyAppUITests;
 			sourceTree = "<group>";
 		};
+		92BCE42726E3D63900E4E929 /* AddGroupView */ = {
+			isa = PBXGroup;
+			children = (
+				92BCE42826E3D65F00E4E929 /* AddGroupViewController.swift */,
+				92BCE42A26E3D67400E4E929 /* AddGroupService.swift */,
+				92BCE42C26E3D69F00E4E929 /* AddGroupView.storyboard */,
+			);
+			path = AddGroupView;
+			sourceTree = "<group>";
+		};
 		92E4567426CED4A50024F598 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +289,7 @@
 		92E4567626CED4B30024F598 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				92BCE42726E3D63900E4E929 /* AddGroupView */,
 				E39B036026E394E300EFE780 /* GroupDetailsView */,
 				92E4567E26CED7DA0024F598 /* Auth */,
 				92E4567D26CED7CF0024F598 /* GroupListView */,
@@ -545,6 +562,7 @@
 				92893E62266BD963000CED03 /* LaunchScreen.storyboard in Resources */,
 				92FEA6FE26A5E62F008BFAA3 /* ControlView.storyboard in Resources */,
 				92893E5F266BD963000CED03 /* Assets.xcassets in Resources */,
+				92BCE42D26E3D69F00E4E929 /* AddGroupView.storyboard in Resources */,
 				92E4569626D0E9160024F598 /* GroupListView.storyboard in Resources */,
 				92FEA6F826A5E60F008BFAA3 /* ScrollView.storyboard in Resources */,
 				92E4568326CED8220024F598 /* LoginView.storyboard in Resources */,
@@ -696,9 +714,11 @@
 				92893E86266BDD28000CED03 /* Config.swift in Sources */,
 				92E456A026D0F9BA0024F598 /* Mock.swift in Sources */,
 				92E4568E26CEE9700024F598 /* LoginResponse.swift in Sources */,
+				92BCE42B26E3D67400E4E929 /* AddGroupService.swift in Sources */,
 				92FEA70426A5ED27008BFAA3 /* TableViewCell.swift in Sources */,
 				92893E56266BD961000CED03 /* AppDelegate.swift in Sources */,
 				92E4568B26CEE81F0024F598 /* UserRepository.swift in Sources */,
+				92BCE42926E3D65F00E4E929 /* AddGroupViewController.swift in Sources */,
 				92FEA70226A5E856008BFAA3 /* UIViewController+Extensions.swift in Sources */,
 				92FEA6F126A5E5D0008BFAA3 /* TableViewController.swift in Sources */,
 				92E456A426D107050024F598 /* GroupResponse.swift in Sources */,

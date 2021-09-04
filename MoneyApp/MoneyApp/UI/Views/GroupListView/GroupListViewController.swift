@@ -27,25 +27,30 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
         setupNavigationController()
         setupScrollView()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(didEnterFromBackground), name:
+                UIApplication.willEnterForegroundNotification, object: nil)
+        loadGroups()
         // todo add activity indicator
-//        service.fetchGroups(completion: { result in
-//            if result.isEmpty {
-//                // todo add information about no groups
-//                print("EMPTY GROUPS")
-//            }
-//
-//            self.groups = result
-//            self.appendGroupsList()
-//        })
-        groups = Mock.shared.fetchGroups()
-        self.appendGroupsList()
+    }
+    
+    @objc func didEnterFromBackground() {
+        print("didEnterFromBackground")
+        loadGroups()
     }
     
     // ScrollView refresh indicator callback
-    func didRefreshList(completion: @escaping () -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            completion()
-        }
+    func didRefreshList(refreshCompletion: @escaping () -> Void) {
+        service.fetchGroups(completion: { result in
+            self.updateGroupsList(groups: result)
+            
+            refreshCompletion()
+        })
+    }
+    
+    func loadGroups() {
+        service.fetchGroups(completion: { result in
+            self.updateGroupsList(groups: result)
+        })
     }
     
     @objc private func logout() {
@@ -56,7 +61,15 @@ class GroupListViewController: UIViewController, ScrollViewRefreshDelegate {
         present(controller, animated: true, completion: nil)
     }
     
-    private func appendGroupsList() {
+    private func updateGroupsList(groups: [Group]) {
+        
+        if groups.isEmpty {
+            // todo add information about no groups
+            print("TODO: EMPTY GROUPS")
+        }
+        
+        self.groups = groups
+        scrollView.clearComponents()
         
         for (idx, group) in groups.enumerated() {
             let groupView = GroupComponentView()

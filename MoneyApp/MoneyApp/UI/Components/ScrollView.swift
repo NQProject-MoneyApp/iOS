@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol ScrollViewRefreshDelegate {
-    func didRefreshList(completion: @escaping () -> Void)
+    func didRefreshList(refreshCompletion: @escaping () -> Void)
 }
 
 class ScrollView: UIView {
@@ -49,11 +49,18 @@ class ScrollView: UIView {
     }
     
     @objc func handleRefreshControl() {
-        refreshDelegate!.didRefreshList(completion: {
+        refreshDelegate!.didRefreshList(refreshCompletion: {
             DispatchQueue.main.async {
               self.scrollView.refreshControl?.endRefreshing()
            }
         })
+    }
+    
+    func clearComponents() {
+        components.forEach { item in
+            item.removeFromSuperview()
+        }
+        components = []
     }
     
     func appendVertical(component: UIView, last: Bool) {

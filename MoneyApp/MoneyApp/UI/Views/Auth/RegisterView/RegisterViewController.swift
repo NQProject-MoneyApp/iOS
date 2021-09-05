@@ -24,14 +24,6 @@ class RegisterViewController: UIViewController {
         let storyboard = UIStoryboard(name: "RegisterView", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: "RegisterView") as? RegisterViewController
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.setBackgroundColor(color: UIColor.black)
-//        navigationItem.setHidesBackButton(true, animated: true)
-    }
     
     override func viewDidLoad() {
         // from SGSwiftExtensions

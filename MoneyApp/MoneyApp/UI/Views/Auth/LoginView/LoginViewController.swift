@@ -15,14 +15,8 @@ class LoginViewController: UIViewController {
         return storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.setBackgroundColor(color: UIColor.black)
-    }
-    
     override func viewDidLoad() {
+        navigationController?.navigationBar.isHidden = true
         // from SGSwiftExtensions
         hideKeyboardWhenTappedOutside()
         setupBackground()

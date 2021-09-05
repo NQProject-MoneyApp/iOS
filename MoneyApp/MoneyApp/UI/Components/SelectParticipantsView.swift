@@ -57,9 +57,18 @@ class SelectParticipantsView: UIView {
     }
     
     private func updateList() {
+        
         stackView.arrangedSubviews.forEach({ view in
             view.removeFromSuperview()
         })
+        
+        let title = UILabel()
+        title.text = "Participants"
+        title.textAlignment = .center
+        title.font = UIFont.systemFont(ofSize: 20)
+        title.textColor = UIColor.white
+        
+        stackView.addArrangedSubview(title)
         
         participants.forEach { p in
             let view = ParticipantView()

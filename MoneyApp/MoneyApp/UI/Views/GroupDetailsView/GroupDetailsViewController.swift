@@ -11,6 +11,7 @@ import UIKit
 class GroupDetailsViewController: UIViewController {
     
     var group: Group?
+    
     private let scrollView = ScrollView()
     private let service = GroupDetailsService()
     
@@ -39,7 +40,9 @@ class GroupDetailsViewController: UIViewController {
         setupExpenseButton(button: newExpenseButton)
         
         let groupUsersList = GroupUsersListComponentView()
-        service.fetchGroupDetails(group: group, completion: { result in groupUsersList.create(members: result.members)})
+        service.fetchGroupDetails(group: group, completion: { result in
+            groupUsersList.create(members: result.members)
+        })
         
         scrollView.appendVertical(component: icon, last: false)
         scrollView.appendVertical(component: groupValuesView, last: false)
@@ -99,7 +102,8 @@ class GroupDetailsViewController: UIViewController {
     
     @objc private func onNewExpenseNavigate() {
         guard let vc = AddExpenseViewController.loadFromStoryboard() else { return }
-        
+        vc.members = group!.members
+        vc.groupId = group!.id
         navigationController?.pushViewController(vc, animated: true)
     }
 }

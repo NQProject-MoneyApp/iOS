@@ -10,18 +10,15 @@ import UIKit
 
 class AddExpenseViewController: UIViewController {
     
+    var groupId: Int?
+    var members: [User]?
+    
+    private let service = AddExpenseService()
+    
     private let expenseNameTextField = UITextField()
     private let amountTextField = UITextField()
     private let participantsView = SelectParticipantsView()
-    private let loginButton = UIButton()
-    
-    private let participants: [ParticipantModel] = [
-        ParticipantModel(userId: 0, username: "Test", isSelected: false),
-        ParticipantModel(userId: 0, username: "Test2", isSelected: false),
-        ParticipantModel(userId: 0, username: "Test3", isSelected: false),
-        ParticipantModel(userId: 0, username: "Test4", isSelected: false),
-        ParticipantModel(userId: 0, username: "Test5", isSelected: false)
-    ]
+    private let loginButton = UIButton(type: .system)
     
     static func loadFromStoryboard() -> AddExpenseViewController? {
         let storyboard = UIStoryboard(name: "AddExpenseView", bundle: nil)
@@ -59,7 +56,9 @@ class AddExpenseViewController: UIViewController {
     
     private func addParticipants() {
         participantsView.create()
-        participantsView.participants = participants
+        participantsView.participants = members!.map { member in
+            return ParticipantModel(userId: member.pk, username: member.name, isSelected: false)
+        }
         
         view.addSubview(participantsView)
         
@@ -87,5 +86,16 @@ class AddExpenseViewController: UIViewController {
     
     @objc func didPressSaveButton() {
         
+        let expense = Expense(
+            name: expenseNameTextField.text!,
+            amount: Double(amountTextField.text!)!,
+            participants: participantsView.participants
+                .filter { $0.isSelected }
+                .map { $0.userId }
+        )
+        
+        service.addExpense(groupId: groupId!, expense: expense, completion: { result in
+            Toast.shared.presentToast("Expense added \(result)")
+        })
     }
 }

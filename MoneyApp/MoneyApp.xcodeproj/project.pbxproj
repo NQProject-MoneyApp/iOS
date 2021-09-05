@@ -17,6 +17,8 @@
 		4DDEBC2326E4EB42000894B6 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC2226E4EB42000894B6 /* AddExpenseViewController.swift */; };
 		4DDEBC2526E4EB74000894B6 /* AddExpenseView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEBC2426E4EB74000894B6 /* AddExpenseView.storyboard */; };
 		4DDEBC2726E4FF0E000894B6 /* SelectParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC2626E4FF0E000894B6 /* SelectParticipantsView.swift */; };
+		4DDEBC2926E535BD000894B6 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC2826E535BD000894B6 /* Expense.swift */; };
+		4DDEBC2B26E53B16000894B6 /* AddExpenseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC2A26E53B16000894B6 /* AddExpenseService.swift */; };
 		70DFAD49855C64FAE178143B /* Pods_MoneyApp_MoneyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BE08076C189D8CC6C663A5 /* Pods_MoneyApp_MoneyAppUITests.framework */; };
 		92893E56266BD961000CED03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E55266BD961000CED03 /* AppDelegate.swift */; };
 		92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E57266BD961000CED03 /* SceneDelegate.swift */; };
@@ -104,6 +106,8 @@
 		4DDEBC2226E4EB42000894B6 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		4DDEBC2426E4EB74000894B6 /* AddExpenseView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddExpenseView.storyboard; sourceTree = "<group>"; };
 		4DDEBC2626E4FF0E000894B6 /* SelectParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantsView.swift; sourceTree = "<group>"; };
+		4DDEBC2826E535BD000894B6 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		4DDEBC2A26E53B16000894B6 /* AddExpenseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseService.swift; sourceTree = "<group>"; };
 		6D848F9CDA51F8C248338DD7 /* Pods-MoneyApp-MoneyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp-MoneyAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MoneyApp-MoneyAppUITests/Pods-MoneyApp-MoneyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		81DE3A7461FB20B90373FFF4 /* Pods-MoneyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyAppTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyAppTests/Pods-MoneyAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		8827E214D6520A96C0AE83D5 /* Pods-MoneyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp.release.xcconfig"; path = "Target Support Files/Pods-MoneyApp/Pods-MoneyApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 			children = (
 				4DDEBC2226E4EB42000894B6 /* AddExpenseViewController.swift */,
 				4DDEBC2426E4EB74000894B6 /* AddExpenseView.storyboard */,
+				4DDEBC2A26E53B16000894B6 /* AddExpenseService.swift */,
 			);
 			path = AddExpenseView;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 			children = (
 				92E4569926D0F87F0024F598 /* Group.swift */,
 				E37AF72626E3DB5A00BD5C0B /* User.swift */,
+				4DDEBC2826E535BD000894B6 /* Expense.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -801,6 +807,7 @@
 				92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */,
 				E39B036226E3952C00EFE780 /* GroupDetailsViewController.swift in Sources */,
 				4DDEBC1926E3C601000894B6 /* TextWithButton.swift in Sources */,
+				4DDEBC2B26E53B16000894B6 /* AddExpenseService.swift in Sources */,
 				4DDEBC1526E3BB19000894B6 /* TextField.swift in Sources */,
 				92893E5A266BD961000CED03 /* GroupListViewController.swift in Sources */,
 				92BCE43726E50B8A00E4E929 /* ProfileViewController.swift in Sources */,
@@ -818,6 +825,7 @@
 				4DDEBC2326E4EB42000894B6 /* AddExpenseViewController.swift in Sources */,
 				92E4568B26CEE81F0024F598 /* UserRepository.swift in Sources */,
 				92BCE42926E3D65F00E4E929 /* AddGroupViewController.swift in Sources */,
+				4DDEBC2926E535BD000894B6 /* Expense.swift in Sources */,
 				92FEA70226A5E856008BFAA3 /* UIViewController+Extensions.swift in Sources */,
 				92FEA6F126A5E5D0008BFAA3 /* TableViewController.swift in Sources */,
 				92BCE43F26E520D100E4E929 /* PrimaryButton.swift in Sources */,

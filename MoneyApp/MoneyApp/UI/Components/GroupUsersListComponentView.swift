@@ -11,9 +11,10 @@ import UIKit
 class GroupUsersListComponentView: UIView {
     
     private var components: [UIView] = []
-    private var groupUsers: [User] = Mock.shared.fetchUserBalances()
+    private var groupUsers: [User] = []
     
-    func create() {
+    func create(members: [User]) {
+        groupUsers = members
         backgroundColor = UIColor.brand.gray
         layer.cornerRadius = 15
         

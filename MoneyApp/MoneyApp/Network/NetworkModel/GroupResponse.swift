@@ -15,7 +15,7 @@ class GroupResponse: Codable {
     let user_balance: Double
     let icon: Int
     let is_favourite: Bool
+    let members: [GroupUsersResponse]
 //        TODO
-//    val members: List<NetworkGroupUsersResponse>,
 //    @SerialName("non_field_errors") val error: String? = null,
 }

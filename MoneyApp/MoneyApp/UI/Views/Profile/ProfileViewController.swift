@@ -80,7 +80,6 @@ class ProfileViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.create()
         scrollView.snp.makeConstraints { make in
-            
             make.edges.equalTo(view)
         }
     }

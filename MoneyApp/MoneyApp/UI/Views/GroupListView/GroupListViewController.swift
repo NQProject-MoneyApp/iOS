@@ -221,7 +221,6 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     }
     
     private func createContextMenu() {
-            // todo change icon
             if #available(iOS 14, *) {
                 var leftMenuItems: [UIAction] {
                     return [
@@ -229,13 +228,13 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
                             guard let vc = ProfileViewController.loadFromStoryBoard() else { return }
                             self.navigationController?.pushViewController(vc, animated: true)
                         }),
+                        UIAction(title: "About", handler: { _ in
+                            guard let vc = AboutViewController.loadFromStoryBoard() else { return }
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }),
                         UIAction(title: "Logout", handler: { _ in
                             Authentication.shared.logout()
                         })
-
-    //                    UIAction(title: "About", image: UIImage(systemName: "sun.max"), handler: { _ in
-    //                        Authentication.shared.logout()
-    //                    })
                     ]
                 }
                 

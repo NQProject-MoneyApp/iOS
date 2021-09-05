@@ -66,6 +66,8 @@
 		E37AF72726E3DB5A00BD5C0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37AF72626E3DB5A00BD5C0B /* User.swift */; };
 		E39B036226E3952C00EFE780 /* GroupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */; };
 		E39B036426E3999600EFE780 /* GroupDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B036326E3999600EFE780 /* GroupDetailsService.swift */; };
+		E3DE737026E4F49000D9C9D3 /* GroupUsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE736F26E4F49000D9C9D3 /* GroupUsersResponse.swift */; };
+		E3DE737226E50A8600D9C9D3 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE737126E50A8600D9C9D3 /* UserResponse.swift */; };
 		E3F1EEED26E3A78A00C6814B /* GroupDetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F1EEEC26E3A78A00C6814B /* GroupDetailsView.storyboard */; };
 		E3F1EEEF26E3BA2300C6814B /* GroupValuesComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F1EEEE26E3BA2300C6814B /* GroupValuesComponentView.swift */; };
 /* End PBXBuildFile section */
@@ -158,6 +160,8 @@
 		E37AF72626E3DB5A00BD5C0B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsViewController.swift; sourceTree = "<group>"; };
 		E39B036326E3999600EFE780 /* GroupDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsService.swift; sourceTree = "<group>"; };
+		E3DE736F26E4F49000D9C9D3 /* GroupUsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUsersResponse.swift; sourceTree = "<group>"; };
+		E3DE737126E50A8600D9C9D3 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		E3F1EEEC26E3A78A00C6814B /* GroupDetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupDetailsView.storyboard; sourceTree = "<group>"; };
 		E3F1EEEE26E3BA2300C6814B /* GroupValuesComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupValuesComponentView.swift; sourceTree = "<group>"; };
 		ECC44239D85A7FEEA15048C6 /* Pods_MoneyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -417,6 +421,8 @@
 				92E456A326D107050024F598 /* GroupResponse.swift */,
 				92BCE42526E3CC9B00E4E929 /* JoinResponse.swift */,
 				4DDEBC1A26E3CE24000894B6 /* RegisterResponse.swift */,
+				E3DE736F26E4F49000D9C9D3 /* GroupUsersResponse.swift */,
+				E3DE737126E50A8600D9C9D3 /* UserResponse.swift */,
 			);
 			path = NetworkModel;
 			sourceTree = "<group>";
@@ -770,6 +776,7 @@
 				4DDEBC1726E3C327000894B6 /* Button.swift in Sources */,
 				92E4568526CEE4A90024F598 /* Toast.swift in Sources */,
 				92E4569C26D0F8AE0024F598 /* GroupComponentView.swift in Sources */,
+				E3DE737026E4F49000D9C9D3 /* GroupUsersResponse.swift in Sources */,
 				92BCE42626E3CC9B00E4E929 /* JoinResponse.swift in Sources */,
 				92E456A626D108100024F598 /* GroupListService.swift in Sources */,
 				E37AF72526E3CF7300BD5C0B /* GroupBalanceComponentView.swift in Sources */,
@@ -783,6 +790,7 @@
 				92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */,
 				92893E86266BDD28000CED03 /* Config.swift in Sources */,
 				92E456A026D0F9BA0024F598 /* Mock.swift in Sources */,
+				E3DE737226E50A8600D9C9D3 /* UserResponse.swift in Sources */,
 				E30CABB026E3CC0D00285E34 /* GroupUsersListComponentView.swift in Sources */,
 				92E4568E26CEE9700024F598 /* LoginResponse.swift in Sources */,
 				E37AF72726E3DB5A00BD5C0B /* User.swift in Sources */,

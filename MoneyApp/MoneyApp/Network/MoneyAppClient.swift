@@ -5,14 +5,15 @@
 //  Created by Szymon Gęsicki on 19/08/2021.
 //
 
-import Moya
 import Foundation
+import Moya
 
 enum MoneyAppApi {
 
     case login(username: String, password: String)
     case register(username: String, email: String, password: String)
     case groups
+    case groupDetails(groupId: Int)
     case joinGroup(code: String)
     case editGroup(group: Group)
 }
@@ -29,14 +30,11 @@ private var defaultError: Moya.MoyaError = {
     Moya.MoyaError.underlying(NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: nil), nil)
 }()
 
-
 private var lastTimeErrorDate: Date?
 
 func defaultRequest( api: MoneyAppApi, progress: ProgressBlock?, completion: @escaping Completion ) -> Cancellable? {
-    
 
     let defaultAPIProvider = MoyaProvider<MoneyAppApi>(endpointClosure: endpointClosure, plugins: [CompleteUrlLoggerPlugin()])
-    
     
     return defaultAPIProvider.request(api, callbackQueue: DispatchQueue.main, progress: progress, completion: { result in
         
@@ -90,6 +88,8 @@ extension MoneyAppApi: TargetType {
             return "/registration/"
         case .groups:
             return "/groups/"
+        case .groupDetails(let groupId):
+            return "/groups/\(groupId)/"
         case .joinGroup(let code):
             return "/join/\(code)/"
         case .editGroup(let group):
@@ -134,6 +134,8 @@ extension MoneyAppApi: TargetType {
             return .post
         case .groups:
             return .get
+        case .groupDetails:
+            return .get
         case .joinGroup:
             return .put
         case .editGroup:
@@ -149,6 +151,8 @@ extension MoneyAppApi: TargetType {
         case .register(let username, let email, let password):
             return .requestParameters(parameters: ["username": username, "email": email, "password1": password, "password2": password], encoding: URLEncoding.default)
         case .groups:
+            return .requestPlain
+        case .groupDetails:
             return .requestPlain
         case .joinGroup:
             return .requestPlain

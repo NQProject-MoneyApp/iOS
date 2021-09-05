@@ -13,7 +13,7 @@ class AddGroupService {
     
     func addGroup(completion: @escaping ((String) -> Void)) {
         // todo completion result!
-        GroupRepository.shared.fetchGroup(completion: { result in
+        GroupRepository.shared.fetchGroups(completion: { result in
             
             switch result {
             case .success(let _):

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class JoinResponse: Codable {
     let details: String
 }

@@ -17,10 +17,10 @@ class Group {
     var icon: MoneyAppIcon
     let createDate: Date
     var isFavourite: Bool
-    // todo
-//    val members: List<User>
+    let members: [User]
     
-    init(id: Int, name: String, totalCost: Double, userBalance: Double, icon: MoneyAppIcon, createDate: Date, isFavourite: Bool) {
+    init(id: Int, name: String, totalCost: Double, userBalance: Double, icon: MoneyAppIcon, createDate: Date, isFavourite: Bool, members: [User]) {
+
         self.id = id
         self.name = name
         self.totalCost = totalCost
@@ -28,5 +28,6 @@ class Group {
         self.icon = icon
         self.createDate = createDate
         self.isFavourite = isFavourite
+        self.members = members
     }
 }

@@ -25,10 +25,9 @@ class AddGroupViewController: UIViewController {
     }
     
     private func setupNavigationController() {
+        navigationController?.navigationBar.tintColor = UIColor.brand.yellow
         navigationController?.setBackgroundColor(color: UIColor.brand.blackBackground)
         title = "Add Group"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     private func setupScrollView() {

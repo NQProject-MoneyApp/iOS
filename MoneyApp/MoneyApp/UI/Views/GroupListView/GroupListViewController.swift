@@ -10,17 +10,27 @@ import SnapKit
 
 class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollViewRefreshDelegate {
     
-    func didPressGroupComponent(group: Group) {
-        guard let vc = GroupDetailsViewController.loadFromStoryboard() else { return }
-        vc.group = group
-        
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
     private let scrollView = ScrollView()
     private var groups: [Group] = []
     private let service = GroupListService()
 
+
+    // -- GroupComponentDelegate --
+    func didPressGroupComponent(group: Group) {
+        guard let vc = GroupDetailsViewController.loadFromStoryboard() else { return }
+        vc.group = group
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // ScrollView refresh indicator callback
+    func didRefreshList(refreshCompletion: @escaping () -> Void) {
+        service.fetchGroups(completion: { result in
+            self.updateGroupsList(groups: result)
+            
+            refreshCompletion()
+        })
+    }
+    
     static func loadFromStoryboard() -> GroupListViewController? {
         let storyboard = UIStoryboard(name: "GroupListView", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: "GroupListView") as? GroupListViewController
@@ -35,23 +45,14 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         scrollView.startRefresh()
     }
     
-    @objc func didEnterFromBackground() {
-        loadGroups()
-    }
-    
-    // ScrollView refresh indicator callback
-    func didRefreshList(refreshCompletion: @escaping () -> Void) {
-        service.fetchGroups(completion: { result in
-            self.updateGroupsList(groups: result)
-            
-            refreshCompletion()
-        })
-    }
-    
     func loadGroups() {
         service.fetchGroups(completion: { result in
             self.updateGroupsList(groups: result)
         })
+    }
+    
+    @objc private func didEnterFromBackground() {
+        loadGroups()
     }
     
     @objc private func onLogout() {
@@ -73,17 +74,15 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
             text.textColor = UIColor.brand.yellow
             text.font = UIFont.systemFont(ofSize: 32)
             text.textAlignment = .center
-            
             scrollView.setSingleContent(content: text)
-        }
-        else {
+            
+        } else {
             for (idx, group) in groups.enumerated() {
                 let groupView = GroupComponentView()
                 groupView.create(group: group, delegate: self)
                 scrollView.appendVertical(component: groupView, last: idx == groups.count - 1)
             }
         }
-        
     }
     
     private func setupScrollView() {
@@ -136,7 +135,7 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
 
         alert.addAction(logoutAction)
         alert.addAction(cancelAction)
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     @objc func onAddButtonTapped() {
@@ -152,6 +151,7 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         alert.overrideUserInterfaceStyle = .dark
         alert.view.tintColor = UIColor.brand.yellow
 
@@ -186,11 +186,14 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     }
     
     @objc func textChanged(_ sender: Any) {
-        if let textField = sender as? UITextField{
-            var resp : UIResponder! = textField
+        // todo refactor
+        if let textField = sender as? UITextField {
+            
+            var resp: UIResponder! = textField
             while !(resp is UIAlertController) { resp = resp.next }
             let alert = resp as! UIAlertController
-            alert.actions[1].isEnabled = (textField.text != "")}
+            alert.actions[1].isEnabled = (textField.text != "")
+        }
     }
     
     private func joinToGroup(code: String?) {
@@ -200,14 +203,6 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
                 self.scrollView.startRefresh()
             }
         }
-    }
-    
-    private func createUserMenu() -> UIMenu {
-        let logout = UIAction(title: "Logout", image: UIImage()) { _ in
-            Authentication.shared.logout()
-        }
-
-        return UIMenu( title: "What would you like to do?", children: [logout])
     }
 }
 

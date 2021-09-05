@@ -21,11 +21,11 @@ class GroupDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.brand.blackBackground
-//            setupObserver()
-//            setupNavigationController()
         setupScrollView()
-        guard let group = group else { return }
         
+        guard let group = group else { return }
+        setupNavigationController(name: group.name)
+
         let icon = createIconComponent(icon: group.icon)
 
         let groupValuesView = GroupValuesComponentView()
@@ -45,6 +45,11 @@ class GroupDetailsViewController: UIViewController {
         scrollView.appendVertical(component: settleUpButton, last: false)
         scrollView.appendVertical(component: newExpenseButton, last: false)
         scrollView.appendVertical(component: groupUsersList, last: true)
+    }
+    
+    private func setupNavigationController(name: String) {
+        title = name
+        navigationController?.navigationBar.tintColor = UIColor.brand.yellow
     }
     
     private func setupScrollView() {

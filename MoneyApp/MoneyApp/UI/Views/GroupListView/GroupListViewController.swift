@@ -219,13 +219,14 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         if #available(iOS 14, *) {
             var leftMenuItems: [UIAction] {
                 return [
-                    UIAction(title: "Logout", image: UIImage(systemName: "sun.max"), handler: { _ in
-                        Authentication.shared.logout()
-                    }),
-                    UIAction(title: "Profile", image: UIImage(systemName: "sun.max"), handler: { _ in
+                    UIAction(title: "Profile", handler: { _ in
                         guard let vc = ProfileViewController.loadFromStoryBoard() else { return }
                         self.navigationController?.pushViewController(vc, animated: true)
+                    }),
+                    UIAction(title: "Logout", handler: { _ in
+                        Authentication.shared.logout()
                     })
+
 //                    UIAction(title: "About", image: UIImage(systemName: "sun.max"), handler: { _ in
 //                        Authentication.shared.logout()
 //                    })
@@ -234,10 +235,10 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
             
             var rightMenuItems: [UIAction] {
                 return [
-                    UIAction(title: "Join", image: UIImage(systemName: "sun.max"), handler: { _ in
+                    UIAction(title: "Join", handler: { _ in
                         self.showJoinAlert()
                     }),
-                    UIAction(title: "Create a new group", image: UIImage(systemName: "sun.max"), handler: { _ in
+                    UIAction(title: "Create a new group", handler: { _ in
                         guard let vc = AddGroupViewController.loadFromStoryboard() else { return }
                         self.navigationController?.pushViewController(vc, animated: true)
                     })

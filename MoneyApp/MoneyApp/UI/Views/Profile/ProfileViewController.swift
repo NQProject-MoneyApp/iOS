@@ -62,7 +62,7 @@ class ProfileViewController: UIViewController {
 
         } else {
             saveButton.isEnabled = false
-            saveButton.backgroundColor = UIColor.brand.middleGray
+            saveButton.backgroundColor = UIColor.brand.gray
             saveButton.setTitleColor(UIColor.white, for: .normal)
         }
     }

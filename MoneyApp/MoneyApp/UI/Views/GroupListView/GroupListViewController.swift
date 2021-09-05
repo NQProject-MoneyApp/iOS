@@ -113,10 +113,14 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        let leftBarItem = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
-        leftBarItem.tintColor = UIColor.brand.yellow
+        let leftBarItem = UIBarButtonItem(image: UIImage(named: "userProfile"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
+        leftBarItem.tintColor = UIColor.white
+        
+        let rightBarItem = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: self, action: #selector(onAddButtonTapped))
+        rightBarItem.tintColor = UIColor.brand.yellow
         
         navigationItem.leftBarButtonItem = leftBarItem
+        navigationItem.rightBarButtonItem = rightBarItem
     
     }
     
@@ -132,6 +136,28 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         alert.view.tintColor = UIColor.brand.yellow
 
         alert.addAction(logoutAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func onAddButtonTapped() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+
+        let joinAction = UIAlertAction(title: "Join a group", style: .default) { _ in
+            self.showJoinAlert()
+        }
+        
+        let addAction = UIAlertAction(title: "Create a new group", style: .default) { _ in
+            guard let vc = AddGroupViewController.loadFromStoryboard() else { return }
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.overrideUserInterfaceStyle = .dark
+        alert.view.tintColor = UIColor.brand.yellow
+
+        alert.addAction(joinAction)
+        alert.addAction(addAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }

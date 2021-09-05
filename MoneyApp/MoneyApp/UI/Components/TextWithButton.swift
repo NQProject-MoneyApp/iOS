@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class TextWithButton : UIView {
+class TextWithButton: UIView {
     
     private var tapDelegate: (() -> Void)?
     

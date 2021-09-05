@@ -9,8 +9,8 @@ import Foundation
 
 class User {
     let pk: Int
-    let name: String
-    let email: String
+    var name: String
+    var email: String
     let balance: Double
     
     init(pk: Int, name: String, email: String, balance: Double) {

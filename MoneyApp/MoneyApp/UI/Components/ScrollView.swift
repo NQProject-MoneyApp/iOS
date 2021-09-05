@@ -102,5 +102,7 @@ class ScrollView: UIView {
             make.bottom.equalTo(contentView.snp.bottom).offset(-32)
      
         }
+        
+        components.append(content)
     }
 }

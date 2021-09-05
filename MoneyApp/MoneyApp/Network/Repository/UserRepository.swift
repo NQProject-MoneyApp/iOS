@@ -82,4 +82,61 @@ class UserRepository {
             }
         }
     }
+    
+    func fetchUser(completion: @escaping((Result<UserResponse, CustomError>) -> Void)) {
+                
+        _ = defaultRequest(api: .fetchUser) { result in
+
+            if case let .success(response) = result {
+
+                if 200 ... 299 ~= response.statusCode {
+
+                    do {
+
+                        let user = try JSONDecoder().decode(UserResponse.self, from: response.data)
+                        completion(.success(user))
+
+                    } catch let error {
+                        print("error while decoding \(error.localizedDescription)")
+                        completion(.failure(CustomError(description: error.localizedDescription)))
+                    }
+                } else {
+                    print("UserRepository.fetchUser error: \(String(decoding: response.data, as: UTF8.self))")
+                    completion(.failure(CustomError(description: "error")))
+                }
+
+            } else if case let .failure(error) = result {
+                print("error \(error.localizedDescription)")
+                completion(.failure(CustomError(description: error.localizedDescription)))
+            }
+        }
+    }
+    
+    func updateUser(user: User, completion: @escaping((Result<UserResponse, CustomError>) -> Void)) {
+
+        _ = defaultRequest(api: .updateUser(user: user)) { result in
+
+            if case let .success(response) = result {
+
+                if 200 ... 299 ~= response.statusCode {
+
+                    do {
+                        let user = try JSONDecoder().decode(UserResponse.self, from: response.data)
+                        completion(.success(user))
+
+                    } catch let error {
+                        print("error while decoding \(error.localizedDescription)")
+                        completion(.failure(CustomError(description: error.localizedDescription)))
+                    }
+                } else {
+                    print("UserRepository.updateUser error: \(String(decoding: response.data, as: UTF8.self))")
+                    completion(.failure(CustomError(description: "error")))
+                }
+
+            } else if case let .failure(error) = result {
+                print("error \(error.localizedDescription)")
+                completion(.failure(CustomError(description: error.localizedDescription)))
+            }
+        }
+    }
 }

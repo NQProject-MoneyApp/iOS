@@ -30,7 +30,7 @@ class GroupUsersListComponentView: UIView {
             appendRow(row: row, last: false)
         }
         
-        let allExpensesButton = UIButton()
+        let allExpensesButton = PrimaryButton()
         setUpAllExpensesButton(button: allExpensesButton)
         appendRow(row: allExpensesButton, last: true)
     }

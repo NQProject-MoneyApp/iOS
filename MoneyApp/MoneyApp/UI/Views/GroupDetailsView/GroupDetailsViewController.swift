@@ -28,11 +28,10 @@ class GroupDetailsViewController: UIViewController {
         setupScrollView()
         guard let group = group else { return }
         setupNavigationController(name: group.name)
-        setupContent()
+        setupContent(group: group)
        }
     
-    private func setupContent() {
-        guard let group = group else { return }
+    private func setupContent(group: Group) {
         let icon = createIconComponent(icon: group.icon.icon())
 
         let groupValuesView = GroupValuesComponentView()

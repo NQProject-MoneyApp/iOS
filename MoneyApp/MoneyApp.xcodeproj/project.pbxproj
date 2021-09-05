@@ -28,6 +28,8 @@
 		92BCE42926E3D65F00E4E929 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE42826E3D65F00E4E929 /* AddGroupViewController.swift */; };
 		92BCE42B26E3D67400E4E929 /* AddGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE42A26E3D67400E4E929 /* AddGroupService.swift */; };
 		92BCE42D26E3D69F00E4E929 /* AddGroupView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BCE42C26E3D69F00E4E929 /* AddGroupView.storyboard */; };
+		92BCE43226E4F56E00E4E929 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE43126E4F56E00E4E929 /* Date+Extensions.swift */; };
+		92BCE43426E4F9AE00E4E929 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE43326E4F9AE00E4E929 /* UIImageView+Extensions.swift */; };
 		92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567926CED5790024F598 /* UserDefaultsKeys.swift */; };
 		92E4567C26CED67F0024F598 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567B26CED67F0024F598 /* Authentication.swift */; };
 		92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4568026CED7F40024F598 /* LoginViewController.swift */; };
@@ -115,6 +117,8 @@
 		92BCE42826E3D65F00E4E929 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		92BCE42A26E3D67400E4E929 /* AddGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupService.swift; sourceTree = "<group>"; };
 		92BCE42C26E3D69F00E4E929 /* AddGroupView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddGroupView.storyboard; sourceTree = "<group>"; };
+		92BCE43126E4F56E00E4E929 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		92BCE43326E4F9AE00E4E929 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		92E4567926CED5790024F598 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		92E4567B26CED67F0024F598 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		92E4568026CED7F40024F598 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -336,6 +340,8 @@
 				92E4567B26CED67F0024F598 /* Authentication.swift */,
 				92E4568426CEE4A90024F598 /* Toast.swift */,
 				92E4569126CEED5C0024F598 /* Brand.swift */,
+				92BCE43126E4F56E00E4E929 /* Date+Extensions.swift */,
+				92BCE43326E4F9AE00E4E929 /* UIImageView+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -743,6 +749,7 @@
 				E3F1EEEF26E3BA2300C6814B /* GroupValuesComponentView.swift in Sources */,
 				92E4569226CEED5C0024F598 /* Brand.swift in Sources */,
 				92E4569A26D0F87F0024F598 /* Group.swift in Sources */,
+				92BCE43426E4F9AE00E4E929 /* UIImageView+Extensions.swift in Sources */,
 				E39B036426E3999600EFE780 /* GroupDetailsService.swift in Sources */,
 				4DDEBC1726E3C327000894B6 /* Button.swift in Sources */,
 				92E4568526CEE4A90024F598 /* Toast.swift in Sources */,
@@ -773,6 +780,7 @@
 				92FEA6F126A5E5D0008BFAA3 /* TableViewController.swift in Sources */,
 				92E456A426D107050024F598 /* GroupResponse.swift in Sources */,
 				92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */,
+				92BCE43226E4F56E00E4E929 /* Date+Extensions.swift in Sources */,
 				92E4568826CEE6520024F598 /* MoneyAppClient.swift in Sources */,
 				92FEA6FC26A5E625008BFAA3 /* ControlViewController.swift in Sources */,
 				4D6342C726DEC90A0065209B /* RegisterViewController.swift in Sources */,

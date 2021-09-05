@@ -27,7 +27,7 @@ class GroupDetailsViewController: UIViewController {
         guard let group = group else { return }
         setupNavigationController(name: group.name)
 
-        let icon = createIconComponent(icon: group.icon)
+        let icon = createIconComponent(icon: group.icon.icon())
 
         let groupValuesView = GroupValuesComponentView()
         groupValuesView.create(group: group)
@@ -68,15 +68,14 @@ class GroupDetailsViewController: UIViewController {
     private func createIconComponent(icon: String) -> UIView {
         let container = UIView()
         let iconView = UIImageView()
-        iconView.image = UIImage(named: icon)
+        iconView.image = UIImage(named: icon)?.aspectFittedToHeight(128)
+        iconView.setImageColor(color: UIColor.brand.yellow)
         
         container.addSubview(iconView)
         iconView.snp.makeConstraints { make in
             make.centerX.equalTo(container.snp.centerX)
             make.top.equalTo(container.snp.top)
             make.bottom.equalTo(container.snp.bottom)
-            make.width.equalTo(100)
-            make.height.equalTo(72)
         }
         
         return container

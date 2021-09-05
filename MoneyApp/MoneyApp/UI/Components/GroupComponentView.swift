@@ -8,13 +8,14 @@
 import Foundation
 import UIKit
 
-protocol GroupComponentDelegate {
+protocol GroupComponentDelegate: AnyObject {
     func didPressGroupComponent(group: Group)
+    func didPressFavouriteIcon(group: Group)
 }
 
 class GroupComponentView: UIView {
     
-    private var delegate: GroupComponentDelegate?
+    private weak var delegate: GroupComponentDelegate?
     private var group: Group?
     
     func create(group: Group, delegate: GroupComponentDelegate) {
@@ -24,9 +25,11 @@ class GroupComponentView: UIView {
         
         let star = UIImageView()
         star.image = UIImage(named: group.isFavourite ? "star_selected" : "star")
+        star.addTapGesture(tapNumber: 1, target: self, action: #selector(didPressFavouriteIcon))
         
         let icon = UIImageView()
-        icon.image = UIImage(named: group.icon)
+        icon.image = UIImage(named: group.icon.icon())
+        icon.setImageColor(color: UIColor.brand.yellow)
         
         let textContainer = createTextContainer(text: group.name, balance: group.userBalance)
 
@@ -44,8 +47,7 @@ class GroupComponentView: UIView {
         icon.snp.makeConstraints { make in
             make.left.equalTo(snp.left).offset(13)
             make.centerY.equalTo(snp.centerY)
-            make.width.equalTo(64)
-            make.height.equalTo(38)
+            make.width.greaterThanOrEqualTo(64)
         }
         
         textContainer.snp.makeConstraints { make in
@@ -95,6 +97,11 @@ class GroupComponentView: UIView {
         delegate?.didPressGroupComponent(group: group)
     }
     
+    @objc func didPressFavouriteIcon() {
+        guard let group = group else { return }
+        delegate?.didPressFavouriteIcon(group: group)
+    }
+
     private func createTitleLabel(text: String) -> UILabel {
         let titleLabel = UILabel()
         titleLabel.text = text

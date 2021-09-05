@@ -77,17 +77,29 @@ class GroupRepository {
                 if 200 ... 299 ~= response.statusCode {
                     completion(.success(()))
                 } else {
+                    
                     do {
-
                         let joinResponse = try JSONDecoder().decode(JoinResponse.self, from: response.data)
                         completion(.failure(CustomError(description: joinResponse.details)))
                     } catch let error {
                         print("error while decoding \(error.localizedDescription) \nData: \(String(data: response.data, encoding: .utf8) ?? "")")
                         completion(.failure(CustomError(description: "Unknown error")))
-                    }                }
+                    }
+                }
             } else if case let .failure(error) = result {
                 print("error \(error.localizedDescription)")
                 completion(.failure(CustomError(description: error.localizedDescription)))
+            }
+        }
+    }
+    
+    func markAsFavourite(group: Group, completion: @escaping((Bool) -> Void)) {
+        _ = defaultRequest(api: .editGroup(group: group)) { result in
+            
+            if case let .success(response) = result, 200 ... 299 ~= response.statusCode {
+                completion(true)
+            } else {
+                completion(false)
             }
         }
     }

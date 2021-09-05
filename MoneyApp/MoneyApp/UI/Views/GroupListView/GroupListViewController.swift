@@ -21,6 +21,17 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func didPressFavouriteIcon(group: Group) {
+        group.isFavourite = !group.isFavourite
+        service.markAsFavourite(group: group, completion: { result in
+            if !result {
+                Toast.shared.presentToast("Error on mark favourite")
+            } else {
+                self.scrollView.startRefresh()
+            }
+        })
+    }
+
     // ScrollView refresh indicator callback
     func didRefreshList(refreshCompletion: @escaping () -> Void) {
         service.fetchGroups(completion: { result in

@@ -7,6 +7,33 @@
 
 import Foundation
 
+
+enum MoneyAppIcon: Int {
+    case hamburger = 1
+    case beerHamburger = 2
+    case bowl = 3
+    case drinks = 4
+    case coffee = 5
+    case beers = 6
+    case kite = 7
+    
+    func icon() -> String {
+        switch self {
+        case .hamburger: return "Burgers"
+        case .beerHamburger: return "BurgerSet"
+        case .bowl: return "Bowling"
+        case .drinks: return "Wine"
+        case .coffee: return "Cups"
+        case .beers: return "Beers"
+        case .kite: return "Kite"
+        }
+    }
+    
+    static func from(id: Int) -> MoneyAppIcon {
+        return MoneyAppIcon.init(rawValue: id) ?? .hamburger
+    }
+}
+
 class GroupListService {
     
     static let shared = GroupListService()
@@ -18,7 +45,7 @@ class GroupListService {
             switch result {
             case .success(let groups):
                 // todo parse icon
-                completion(groups.map { Group(id: $0.pk, name: $0.name, totalCost: $0.total_cost, userBalance: $0.user_balance, icon: "coffee", createDate: self.stringToDate(stringDate: $0.create_date), isFavourite: $0.is_favourite, members: $0.members.map {
+                completion(groups.map { Group(id: $0.pk, name: $0.name, totalCost: $0.total_cost, userBalance: $0.user_balance, icon: MoneyAppIcon.from(id: $0.icon), createDate: Date.fromISO(stringDate: $0.create_date), isFavourite: $0.is_favourite, members: $0.members.map {
                     User(pk: $0.user.pk, name: $0.user.username, email: $0.user.email, balance: $0.balance)
                 })})
             case .failure(let error):
@@ -42,9 +69,9 @@ class GroupListService {
         })
     }
     
-    // todo move to utilities
-    private func stringToDate(stringDate: String) -> Date {
-        // todo parse date
-        return Date()
+    func markAsFavourite(group: Group, completion: @escaping ((Bool) -> Void)) {
+        GroupRepository.shared.markAsFavourite(group: group, completion: { result in
+            completion(result)
+        })
     }
 }

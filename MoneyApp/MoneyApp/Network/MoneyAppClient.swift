@@ -15,6 +15,7 @@ enum MoneyAppApi {
     case groups
     case groupDetails(groupId: Int)
     case joinGroup(code: String)
+    case editGroup(group: Group)
 }
 
 let endpointClosure = { (target: MoneyAppApi) -> Endpoint in
@@ -91,6 +92,8 @@ extension MoneyAppApi: TargetType {
             return "/groups/\(groupId)/"
         case .joinGroup(let code):
             return "/join/\(code)/"
+        case .editGroup(let group):
+            return "/groups/\(group.id)/"
         }
     }
     
@@ -135,6 +138,8 @@ extension MoneyAppApi: TargetType {
             return .get
         case .joinGroup:
             return .put
+        case .editGroup:
+            return .patch
         }
     }
    
@@ -151,11 +156,14 @@ extension MoneyAppApi: TargetType {
             return .requestPlain
         case .joinGroup:
             return .requestPlain
+        case .editGroup(let group):
+            return .requestParameters(parameters: ["is_favourite": group.isFavourite, "name": group.name, "icon": group.icon.rawValue], encoding: URLEncoding.default)
+
         }
     }
 }
 
-class CompleteUrlLoggerPlugin : PluginType {
+class CompleteUrlLoggerPlugin: PluginType {
     func willSend(_ request: RequestType, target: TargetType) {
         // uncoment if you woudl like to check url
         print(request.request?.url?.absoluteString ?? "Something is wrong")

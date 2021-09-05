@@ -14,7 +14,9 @@ class ProfileViewController: UIViewController {
     private let scrollView = ScrollView()
     private let nameTextField = UITextField()
     private let emailTextField = UITextField()
-    
+    private var user: User?
+    let saveButton = PrimaryButton()
+
     static func loadFromStoryBoard() -> ProfileViewController? {
         let storyboard = UIStoryboard(name: "ProfileView", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: "ProfileView") as? ProfileViewController
@@ -32,6 +34,7 @@ class ProfileViewController: UIViewController {
 
         service.fetchUser(completion: { user in
             if let user = user {
+                self.user = user
                 self.setupContent(user: user)
                 self.scrollView.alpha = 0
                 self.scrollView.fadeIn(0.5)
@@ -42,7 +45,26 @@ class ProfileViewController: UIViewController {
     }
     
     @objc private func didPressSaveButton() {
-        // todo
+        guard let user = user else { return }
+        user.name = nameTextField.text ?? ""
+        user.email = emailTextField.text ?? ""
+        service.updateUser(user: user, completion: { result in
+            Toast.shared.presentToast(result)
+        })
+    }
+    
+    @objc private func textFieldDidChange(_ sender: Any) {
+        
+        if emailTextField.text != user?.email || nameTextField.text != user?.name {
+            saveButton.isEnabled = true
+            saveButton.backgroundColor = UIColor.brand.yellow
+            saveButton.setTitleColor(UIColor.brand.blackBackground, for: .normal)
+
+        } else {
+            saveButton.isEnabled = false
+            saveButton.backgroundColor = UIColor.brand.gray
+            saveButton.setTitleColor(UIColor.white, for: .normal)
+        }
     }
     
     private func setupNavigationController() {
@@ -78,6 +100,9 @@ class ProfileViewController: UIViewController {
         nameTextField.text = name
         emailTextField.text = email
         
+        nameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+
         scrollView.appendVertical(component: nameTextField, last: false)
         scrollView.appendVertical(component: emailTextField, last: false)
 
@@ -110,6 +135,7 @@ class ProfileViewController: UIViewController {
         let label = UILabel()
         label.text = String(name.prefix(2)).uppercased()
         label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.textColor = UIColor.brand.middleGray
 
         circle.addSubview(label)
         label.snp.makeConstraints { make in
@@ -120,13 +146,11 @@ class ProfileViewController: UIViewController {
     }
     
     private func appendSaveButton() {
-        
-        let saveButton = PrimaryButton()
-        
+                
         saveButton.setTitle("Save", for: .normal)
-        saveButton.backgroundColor = UIColor.brand.yellow
-        saveButton.setTitleColor(UIColor.brand.blackBackground, for: .normal)
-
+        saveButton.isEnabled = false
+        saveButton.backgroundColor = UIColor.brand.gray
+        saveButton.setTitleColor(UIColor.white, for: .normal)
         saveButton.titleLabel?.textColor = UIColor.brand.blackBackground
         saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         saveButton.layer.cornerRadius = 12

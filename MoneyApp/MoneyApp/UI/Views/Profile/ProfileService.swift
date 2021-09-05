@@ -21,4 +21,16 @@ class ProfileService {
             }
         })
     }
+    
+    func updateUser(user: User, completion: @escaping ((String) -> Void)) {
+
+        UserRepository.shared.updateUser(user: user, completion: { result in
+            switch result {
+            case .success:
+                completion("Success")
+            case .failure(let error):
+                completion(error.localizedDescription)
+            }
+        })
+    }
 }

@@ -29,5 +29,3 @@ opt_in_rules:
 - vertical_parameter_alignment_on_call
 - sorted_first_last
 - empty_count
-- force_unwrapping
-

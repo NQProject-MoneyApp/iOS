@@ -9,20 +9,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Group Details View Controller-->
-        <scene sceneID="hHI-NE-G4K">
+        <!--Add Expense View Controller-->
+        <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="GroupDetailsView" id="KoA-5c-QzI" customClass="GroupDetailsViewController" customModule="MoneyApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CK8-dG-f6m">
+                <viewController storyboardIdentifier="AddExpenseView" id="Y6W-OH-hqX" customClass="AddExpenseViewController" customModule="MoneyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="86X-1A-S3X"/>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7b3-a3-46o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="136"/>
+            <point key="canvasLocation" x="-1" y="68"/>
         </scene>
     </scenes>
     <resources>

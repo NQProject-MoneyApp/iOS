@@ -103,4 +103,19 @@ class GroupRepository {
             }
         }
     }
-}
+    
+    func addExpense(groupId: Int, expense: Expense, completion: @escaping((Bool) -> Void)) {
+        
+        _ = defaultRequest(api: .newExpense(groupId: groupId, expense: expense), completion: { result in
+            
+            if case let .success(response) = result, 200 ... 299 ~= response.statusCode {
+                completion(true)
+            } else {
+                completion(false)
+            }
+            
+            
+        })
+        
+    }
+ }

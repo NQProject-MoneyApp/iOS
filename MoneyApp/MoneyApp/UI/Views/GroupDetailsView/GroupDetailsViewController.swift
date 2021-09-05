@@ -11,6 +11,7 @@ import UIKit
 class GroupDetailsViewController: UIViewController {
     
     var group: Group?
+    
     private let scrollView = ScrollView()
     
     func didPressNewExpense() {
@@ -43,7 +44,13 @@ class GroupDetailsViewController: UIViewController {
         let newExpenseButton = PrimaryButton()
         setupExpenseButton(button: newExpenseButton)
         let groupUsersList = GroupUsersListComponentView()
+<<<<<<< HEAD
+        service.fetchGroupDetails(group: group, completion: { result in
+            groupUsersList.create(members: result.members)
+        })
+=======
         groupUsersList.create(members: group.members)
+>>>>>>> main
         
         scrollView.append(component: icon, last: false)
         scrollView.append(component: groupValuesView, last: false)
@@ -97,5 +104,14 @@ class GroupDetailsViewController: UIViewController {
         button.setTitleColor(UIColor.black, for: .normal)
         button.backgroundColor = UIColor.brand.yellow
         button.layer.cornerRadius = 10
+        
+        button.addTarget(self, action: #selector(onNewExpenseNavigate), for: .touchUpInside)
+    }
+    
+    @objc private func onNewExpenseNavigate() {
+        guard let vc = AddExpenseViewController.loadFromStoryboard() else { return }
+        vc.members = group!.members
+        vc.groupId = group!.id
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

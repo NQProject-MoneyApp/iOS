@@ -13,7 +13,7 @@ protocol GroupComponentDelegate: AnyObject {
     func didPressFavouriteIcon(group: Group)
 }
 
-class GroupComponentView: UIView {
+class GroupComponentView: ShrinkView {
     
     private weak var delegate: GroupComponentDelegate?
     private var group: Group?

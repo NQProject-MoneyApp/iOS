@@ -36,6 +36,7 @@
 		92BCE43F26E520D100E4E929 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE43E26E520D100E4E929 /* PrimaryButton.swift */; };
 		92BCE44226E545FE00E4E929 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE44126E545FE00E4E929 /* AboutViewController.swift */; };
 		92BCE44426E5460900E4E929 /* AboutView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BCE44326E5460900E4E929 /* AboutView.storyboard */; };
+		92BCE44626E550EC00E4E929 /* ShrinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE44526E550EC00E4E929 /* ShrinkView.swift */; };
 		92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567926CED5790024F598 /* UserDefaultsKeys.swift */; };
 		92E4567C26CED67F0024F598 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567B26CED67F0024F598 /* Authentication.swift */; };
 		92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4568026CED7F40024F598 /* LoginViewController.swift */; };
@@ -130,6 +131,7 @@
 		92BCE43E26E520D100E4E929 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		92BCE44126E545FE00E4E929 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		92BCE44326E5460900E4E929 /* AboutView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutView.storyboard; sourceTree = "<group>"; };
+		92BCE44526E550EC00E4E929 /* ShrinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkView.swift; sourceTree = "<group>"; };
 		92E4567926CED5790024F598 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		92E4567B26CED67F0024F598 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		92E4568026CED7F40024F598 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			children = (
 				92E4569B26D0F8AE0024F598 /* GroupComponentView.swift */,
 				92BCE43E26E520D100E4E929 /* PrimaryButton.swift */,
+				92BCE44526E550EC00E4E929 /* ShrinkView.swift */,
 				E3F1EEEE26E3BA2300C6814B /* GroupValuesComponentView.swift */,
 				92E4569726D0F7440024F598 /* ScrollView.swift */,
 				E30CABAF26E3CC0D00285E34 /* GroupUsersListComponentView.swift */,
@@ -805,6 +808,7 @@
 				E3DE737226E50A8600D9C9D3 /* UserResponse.swift in Sources */,
 				E30CABB026E3CC0D00285E34 /* GroupUsersListComponentView.swift in Sources */,
 				92E4568E26CEE9700024F598 /* LoginResponse.swift in Sources */,
+				92BCE44626E550EC00E4E929 /* ShrinkView.swift in Sources */,
 				E37AF72726E3DB5A00BD5C0B /* User.swift in Sources */,
 				92BCE42B26E3D67400E4E929 /* AddGroupService.swift in Sources */,
 				92FEA70426A5ED27008BFAA3 /* TableViewCell.swift in Sources */,

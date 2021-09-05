@@ -24,11 +24,21 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = UIColor.brand.blackBackground
         setupNavigationController()
         setupScrollView()
-        // todo
-//        service.fetchUserData(completion: {
-//
-//        })
-        setupContent(user: Mock.shared.fetchUserData())
+        
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.color = UIColor.brand.yellow
+        activityIndicator.startAnimating()
+        scrollView.setSingleContent(content: activityIndicator)
+
+        service.fetchUser(completion: { user in
+            if let user = user {
+                self.setupContent(user: user)
+                self.scrollView.alpha = 0
+                self.scrollView.fadeIn(0.5)
+            } else {
+                Toast.shared.presentToast("Error on fetch user data")
+            }
+        })
     }
     
     @objc private func didPressSaveButton() {
@@ -54,10 +64,10 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupContent(user: User) {
+        scrollView.clearComponents()
         appendCircleIcon(name: user.name)
         appendTextField(name: user.name, email: user.email)
         appendSaveButton()
-        
     }
     
     private func appendTextField(name: String, email: String) {

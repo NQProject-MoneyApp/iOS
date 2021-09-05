@@ -104,20 +104,25 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     }
     
     private func setupNavigationController() {
+
         navigationController?.setBackgroundColor(color: UIColor.brand.blackBackground)
         title = "Groups"
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        let leftBarItem = UIBarButtonItem(image: UIImage(named: "userProfile"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
-        leftBarItem.tintColor = UIColor.white
-        
-        let rightBarItem = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: self, action: #selector(onAddButtonTapped))
-        rightBarItem.tintColor = UIColor.brand.yellow
-        
-        navigationItem.leftBarButtonItem = leftBarItem
-        navigationItem.rightBarButtonItem = rightBarItem
-    
+        if #available(iOS 14, *) {
+            createContextMenu()
+
+        } else {
+            let leftBarItem = UIBarButtonItem(image: UIImage(named: "userProfile"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
+            leftBarItem.tintColor = UIColor.white
+            
+            let rightBarItem = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: self, action: #selector(onAddButtonTapped))
+            rightBarItem.tintColor = UIColor.brand.yellow
+            
+            navigationItem.leftBarButtonItem = leftBarItem
+            navigationItem.rightBarButtonItem = rightBarItem
+        }
     }
     
     @objc func onProfileButtonTapped() {
@@ -128,7 +133,6 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.overrideUserInterfaceStyle = .dark
         alert.view.tintColor = UIColor.brand.yellow
 
         alert.addAction(logoutAction)
@@ -150,7 +154,6 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alert.overrideUserInterfaceStyle = .dark
         alert.view.tintColor = UIColor.brand.yellow
 
         alert.addAction(joinAction)
@@ -161,8 +164,8 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         
     private func showJoinAlert() {
         let alert = UIAlertController(title: "Enter the code", message: nil, preferredStyle: .alert)
-        alert.overrideUserInterfaceStyle = .dark
         alert.view.tintColor = UIColor.brand.yellow
+        
         alert.addTextField { textField in
             textField.placeholder = "Code"
             textField.tintColor = UIColor.brand.yellow
@@ -198,6 +201,37 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
                 Toast.shared.presentToast(result)
                 self.scrollView.startRefresh()
             }
+        }
+    }
+    
+    private func createContextMenu() {
+        // todo change icon
+        if #available(iOS 14, *) {
+            var leftMenuItems: [UIAction] {
+                return [
+                    UIAction(title: "Logout", image: UIImage(systemName: "sun.max"), handler: { _ in
+                        Authentication.shared.logout()
+                    })
+                ]
+            }
+            
+            var rightMenuItems: [UIAction] {
+                return [
+                    UIAction(title: "Join", image: UIImage(systemName: "sun.max"), handler: { _ in
+                        self.showJoinAlert()
+                    }),
+                    UIAction(title: "Create a new group", image: UIImage(systemName: "sun.max"), handler: { _ in
+                        guard let vc = AddGroupViewController.loadFromStoryboard() else { return }
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    })
+                ]
+            }
+
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add"), menu: UIMenu(children: rightMenuItems))
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "userProfile"), menu: UIMenu(children: leftMenuItems))
+            
+            navigationItem.rightBarButtonItem?.tintColor = UIColor.brand.yellow
+            navigationItem.leftBarButtonItem?.tintColor = UIColor.brand.yellow
         }
     }
 }

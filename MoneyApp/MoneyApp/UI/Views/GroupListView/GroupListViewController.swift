@@ -5,7 +5,6 @@
 //  Created by Szymon Gęsicki on 05/06/2021.
 //
 
-import UIKit
 import SnapKit
 
 class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollViewRefreshDelegate {
@@ -222,7 +221,14 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
                 return [
                     UIAction(title: "Logout", image: UIImage(systemName: "sun.max"), handler: { _ in
                         Authentication.shared.logout()
+                    }),
+                    UIAction(title: "Profile", image: UIImage(systemName: "sun.max"), handler: { _ in
+                        guard let vc = ProfileViewController.loadFromStoryBoard() else { return }
+                        self.navigationController?.pushViewController(vc, animated: true)
                     })
+//                    UIAction(title: "About", image: UIImage(systemName: "sun.max"), handler: { _ in
+//                        Authentication.shared.logout()
+//                    })
                 ]
             }
             

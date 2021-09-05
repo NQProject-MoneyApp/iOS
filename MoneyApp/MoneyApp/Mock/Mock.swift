@@ -30,4 +30,8 @@ class Mock {
             User(pk: 3, name: "Danielle", email: "dan@gmail.com", balance: -20)
         ]
     }
+    
+    func fetchUserData() -> User {
+        return User(pk: 0, name: "Miłosz", email: "milosz@gmail.com", balance: -300)
+    }
 }

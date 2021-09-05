@@ -32,11 +32,7 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         setupObserver()
         setupNavigationController()
         setupScrollView()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(didEnterFromBackground), name:
-                UIApplication.willEnterForegroundNotification, object: nil)
         scrollView.startRefresh()
-        // todo add activity indicator
     }
     
     @objc func didEnterFromBackground() {
@@ -105,6 +101,9 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
 
     private func setupObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(onLogout), name: NSNotification.Name("logout"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didEnterFromBackground), name:
+                UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     private func setupNavigationController() {
@@ -161,20 +160,7 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
-    
-    private func createGroupOptionMenu() -> UIMenu {
         
-        let join = UIAction(title: "Join",image: UIImage()) { _ in
-            self.showJoinAlert()
-        }
-        let add = UIAction(title: "Add", image: UIImage()) { _ in
-            
-            
-        } //TODO
-
-        return UIMenu( title: "What would you like to do?", children: [join, add])
-    }
-    
     private func showJoinAlert() {
         let alert = UIAlertController(title: "Enter the code", message: nil, preferredStyle: .alert)
         alert.overrideUserInterfaceStyle = .dark;
@@ -187,12 +173,15 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         }
         
         alert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Join", style: .default, handler: { _ in
-            self.joinToGroup(code: alert.textFields?.first?.text)
-        }))
         
-        alert.actions[1].isEnabled = false
- 
+        let joinAction = UIAlertAction(title: "Join", style: .default, handler: { _ in
+            self.joinToGroup(code: alert.textFields?.first?.text)
+        })
+        
+        joinAction.isEnabled = false
+        
+        alert.addAction(joinAction)
+         
         present(alert, animated: true)
     }
     
@@ -208,6 +197,7 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         if let code = code, !code.isEmpty {
             GroupListService.shared.joinGroup(code: code) { result in
                 Toast.shared.presentToast(result)
+                self.scrollView.startRefresh()
             }
         }
     }

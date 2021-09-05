@@ -44,13 +44,7 @@ class GroupDetailsViewController: UIViewController {
         let newExpenseButton = PrimaryButton()
         setupExpenseButton(button: newExpenseButton)
         let groupUsersList = GroupUsersListComponentView()
-<<<<<<< HEAD
-        service.fetchGroupDetails(group: group, completion: { result in
-            groupUsersList.create(members: result.members)
-        })
-=======
         groupUsersList.create(members: group.members)
->>>>>>> main
         
         scrollView.append(component: icon, last: false)
         scrollView.append(component: groupValuesView, last: false)

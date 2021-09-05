@@ -93,5 +93,13 @@ class GroupDetailsViewController: UIViewController {
         button.setTitleColor(UIColor.black, for: .normal)
         button.backgroundColor = UIColor.brand.yellow
         button.layer.cornerRadius = 10
+        
+        button.addTarget(self, action: #selector(onNewExpenseNavigate), for: .touchUpInside)
+    }
+    
+    @objc private func onNewExpenseNavigate() {
+        guard let vc = AddExpenseViewController.loadFromStoryboard() else { return }
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -14,6 +14,9 @@
 		4DDEBC1726E3C327000894B6 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC1626E3C327000894B6 /* Button.swift */; };
 		4DDEBC1926E3C601000894B6 /* TextWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC1826E3C601000894B6 /* TextWithButton.swift */; };
 		4DDEBC1B26E3CE24000894B6 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC1A26E3CE24000894B6 /* RegisterResponse.swift */; };
+		4DDEBC2326E4EB42000894B6 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC2226E4EB42000894B6 /* AddExpenseViewController.swift */; };
+		4DDEBC2526E4EB74000894B6 /* AddExpenseView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEBC2426E4EB74000894B6 /* AddExpenseView.storyboard */; };
+		4DDEBC2726E4FF0E000894B6 /* SelectParticipantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC2626E4FF0E000894B6 /* SelectParticipantsView.swift */; };
 		70DFAD49855C64FAE178143B /* Pods_MoneyApp_MoneyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BE08076C189D8CC6C663A5 /* Pods_MoneyApp_MoneyAppUITests.framework */; };
 		92893E56266BD961000CED03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E55266BD961000CED03 /* AppDelegate.swift */; };
 		92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E57266BD961000CED03 /* SceneDelegate.swift */; };
@@ -90,6 +93,9 @@
 		4DDEBC1626E3C327000894B6 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		4DDEBC1826E3C601000894B6 /* TextWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWithButton.swift; sourceTree = "<group>"; };
 		4DDEBC1A26E3CE24000894B6 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
+		4DDEBC2226E4EB42000894B6 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		4DDEBC2426E4EB74000894B6 /* AddExpenseView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddExpenseView.storyboard; sourceTree = "<group>"; };
+		4DDEBC2626E4FF0E000894B6 /* SelectParticipantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantsView.swift; sourceTree = "<group>"; };
 		6D848F9CDA51F8C248338DD7 /* Pods-MoneyApp-MoneyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp-MoneyAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MoneyApp-MoneyAppUITests/Pods-MoneyApp-MoneyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		81DE3A7461FB20B90373FFF4 /* Pods-MoneyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyAppTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyAppTests/Pods-MoneyAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		8827E214D6520A96C0AE83D5 /* Pods-MoneyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp.release.xcconfig"; path = "Target Support Files/Pods-MoneyApp/Pods-MoneyApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +204,15 @@
 			path = RegisterView;
 			sourceTree = "<group>";
 		};
+		4DDEBC2126E4EB22000894B6 /* AddExpenseView */ = {
+			isa = PBXGroup;
+			children = (
+				4DDEBC2226E4EB42000894B6 /* AddExpenseViewController.swift */,
+				4DDEBC2426E4EB74000894B6 /* AddExpenseView.storyboard */,
+			);
+			path = AddExpenseView;
+			sourceTree = "<group>";
+		};
 		6F8908BF32BC4C121A296A9D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +317,7 @@
 		92E4567626CED4B30024F598 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4DDEBC2126E4EB22000894B6 /* AddExpenseView */,
 				92BCE42726E3D63900E4E929 /* AddGroupView */,
 				E39B036026E394E300EFE780 /* GroupDetailsView */,
 				92E4567E26CED7DA0024F598 /* Auth */,
@@ -321,6 +337,7 @@
 				4DDEBC1426E3BB19000894B6 /* TextField.swift */,
 				4DDEBC1626E3C327000894B6 /* Button.swift */,
 				4DDEBC1826E3C601000894B6 /* TextWithButton.swift */,
+				4DDEBC2626E4FF0E000894B6 /* SelectParticipantsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -585,6 +602,7 @@
 				E3F1EEED26E3A78A00C6814B /* GroupDetailsView.storyboard in Resources */,
 				92E4569626D0E9160024F598 /* GroupListView.storyboard in Resources */,
 				92FEA6F826A5E60F008BFAA3 /* ScrollView.storyboard in Resources */,
+				4DDEBC2526E4EB74000894B6 /* AddExpenseView.storyboard in Resources */,
 				92E4568326CED8220024F598 /* LoginView.storyboard in Resources */,
 				92FEA6F626A5E604008BFAA3 /* TableView.storyboard in Resources */,
 				92893E5D266BD961000CED03 /* Main.storyboard in Resources */,
@@ -759,6 +777,7 @@
 				92BCE42B26E3D67400E4E929 /* AddGroupService.swift in Sources */,
 				92FEA70426A5ED27008BFAA3 /* TableViewCell.swift in Sources */,
 				92893E56266BD961000CED03 /* AppDelegate.swift in Sources */,
+				4DDEBC2326E4EB42000894B6 /* AddExpenseViewController.swift in Sources */,
 				92E4568B26CEE81F0024F598 /* UserRepository.swift in Sources */,
 				92BCE42926E3D65F00E4E929 /* AddGroupViewController.swift in Sources */,
 				92FEA70226A5E856008BFAA3 /* UIViewController+Extensions.swift in Sources */,
@@ -771,6 +790,7 @@
 				92E4567C26CED67F0024F598 /* Authentication.swift in Sources */,
 				92E456A226D1057A0024F598 /* GroupRepository.swift in Sources */,
 				4DDEBC1B26E3CE24000894B6 /* RegisterResponse.swift in Sources */,
+				4DDEBC2726E4FF0E000894B6 /* SelectParticipantsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

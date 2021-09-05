@@ -13,7 +13,10 @@ class GroupDetailsViewController: UIViewController {
     var group: Group?
     
     private let scrollView = ScrollView()
-    private let service = GroupDetailsService()
+    
+    func didPressNewExpense() {
+        // todo
+    }
     
     static func loadFromStoryboard() -> GroupDetailsViewController? {
         let storyboard = UIStoryboard(name: "GroupDetailsView", bundle: nil)
@@ -24,25 +27,30 @@ class GroupDetailsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.brand.blackBackground
         setupScrollView()
-        
         guard let group = group else { return }
         setupNavigationController(name: group.name)
-
+        setupContent(group: group)
+       }
+    
+    private func setupContent(group: Group) {
         let icon = createIconComponent(icon: group.icon.icon())
 
         let groupValuesView = GroupValuesComponentView()
         groupValuesView.create(group: group)
         
-        let settleUpButton = UIButton()
+        let settleUpButton = PrimaryButton()
         setupSettleUpButton(button: settleUpButton)
 
-        let newExpenseButton = UIButton()
+        let newExpenseButton = PrimaryButton()
         setupExpenseButton(button: newExpenseButton)
-        
         let groupUsersList = GroupUsersListComponentView()
+<<<<<<< HEAD
         service.fetchGroupDetails(group: group, completion: { result in
             groupUsersList.create(members: result.members)
         })
+=======
+        groupUsersList.create(members: group.members)
+>>>>>>> main
         
         scrollView.appendVertical(component: icon, last: false)
         scrollView.appendVertical(component: groupValuesView, last: false)

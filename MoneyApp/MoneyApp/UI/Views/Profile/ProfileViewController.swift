@@ -62,7 +62,7 @@ class ProfileViewController: UIViewController {
 
         } else {
             saveButton.isEnabled = false
-            saveButton.backgroundColor = UIColor.brand.middleGray
+            saveButton.backgroundColor = UIColor.brand.gray
             saveButton.setTitleColor(UIColor.white, for: .normal)
         }
     }
@@ -80,7 +80,6 @@ class ProfileViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.create()
         scrollView.snp.makeConstraints { make in
-            
             make.edges.equalTo(view)
         }
     }

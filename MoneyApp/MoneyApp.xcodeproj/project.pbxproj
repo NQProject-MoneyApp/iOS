@@ -39,6 +39,9 @@
 		92BCE43926E50C5100E4E929 /* ProfileView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BCE43826E50C5100E4E929 /* ProfileView.storyboard */; };
 		92BCE43B26E50EC200E4E929 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE43A26E50EC200E4E929 /* ProfileService.swift */; };
 		92BCE43F26E520D100E4E929 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE43E26E520D100E4E929 /* PrimaryButton.swift */; };
+		92BCE44226E545FE00E4E929 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE44126E545FE00E4E929 /* AboutViewController.swift */; };
+		92BCE44426E5460900E4E929 /* AboutView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BCE44326E5460900E4E929 /* AboutView.storyboard */; };
+		92BCE44626E550EC00E4E929 /* ShrinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE44526E550EC00E4E929 /* ShrinkView.swift */; };
 		92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567926CED5790024F598 /* UserDefaultsKeys.swift */; };
 		92E4567C26CED67F0024F598 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567B26CED67F0024F598 /* Authentication.swift */; };
 		92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4568026CED7F40024F598 /* LoginViewController.swift */; };
@@ -70,7 +73,6 @@
 		E37AF72526E3CF7300BD5C0B /* GroupBalanceComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37AF72426E3CF7300BD5C0B /* GroupBalanceComponentView.swift */; };
 		E37AF72726E3DB5A00BD5C0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37AF72626E3DB5A00BD5C0B /* User.swift */; };
 		E39B036226E3952C00EFE780 /* GroupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */; };
-		E39B036426E3999600EFE780 /* GroupDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B036326E3999600EFE780 /* GroupDetailsService.swift */; };
 		E3DE737026E4F49000D9C9D3 /* GroupUsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE736F26E4F49000D9C9D3 /* GroupUsersResponse.swift */; };
 		E3DE737226E50A8600D9C9D3 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE737126E50A8600D9C9D3 /* UserResponse.swift */; };
 		E3F1EEED26E3A78A00C6814B /* GroupDetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F1EEEC26E3A78A00C6814B /* GroupDetailsView.storyboard */; };
@@ -137,6 +139,9 @@
 		92BCE43826E50C5100E4E929 /* ProfileView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileView.storyboard; sourceTree = "<group>"; };
 		92BCE43A26E50EC200E4E929 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		92BCE43E26E520D100E4E929 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		92BCE44126E545FE00E4E929 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		92BCE44326E5460900E4E929 /* AboutView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutView.storyboard; sourceTree = "<group>"; };
+		92BCE44526E550EC00E4E929 /* ShrinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkView.swift; sourceTree = "<group>"; };
 		92E4567926CED5790024F598 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		92E4567B26CED67F0024F598 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		92E4568026CED7F40024F598 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -169,7 +174,6 @@
 		E37AF72426E3CF7300BD5C0B /* GroupBalanceComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBalanceComponentView.swift; sourceTree = "<group>"; };
 		E37AF72626E3DB5A00BD5C0B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsViewController.swift; sourceTree = "<group>"; };
-		E39B036326E3999600EFE780 /* GroupDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsService.swift; sourceTree = "<group>"; };
 		E3DE736F26E4F49000D9C9D3 /* GroupUsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUsersResponse.swift; sourceTree = "<group>"; };
 		E3DE737126E50A8600D9C9D3 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		E3F1EEEC26E3A78A00C6814B /* GroupDetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupDetailsView.storyboard; sourceTree = "<group>"; };
@@ -327,6 +331,15 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		92BCE44026E545F100E4E929 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				92BCE44126E545FE00E4E929 /* AboutViewController.swift */,
+				92BCE44326E5460900E4E929 /* AboutView.storyboard */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		92E4567426CED4A50024F598 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				4DDEBC2126E4EB22000894B6 /* AddExpenseView */,
+				92BCE44026E545F100E4E929 /* About */,
 				92BCE43526E50B7E00E4E929 /* Profile */,
 				92BCE42726E3D63900E4E929 /* AddGroupView */,
 				E39B036026E394E300EFE780 /* GroupDetailsView */,
@@ -364,6 +378,7 @@
 			children = (
 				92E4569B26D0F8AE0024F598 /* GroupComponentView.swift */,
 				92BCE43E26E520D100E4E929 /* PrimaryButton.swift */,
+				92BCE44526E550EC00E4E929 /* ShrinkView.swift */,
 				E3F1EEEE26E3BA2300C6814B /* GroupValuesComponentView.swift */,
 				92E4569726D0F7440024F598 /* ScrollView.swift */,
 				E30CABAF26E3CC0D00285E34 /* GroupUsersListComponentView.swift */,
@@ -517,7 +532,6 @@
 			isa = PBXGroup;
 			children = (
 				E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */,
-				E39B036326E3999600EFE780 /* GroupDetailsService.swift */,
 				E3F1EEEC26E3A78A00C6814B /* GroupDetailsView.storyboard */,
 			);
 			path = GroupDetailsView;
@@ -636,6 +650,7 @@
 				92893E62266BD963000CED03 /* LaunchScreen.storyboard in Resources */,
 				92FEA6FE26A5E62F008BFAA3 /* ControlView.storyboard in Resources */,
 				92893E5F266BD963000CED03 /* Assets.xcassets in Resources */,
+				92BCE44426E5460900E4E929 /* AboutView.storyboard in Resources */,
 				92BCE42D26E3D69F00E4E929 /* AddGroupView.storyboard in Resources */,
 				92BCE43926E50C5100E4E929 /* ProfileView.storyboard in Resources */,
 				E3F1EEED26E3A78A00C6814B /* GroupDetailsView.storyboard in Resources */,
@@ -796,7 +811,6 @@
 				92E4569226CEED5C0024F598 /* Brand.swift in Sources */,
 				92E4569A26D0F87F0024F598 /* Group.swift in Sources */,
 				92BCE43426E4F9AE00E4E929 /* UIImageView+Extensions.swift in Sources */,
-				E39B036426E3999600EFE780 /* GroupDetailsService.swift in Sources */,
 				4DDEBC1726E3C327000894B6 /* Button.swift in Sources */,
 				92E4568526CEE4A90024F598 /* Toast.swift in Sources */,
 				92E4569C26D0F8AE0024F598 /* GroupComponentView.swift in Sources */,
@@ -813,11 +827,13 @@
 				92BCE43726E50B8A00E4E929 /* ProfileViewController.swift in Sources */,
 				92FEA6FA26A5E61B008BFAA3 /* ScrollViewController.swift in Sources */,
 				92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */,
+				92BCE44226E545FE00E4E929 /* AboutViewController.swift in Sources */,
 				92893E86266BDD28000CED03 /* Config.swift in Sources */,
 				92E456A026D0F9BA0024F598 /* Mock.swift in Sources */,
 				E3DE737226E50A8600D9C9D3 /* UserResponse.swift in Sources */,
 				E30CABB026E3CC0D00285E34 /* GroupUsersListComponentView.swift in Sources */,
 				92E4568E26CEE9700024F598 /* LoginResponse.swift in Sources */,
+				92BCE44626E550EC00E4E929 /* ShrinkView.swift in Sources */,
 				E37AF72726E3DB5A00BD5C0B /* User.swift in Sources */,
 				92BCE42B26E3D67400E4E929 /* AddGroupService.swift in Sources */,
 				92FEA70426A5ED27008BFAA3 /* TableViewCell.swift in Sources */,

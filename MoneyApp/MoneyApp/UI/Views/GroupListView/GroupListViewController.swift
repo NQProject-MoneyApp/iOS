@@ -137,6 +137,11 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     
     @objc func onProfileButtonTapped() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        
+        let profileAction = UIAlertAction(title: "Profile", style: .default) { _ in
+            guard let vc = ProfileViewController.loadFromStoryBoard() else { return }
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
 
         let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
             Authentication.shared.logout()
@@ -144,7 +149,8 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.view.tintColor = UIColor.brand.yellow
-
+        
+        alert.addAction(profileAction)
         alert.addAction(logoutAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
@@ -215,40 +221,40 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     }
     
     private func createContextMenu() {
-        // todo change icon
-        if #available(iOS 14, *) {
-            var leftMenuItems: [UIAction] {
-                return [
-                    UIAction(title: "Logout", image: UIImage(systemName: "sun.max"), handler: { _ in
-                        Authentication.shared.logout()
-                    }),
-                    UIAction(title: "Profile", image: UIImage(systemName: "sun.max"), handler: { _ in
-                        guard let vc = ProfileViewController.loadFromStoryBoard() else { return }
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    })
-//                    UIAction(title: "About", image: UIImage(systemName: "sun.max"), handler: { _ in
-//                        Authentication.shared.logout()
-//                    })
-                ]
-            }
-            
-            var rightMenuItems: [UIAction] {
-                return [
-                    UIAction(title: "Join", image: UIImage(systemName: "sun.max"), handler: { _ in
-                        self.showJoinAlert()
-                    }),
-                    UIAction(title: "Create a new group", image: UIImage(systemName: "sun.max"), handler: { _ in
-                        guard let vc = AddGroupViewController.loadFromStoryboard() else { return }
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    })
-                ]
-            }
+            if #available(iOS 14, *) {
+                var leftMenuItems: [UIAction] {
+                    return [
+                        UIAction(title: "Profile", handler: { _ in
+                            guard let vc = ProfileViewController.loadFromStoryBoard() else { return }
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }),
+                        UIAction(title: "About", handler: { _ in
+                            guard let vc = AboutViewController.loadFromStoryBoard() else { return }
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }),
+                        UIAction(title: "Logout", handler: { _ in
+                            Authentication.shared.logout()
+                        })
+                    ]
+                }
+                
+                var rightMenuItems: [UIAction] {
+                    return [
+                        UIAction(title: "Join", handler: { _ in
+                            self.showJoinAlert()
+                        }),
+                        UIAction(title: "Create a new group", handler: { _ in
+                            guard let vc = AddGroupViewController.loadFromStoryboard() else { return }
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        })
+                    ]
+                }
 
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add"), menu: UIMenu(children: rightMenuItems))
-            navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "userProfile"), menu: UIMenu(children: leftMenuItems))
-            
-            navigationItem.rightBarButtonItem?.tintColor = UIColor.brand.yellow
-            navigationItem.leftBarButtonItem?.tintColor = UIColor.brand.yellow
+                navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add"), menu: UIMenu(children: rightMenuItems))
+                navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "userProfile"), menu: UIMenu(children: leftMenuItems))
+                
+                navigationItem.rightBarButtonItem?.tintColor = UIColor.brand.yellow
+                navigationItem.leftBarButtonItem?.tintColor = UIColor.brand.yellow
+            }
         }
-    }
 }

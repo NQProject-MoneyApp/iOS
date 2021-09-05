@@ -40,7 +40,6 @@ class GroupListService {
         })
     }
     
-    
     // todo move to utilities
     private func stringToDate(stringDate: String) -> Date {
         // todo parse date

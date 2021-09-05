@@ -40,7 +40,7 @@ class GroupValuesComponentView: UIView {
             make.top.equalTo(totalCost.snp.bottom).offset(8)
         }
         
-        balance.snp.makeConstraints{ make in
+        balance.snp.makeConstraints { make in
             make.right.equalTo(snp.right)
             make.top.equalTo(balanceLabel.snp.top)
             make.bottom.equalTo(snp.bottom)
@@ -61,8 +61,8 @@ class GroupValuesComponentView: UIView {
         numberLabel.text = "$ \(amount.format(".2"))"
         numberLabel.font = UIFont.boldSystemFont(ofSize: 24)
         
-        if(isBalance) {
-            if(amount < 0) {
+        if isBalance {
+            if amount < 0 {
                 numberLabel.textColor = UIColor.red
             } else {
                 numberLabel.textColor = UIColor.green

@@ -14,13 +14,11 @@ protocol ScrollViewRefreshDelegate {
 
 class ScrollView: UIView {
     
-    
-    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private var components: [UIView] = []
     private var edgeInsets: UIEdgeInsets = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
-    private var refreshDelegate: ScrollViewRefreshDelegate? = nil
+    private var refreshDelegate: ScrollViewRefreshDelegate?
     
     func create() {
         addSubview(scrollView)
@@ -49,7 +47,7 @@ class ScrollView: UIView {
    }
     
     func startRefresh() {
-        
+        // TODO
         let offsetPoint = CGPoint.init(x: 0, y: scrollView.contentOffset.y - scrollView.refreshControl!.frame.size.height)
         scrollView.setContentOffset(offsetPoint, animated: true)
         scrollView.refreshControl?.beginRefreshing()
@@ -58,7 +56,7 @@ class ScrollView: UIView {
     }
     
     @objc private func handleRefreshControl() {
-        refreshDelegate!.didRefreshList(refreshCompletion: {
+        refreshDelegate?.didRefreshList(refreshCompletion: {
             DispatchQueue.main.async {
               self.scrollView.refreshControl?.endRefreshing()
            }

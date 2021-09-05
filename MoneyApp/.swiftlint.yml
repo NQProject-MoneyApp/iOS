@@ -1,0 +1,33 @@
+disabled_rules: # rule identifiers to exclude from running
+  - trailing_whitespace # Not very useful
+  - large_tuple # Not very useful
+  - type_name # Not very useful
+  - identifier_name # Not very useful
+  - line_length # Not very useful
+  - shorthand_operator # Does not work with SwiftDate
+  - class_delegate_protocol # Does not work with Xcode
+  - function_body_length # Will raise compilation error for unit tests
+  - orphaned_doc_comment
+  - type_body_length # Not very useful
+  - cyclomatic_complexity # Not very useful
+  - file_length # Maybe later
+  - function_parameter_count # Will raise error for AidlabSDK
+  - todo # Too many, haha!
+  - comment_spacing # Too many, not very useful
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+
+opt_in_rules:
+- unneeded_parentheses_in_closure_argument
+- closure_spacing
+- collection_alignment
+- contains_over_filter_count
+- contains_over_filter_is_empty
+- first_where
+- last_where
+- sorted_imports
+- vertical_parameter_alignment_on_call
+- sorted_first_last
+- empty_count
+- force_unwrapping
+

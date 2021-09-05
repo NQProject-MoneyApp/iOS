@@ -8,11 +8,9 @@
 import Foundation
 import UIKit
 
-
-
 class TextWithButton : UIView {
     
-    var tapDelegate: (() -> Void)? = nil
+    private var tapDelegate: (() -> Void)?
     
     func create(labelText: String, buttonText: String, onTap: @escaping () -> Void) {
         self.tapDelegate = onTap
@@ -48,9 +46,7 @@ class TextWithButton : UIView {
     }
     
     @objc private func onTapAction() {
-        tapDelegate!()
+        tapDelegate?()
     }
-    
-    
     
 }

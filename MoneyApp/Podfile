@@ -12,6 +12,7 @@ target 'MoneyApp' do
   pod 'Toast-Swift'
   pod 'Moya'
   pod 'SGSwiftExtensions'
+  pod 'SwiftLint'
 
   target 'MoneyAppTests' do
     inherit! :search_paths

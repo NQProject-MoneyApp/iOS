@@ -17,10 +17,9 @@ extension UITextField {
         autocorrectionType = .no
         autocapitalizationType = .none
         
-        
         layer.cornerRadius = 10.0
         // left text offset
-        layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
+        layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0)
 
         snp.makeConstraints { make in
             make.edges.equalTo(self.snp.edges)

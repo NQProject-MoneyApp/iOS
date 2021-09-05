@@ -10,9 +10,7 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
-    
     private let service = LoginService()
-    
     private let image = UIImageView()
     private let label = UILabel()
     private let usernameTextField = UITextField()
@@ -155,12 +153,10 @@ class RegisterViewController: UIViewController {
         })
     }
 
-
     private func setupBackground() {
         view.backgroundColor = UIColor.black
     }
-    
-    
+        
     private func navigateToGroupList() {
         guard let vc = GroupListViewController.loadFromStoryboard() else { return }
         let root = UINavigationController(rootViewController: vc)

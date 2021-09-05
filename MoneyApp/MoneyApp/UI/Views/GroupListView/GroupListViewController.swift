@@ -14,7 +14,6 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     private var groups: [Group] = []
     private let service = GroupListService()
 
-
     // -- GroupComponentDelegate --
     func didPressGroupComponent(group: Group) {
         guard let vc = GroupDetailsViewController.loadFromStoryboard() else { return }
@@ -101,8 +100,7 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     private func setupObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(onLogout), name: NSNotification.Name("logout"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(didEnterFromBackground), name:
-                UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didEnterFromBackground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     private func setupNavigationController() {
@@ -163,9 +161,8 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         
     private func showJoinAlert() {
         let alert = UIAlertController(title: "Enter the code", message: nil, preferredStyle: .alert)
-        alert.overrideUserInterfaceStyle = .dark;
+        alert.overrideUserInterfaceStyle = .dark
         alert.view.tintColor = UIColor.brand.yellow
-        
         alert.addTextField { textField in
             textField.placeholder = "Code"
             textField.tintColor = UIColor.brand.yellow
@@ -191,8 +188,7 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
             
             var resp: UIResponder! = textField
             while !(resp is UIAlertController) { resp = resp.next }
-            let alert = resp as! UIAlertController
-            alert.actions[1].isEnabled = (textField.text != "")
+            (resp as? UIAlertController)?.actions[1].isEnabled = (textField.text != "")
         }
     }
     
@@ -205,4 +201,3 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
         }
     }
 }
-

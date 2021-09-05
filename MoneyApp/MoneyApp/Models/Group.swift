@@ -14,13 +14,13 @@ class Group {
     let name: String
     let totalCost: Double
     let userBalance: Double
-    let icon: String
+    let icon: MoneyAppIcon
     let createDate: Date
     let isFavourite: Bool
     // todo
 //    val members: List<User>
     
-    init(id: Int, name: String, totalCost: Double, userBalance: Double, icon: String, createDate: Date, isFavourite: Bool) {
+    init(id: Int, name: String, totalCost: Double, userBalance: Double, icon: MoneyAppIcon, createDate: Date, isFavourite: Bool) {
         self.id = id
         self.name = name
         self.totalCost = totalCost

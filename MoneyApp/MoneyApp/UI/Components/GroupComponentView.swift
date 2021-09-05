@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-protocol GroupComponentDelegate {
+protocol GroupComponentDelegate: AnyObject {
     func didPressGroupComponent(group: Group)
 }
 
 class GroupComponentView: UIView {
     
-    private var delegate: GroupComponentDelegate?
+    private weak var delegate: GroupComponentDelegate?
     private var group: Group?
     
     func create(group: Group, delegate: GroupComponentDelegate) {
@@ -26,7 +26,8 @@ class GroupComponentView: UIView {
         star.image = UIImage(named: group.isFavourite ? "star_selected" : "star")
         
         let icon = UIImageView()
-        icon.image = UIImage(named: group.icon)
+        icon.image = UIImage(named: group.icon.icon())
+        icon.setImageColor(color: UIColor.brand.yellow)
         
         let textContainer = createTextContainer(text: group.name, balance: group.userBalance)
 
@@ -44,8 +45,7 @@ class GroupComponentView: UIView {
         icon.snp.makeConstraints { make in
             make.left.equalTo(snp.left).offset(13)
             make.centerY.equalTo(snp.centerY)
-            make.width.equalTo(64)
-            make.height.equalTo(38)
+            make.width.greaterThanOrEqualTo(64)
         }
         
         textContainer.snp.makeConstraints { make in

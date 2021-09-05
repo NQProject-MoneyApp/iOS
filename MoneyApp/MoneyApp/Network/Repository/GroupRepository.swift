@@ -64,4 +64,15 @@ class GroupRepository {
             }
         }
     }
+    
+    func markAsFavourite(group: Group, completion: @escaping((Bool) -> Void)) {
+        _ = defaultRequest(api: .editGroup(group: group)) { result in
+            
+            if case let .success(response) = result, 200 ... 299 ~= response.statusCode {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
 }

@@ -66,4 +66,10 @@ class GroupListService {
             }
         })
     }
+    
+    func markAsFavourite(group: Group, completion: @escaping ((Bool) -> Void)) {
+        GroupRepository.shared.markAsFavourite(group: group, completion: { result in
+            completion(result)
+        })
+    }
 }

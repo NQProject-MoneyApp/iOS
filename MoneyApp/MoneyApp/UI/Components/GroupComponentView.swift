@@ -10,6 +10,7 @@ import UIKit
 
 protocol GroupComponentDelegate: AnyObject {
     func didPressGroupComponent(group: Group)
+    func didPressFavouriteIcon(group: Group)
 }
 
 class GroupComponentView: UIView {
@@ -24,6 +25,7 @@ class GroupComponentView: UIView {
         
         let star = UIImageView()
         star.image = UIImage(named: group.isFavourite ? "star_selected" : "star")
+        star.addTapGesture(tapNumber: 1, target: self, action: #selector(didPressFavouriteIcon))
         
         let icon = UIImageView()
         icon.image = UIImage(named: group.icon.icon())
@@ -95,6 +97,11 @@ class GroupComponentView: UIView {
         delegate?.didPressGroupComponent(group: group)
     }
     
+    @objc func didPressFavouriteIcon() {
+        guard let group = group else { return }
+        delegate?.didPressFavouriteIcon(group: group)
+    }
+
     private func createTitleLabel(text: String) -> UILabel {
         let titleLabel = UILabel()
         titleLabel.text = text

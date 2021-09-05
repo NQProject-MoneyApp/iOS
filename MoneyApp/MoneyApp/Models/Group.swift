@@ -11,12 +11,12 @@ import Foundation
 class Group {
     
     let id: Int
-    let name: String
+    var name: String
     let totalCost: Double
     let userBalance: Double
-    let icon: MoneyAppIcon
+    var icon: MoneyAppIcon
     let createDate: Date
-    let isFavourite: Bool
+    var isFavourite: Bool
     // todo
 //    val members: List<User>
     

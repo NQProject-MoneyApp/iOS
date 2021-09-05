@@ -45,11 +45,11 @@ class GroupDetailsViewController: UIViewController {
         let groupUsersList = GroupUsersListComponentView()
         groupUsersList.create(members: group.members)
         
-        scrollView.appendVertical(component: icon, last: false)
-        scrollView.appendVertical(component: groupValuesView, last: false)
-        scrollView.appendVertical(component: settleUpButton, last: false)
-        scrollView.appendVertical(component: newExpenseButton, last: false)
-        scrollView.appendVertical(component: groupUsersList, last: true)
+        scrollView.append(component: icon, last: false)
+        scrollView.append(component: groupValuesView, last: false)
+        scrollView.append(component: settleUpButton, last: false)
+        scrollView.append(component: newExpenseButton, last: false)
+        scrollView.append(component: groupUsersList, last: true)
     }
     
     private func setupNavigationController(name: String) {

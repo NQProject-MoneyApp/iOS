@@ -89,7 +89,7 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
             for (idx, group) in groups.enumerated() {
                 let groupView = GroupComponentView()
                 groupView.create(group: group, delegate: self)
-                scrollView.appendVertical(component: groupView, last: idx == groups.count - 1)
+                scrollView.append(component: groupView, last: idx == groups.count - 1)
             }
         }
     }

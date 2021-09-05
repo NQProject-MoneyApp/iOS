@@ -63,12 +63,12 @@ class AboutViewController: UIViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         button.titleLabel?.textAlignment = .center
         button.addTarget(self, action: #selector(onButtonPressed), for: .touchUpInside)
-        scrollView.appendVertical(component: button, last: last)
+        scrollView.append(component: button, last: last)
     }
     
     private func appendHeader(text: String, last: Bool = false) {
         let label = createLabel(text: text, textColor: UIColor.brand.yellow, fontSize: 20)
-        scrollView.appendVertical(component: label, last: last)
+        scrollView.append(component: label, last: last)
     }
     
     private func appendConent(text: String, attribute: String, last: Bool = false) {
@@ -91,7 +91,7 @@ class AboutViewController: UIViewController {
             make.bottom.equalTo(container.snp.bottom)
         }
         
-        scrollView.appendVertical(component: container, last: last)
+        scrollView.append(component: container, last: last)
     }
     
     private func createLabel(text: String, textColor: UIColor, fontSize: CGFloat) -> UILabel {

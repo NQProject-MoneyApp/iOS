@@ -102,8 +102,8 @@ class ProfileViewController: UIViewController {
         nameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
 
-        scrollView.appendVertical(component: nameTextField, last: false)
-        scrollView.appendVertical(component: emailTextField, last: false)
+        scrollView.append(component: nameTextField, last: false)
+        scrollView.append(component: emailTextField, last: false)
 
         nameTextField.snp.makeConstraints { make in
             make.height.equalTo(49)
@@ -141,7 +141,7 @@ class ProfileViewController: UIViewController {
             make.center.equalTo(circle.snp.center)
         }
         
-        scrollView.appendVertical(component: container, last: false)
+        scrollView.append(component: container, last: false)
     }
     
     private func appendSaveButton() {
@@ -155,6 +155,6 @@ class ProfileViewController: UIViewController {
         saveButton.layer.cornerRadius = 12
         saveButton.addTarget(self, action: #selector(didPressSaveButton), for: .touchUpInside)
         
-        scrollView.appendVertical(component: saveButton, last: true)
+        scrollView.append(component: saveButton, last: true)
     }
 }

@@ -7,8 +7,7 @@
 
 import Foundation
 
-
-enum MoneyAppIcon: Int {
+enum MoneyAppIcon: Int, CaseIterable {
     case hamburger = 1
     case beerHamburger = 2
     case bowl = 3

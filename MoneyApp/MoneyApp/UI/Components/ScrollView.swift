@@ -12,15 +12,23 @@ protocol ScrollViewRefreshDelegate {
     func didRefreshList(refreshCompletion: @escaping () -> Void)
 }
 
+enum ScrollViewAxis {
+    case horizontal
+    case vertical
+}
+
 class ScrollView: UIView {
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private var components: [UIView] = []
     private var edgeInsets: UIEdgeInsets = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
+    private var axis: ScrollViewAxis = .vertical
     private var refreshDelegate: ScrollViewRefreshDelegate?
-    
-    func create() {
+
+    func create(axis: ScrollViewAxis = .vertical) {
+        self.axis = axis
+        
         addSubview(scrollView)
         
         scrollView.snp.makeConstraints { make in
@@ -30,9 +38,35 @@ class ScrollView: UIView {
         scrollView.addSubview(contentView)
                 
         contentView.snp.makeConstraints { make in
-            make.top.bottom.equalTo(scrollView)
-            make.left.right.equalTo(self)
+            
+            if axis == .horizontal {
+                make.top.bottom.equalTo(self)
+                make.left.right.equalTo(scrollView)
+            } else {
+                make.top.bottom.equalTo(scrollView)
+                make.left.right.equalTo(self)
+            }
         }
+    }
+    
+    func clearComponents() {
+        components.forEach { item in
+            item.removeFromSuperview()
+        }
+        components = []
+    }
+    
+    func append(component: UIView, last: Bool) {
+            
+        contentView.addSubview(component)
+        
+        if axis == .vertical {
+            appendVertical(component: component, last: last)
+        } else {
+            appendHorizontal(component: component, last: last)
+        }
+        
+        components.append(component)
     }
     
     func setRefreshDelegate(delegate: ScrollViewRefreshDelegate) {
@@ -63,16 +97,7 @@ class ScrollView: UIView {
         })
     }
     
-    func clearComponents() {
-        components.forEach { item in
-            item.removeFromSuperview()
-        }
-        components = []
-    }
-    
-    func appendVertical(component: UIView, last: Bool) {
-            
-        contentView.addSubview(component)
+    private func appendVertical(component: UIView, last: Bool) {
         
         component.snp.makeConstraints { make in
             make.left.right.equalTo(contentView).inset(edgeInsets.left)
@@ -87,9 +112,31 @@ class ScrollView: UIView {
                 make.bottom.equalTo(contentView.snp.bottom).offset(-32)
             }
         }
-        
-        components.append(component)
     }
+    
+    private func appendHorizontal(component: UIView, last: Bool) {
+        
+        component.snp.makeConstraints { make in
+            
+            if let last = components.last {
+                make.left.equalTo(last.snp.right).offset(edgeInsets.left)
+            } else {
+                make.left.equalTo(contentView).offset(edgeInsets.left)
+            }
+
+            make.top.bottom.equalTo(contentView).inset(edgeInsets.top)
+                        
+            if last {
+                make.right.equalTo(contentView.snp.right).offset(-32)
+            }
+        }
+    }
+    
+    func hideScrollIdicator() {
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+    }
+
     
     func setSingleContent(content: UIView) {
         clearComponents()

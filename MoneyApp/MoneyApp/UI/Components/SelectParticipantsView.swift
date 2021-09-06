@@ -101,7 +101,7 @@ class ParticipantView: UIView {
         nameText.font = UIFont.systemFont(ofSize: 16)
         nameText.textColor = UIColor.white
         
-        toggleButton.setTitleColor(UIColor.brand.yellow, for: .normal)
+        toggleButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         setButtonTitle()
         
         toggleButton.snp.makeConstraints { make in
@@ -120,9 +120,12 @@ class ParticipantView: UIView {
     
     private func setButtonTitle() {
         if participant!.isSelected {
-            toggleButton.setTitle("Remove", for: .normal)
+            toggleButton.setTitle("+", for: .normal)
+            toggleButton.setTitleColor(UIColor.brand.yellow, for: .normal)
+
         } else {
-            toggleButton.setTitle("Add", for: .normal)
+            toggleButton.setTitle("-", for: .normal)
+            toggleButton.setTitleColor(UIColor.red, for: .normal)
         }
     }
 }

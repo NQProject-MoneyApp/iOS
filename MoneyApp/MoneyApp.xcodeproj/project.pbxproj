@@ -42,6 +42,8 @@
 		92BCE44226E545FE00E4E929 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE44126E545FE00E4E929 /* AboutViewController.swift */; };
 		92BCE44426E5460900E4E929 /* AboutView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BCE44326E5460900E4E929 /* AboutView.storyboard */; };
 		92BCE44626E550EC00E4E929 /* ShrinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE44526E550EC00E4E929 /* ShrinkView.swift */; };
+		92BCE44C26E67F7400E4E929 /* AllExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE44B26E67F7400E4E929 /* AllExpensesViewController.swift */; };
+		92BCE44E26E67F8700E4E929 /* AllExpensesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BCE44D26E67F8700E4E929 /* AllExpensesView.storyboard */; };
 		92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567926CED5790024F598 /* UserDefaultsKeys.swift */; };
 		92E4567C26CED67F0024F598 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567B26CED67F0024F598 /* Authentication.swift */; };
 		92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4568026CED7F40024F598 /* LoginViewController.swift */; };
@@ -142,6 +144,8 @@
 		92BCE44126E545FE00E4E929 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		92BCE44326E5460900E4E929 /* AboutView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutView.storyboard; sourceTree = "<group>"; };
 		92BCE44526E550EC00E4E929 /* ShrinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkView.swift; sourceTree = "<group>"; };
+		92BCE44B26E67F7400E4E929 /* AllExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExpensesViewController.swift; sourceTree = "<group>"; };
+		92BCE44D26E67F8700E4E929 /* AllExpensesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllExpensesView.storyboard; sourceTree = "<group>"; };
 		92E4567926CED5790024F598 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		92E4567B26CED67F0024F598 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		92E4568026CED7F40024F598 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -340,6 +344,15 @@
 			path = About;
 			sourceTree = "<group>";
 		};
+		92BCE44A26E67F6400E4E929 /* AllExpenses */ = {
+			isa = PBXGroup;
+			children = (
+				92BCE44B26E67F7400E4E929 /* AllExpensesViewController.swift */,
+				92BCE44D26E67F8700E4E929 /* AllExpensesView.storyboard */,
+			);
+			path = AllExpenses;
+			sourceTree = "<group>";
+		};
 		92E4567426CED4A50024F598 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +375,7 @@
 		92E4567626CED4B30024F598 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				92BCE44A26E67F6400E4E929 /* AllExpenses */,
 				4DDEBC2126E4EB22000894B6 /* AddExpenseView */,
 				92BCE44026E545F100E4E929 /* About */,
 				92BCE43526E50B7E00E4E929 /* Profile */,
@@ -646,6 +660,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92BCE44E26E67F8700E4E929 /* AllExpensesView.storyboard in Resources */,
 				4D6342C926DEC9240065209B /* RegisterView.storyboard in Resources */,
 				92893E62266BD963000CED03 /* LaunchScreen.storyboard in Resources */,
 				92FEA6FE26A5E62F008BFAA3 /* ControlView.storyboard in Resources */,
@@ -849,6 +864,7 @@
 				92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */,
 				92BCE43226E4F56E00E4E929 /* Date+Extensions.swift in Sources */,
 				92E4568826CEE6520024F598 /* MoneyAppClient.swift in Sources */,
+				92BCE44C26E67F7400E4E929 /* AllExpensesViewController.swift in Sources */,
 				92FEA6FC26A5E625008BFAA3 /* ControlViewController.swift in Sources */,
 				4D6342C726DEC90A0065209B /* RegisterViewController.swift in Sources */,
 				92E4567C26CED67F0024F598 /* Authentication.swift in Sources */,

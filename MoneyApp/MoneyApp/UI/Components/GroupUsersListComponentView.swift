@@ -8,12 +8,18 @@
 import Foundation
 import UIKit
 
+protocol GroupUsersListComponentDelegate: AnyObject {
+    func didPressAllExpenses()
+}
+
 class GroupUsersListComponentView: UIView {
     
     private var components: [UIView] = []
     private var groupUsers: [User] = []
+    private weak var delegate: GroupUsersListComponentDelegate?
     
-    func create(members: [User]) {
+    func create(members: [User], delegate: GroupUsersListComponentDelegate) {
+        self.delegate = delegate
         groupUsers = members
         backgroundColor = UIColor.brand.gray
         layer.cornerRadius = 15
@@ -56,9 +62,14 @@ class GroupUsersListComponentView: UIView {
         }
     }
     
+    @objc private func didPressAllExpenses() {
+        delegate?.didPressAllExpenses()
+    }
+    
     private func setUpAllExpensesButton(button: UIButton) {
         button.setTitle("All expenses", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
         button.setTitleColor(UIColor.brand.yellow, for: .normal)
+        button.addTarget(self, action: #selector(didPressAllExpenses), for: .touchUpInside)
     }
 }

@@ -27,6 +27,7 @@ class AddExpenseViewController: UIViewController {
 
     override func viewDidLoad() {
         view.backgroundColor = UIColor.brand.blackBackground
+        title = "New expense"
         addTextFields()
         addParticipants()
         addSaveButton()

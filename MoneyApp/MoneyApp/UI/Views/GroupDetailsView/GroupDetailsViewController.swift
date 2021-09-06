@@ -8,19 +8,20 @@
 import Foundation
 import UIKit
 
-class GroupDetailsViewController: UIViewController {
+class GroupDetailsViewController: UIViewController, GroupUsersListComponentDelegate {
     
     var group: Group?
     
     private let scrollView = ScrollView()
-    
-    func didPressNewExpense() {
-        // todo
-    }
-    
+        
     static func loadFromStoryboard() -> GroupDetailsViewController? {
         let storyboard = UIStoryboard(name: "GroupDetailsView", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: "GroupDetailsView") as? GroupDetailsViewController
+    }
+    
+    func didPressAllExpenses() {
+        guard let vc = AllExpensesViewController.loadFromStoryboard() else { return }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     override func viewDidLoad() {
@@ -44,7 +45,7 @@ class GroupDetailsViewController: UIViewController {
         let newExpenseButton = PrimaryButton()
         setupExpenseButton(button: newExpenseButton)
         let groupUsersList = GroupUsersListComponentView()
-        groupUsersList.create(members: group.members)
+        groupUsersList.create(members: group.members, delegate: self)
         
         scrollView.append(component: icon, last: false)
         scrollView.append(component: groupValuesView, last: false)
@@ -56,6 +57,28 @@ class GroupDetailsViewController: UIViewController {
     private func setupNavigationController(name: String) {
         title = name
         navigationController?.navigationBar.tintColor = UIColor.brand.yellow
+        
+        if #available(iOS 14, *) {
+            var rightMenuItems: [UIAction] {
+                return [
+                    UIAction(title: "Code", handler: { _ in
+                        // TODO
+                    }),
+                    UIAction(title: "Add expense", handler: { _ in
+                        // TODO
+                    }),
+                    UIAction(title: "Edit", handler: { _ in
+                        // TODO
+                    }),
+                    UIAction(title: "All expenses", handler: { _ in
+                        // TODO
+                    })
+                ]
+            }
+
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add"), menu: UIMenu(children: rightMenuItems))
+            navigationItem.rightBarButtonItem?.tintColor = UIColor.brand.yellow
+        }
     }
     
     private func setupScrollView() {

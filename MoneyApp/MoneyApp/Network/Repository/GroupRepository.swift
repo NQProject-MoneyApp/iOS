@@ -142,4 +142,34 @@ class GroupRepository {
             }
         }
     }
+    
+    func fetchExpenses(groupdId: Int, completion: @escaping((Result<[ExpenseResponse], CustomError>) -> Void)) {
+                
+        _ = defaultRequest(api: .expenses(groupdId: groupdId)) { result in
+
+            if case let .success(response) = result {
+
+                if 200 ... 299 ~= response.statusCode {
+
+                    do {
+
+                        let expenses = try JSONDecoder().decode([ExpenseResponse].self, from: response.data)
+                        completion(.success(expenses))
+
+                    } catch let error {
+                        print("error while decoding \(error.localizedDescription)")
+                        completion(.failure(CustomError(description: error.localizedDescription)))
+                    }
+                } else {
+                    print("GroupRepository.fetch expenses error: \(String(decoding: response.data, as: UTF8.self))")
+                    completion(.failure(CustomError(description: "Error check credentials")))
+                }
+
+            } else if case let .failure(error) = result {
+                print("error \(error.localizedDescription)")
+                completion(.failure(CustomError(description: error.localizedDescription)))
+            }
+        }
+    }
+
  }

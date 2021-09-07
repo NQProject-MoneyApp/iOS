@@ -47,6 +47,9 @@
 		92BCE45026E7D92600E4E929 /* CodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE44F26E7D92600E4E929 /* CodeResponse.swift */; };
 		92BCE45226E7D9B300E4E929 /* GroupDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE45126E7D9B300E4E929 /* GroupDetailsService.swift */; };
 		92BCE45426E8031700E4E929 /* CodeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE45326E8031700E4E929 /* CodeAlertController.swift */; };
+		92BCE45626E804C200E4E929 /* ExpenseComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE45526E804C200E4E929 /* ExpenseComponent.swift */; };
+		92BCE45826E8089A00E4E929 /* ExpenseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE45726E8089A00E4E929 /* ExpenseResponse.swift */; };
+		92BCE45A26E8092D00E4E929 /* AllExpensesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE45926E8092D00E4E929 /* AllExpensesService.swift */; };
 		92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567926CED5790024F598 /* UserDefaultsKeys.swift */; };
 		92E4567C26CED67F0024F598 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567B26CED67F0024F598 /* Authentication.swift */; };
 		92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4568026CED7F40024F598 /* LoginViewController.swift */; };
@@ -152,6 +155,9 @@
 		92BCE44F26E7D92600E4E929 /* CodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeResponse.swift; sourceTree = "<group>"; };
 		92BCE45126E7D9B300E4E929 /* GroupDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsService.swift; sourceTree = "<group>"; };
 		92BCE45326E8031700E4E929 /* CodeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeAlertController.swift; sourceTree = "<group>"; };
+		92BCE45526E804C200E4E929 /* ExpenseComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseComponent.swift; sourceTree = "<group>"; };
+		92BCE45726E8089A00E4E929 /* ExpenseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseResponse.swift; sourceTree = "<group>"; };
+		92BCE45926E8092D00E4E929 /* AllExpensesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExpensesService.swift; sourceTree = "<group>"; };
 		92E4567926CED5790024F598 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		92E4567B26CED67F0024F598 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		92E4568026CED7F40024F598 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -354,6 +360,8 @@
 			isa = PBXGroup;
 			children = (
 				92BCE44B26E67F7400E4E929 /* AllExpensesViewController.swift */,
+				92BCE45926E8092D00E4E929 /* AllExpensesService.swift */,
+				92BCE45526E804C200E4E929 /* ExpenseComponent.swift */,
 				92BCE44D26E67F8700E4E929 /* AllExpensesView.storyboard */,
 			);
 			path = AllExpenses;
@@ -482,6 +490,7 @@
 				4DDEBC1A26E3CE24000894B6 /* RegisterResponse.swift */,
 				E3DE736F26E4F49000D9C9D3 /* GroupUsersResponse.swift */,
 				E3DE737126E50A8600D9C9D3 /* UserResponse.swift */,
+				92BCE45726E8089A00E4E929 /* ExpenseResponse.swift */,
 			);
 			path = NetworkModel;
 			sourceTree = "<group>";
@@ -832,6 +841,7 @@
 				92BCE43B26E50EC200E4E929 /* ProfileService.swift in Sources */,
 				92E4569826D0F7440024F598 /* ScrollView.swift in Sources */,
 				E3F1EEEF26E3BA2300C6814B /* GroupValuesComponentView.swift in Sources */,
+				92BCE45626E804C200E4E929 /* ExpenseComponent.swift in Sources */,
 				92E4569226CEED5C0024F598 /* Brand.swift in Sources */,
 				92E4569A26D0F87F0024F598 /* Group.swift in Sources */,
 				92BCE43426E4F9AE00E4E929 /* UIImageView+Extensions.swift in Sources */,
@@ -882,6 +892,8 @@
 				92E4567C26CED67F0024F598 /* Authentication.swift in Sources */,
 				92E456A226D1057A0024F598 /* GroupRepository.swift in Sources */,
 				4DDEBC1B26E3CE24000894B6 /* RegisterResponse.swift in Sources */,
+				92BCE45826E8089A00E4E929 /* ExpenseResponse.swift in Sources */,
+				92BCE45A26E8092D00E4E929 /* AllExpensesService.swift in Sources */,
 				4DDEBC2726E4FF0E000894B6 /* SelectParticipantsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

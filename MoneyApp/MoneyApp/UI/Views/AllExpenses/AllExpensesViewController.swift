@@ -14,9 +14,34 @@ class AllExpensesViewController: UIViewController {
         let storyboard = UIStoryboard(name: "AllExpensesView", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: "AllExpensesView") as? AllExpensesViewController
     }
+    
+    private let scrollView = ScrollView()
+    private let service = AllExpensesService()
+    var group: Group?
 
     override func viewDidLoad() {
         view.backgroundColor = UIColor.brand.blackBackground
-        title = "All expenses"
+        title = "Expenses"
+        
+        setupScrollView()
+        
+        guard let group = group else { return }
+        service.fetchExpenses(groupID: group.id, completion: { result in
+            
+            for (idx, expense) in result.enumerated() {
+                print("expense \(expense.name) \(idx == result.count - 1)")
+                let expenseComponent = ExpenseComponent()
+                expenseComponent.create(expense: expense)
+                self.scrollView.append(component: expenseComponent, last: idx == result.count - 1)
+            }
+        })
+    }
+    
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.create()
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
     }
 }

@@ -21,8 +21,7 @@ class GroupDetailsViewController: UIViewController, GroupUsersListComponentDeleg
     }
     
     func didPressAllExpenses() {
-        guard let vc = AllExpensesViewController.loadFromStoryboard() else { return }
-        navigationController?.pushViewController(vc, animated: true)
+        navigateToAllExpense()
     }
     
     override func viewDidLoad() {
@@ -66,13 +65,13 @@ class GroupDetailsViewController: UIViewController, GroupUsersListComponentDeleg
                         self.presentCodeAlert()
                     }),
                     UIAction(title: "Add expense", handler: { _ in
-                        // TODO
+                        self.onNewExpenseNavigate()
                     }),
                     UIAction(title: "Edit", handler: { _ in
                         // TODO
                     }),
                     UIAction(title: "All expenses", handler: { _ in
-                        // TODO
+                        self.navigateToAllExpense()
                     })
                 ]
             }
@@ -92,6 +91,12 @@ class GroupDetailsViewController: UIViewController, GroupUsersListComponentDeleg
             make.top.equalTo(view.snp.top)
             make.bottom.equalTo(view.snp.bottom)
         }
+    }
+    
+    private func navigateToAllExpense() {
+        guard let vc = AllExpensesViewController.loadFromStoryboard() else { return }
+        vc.group = group
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func createIconComponent(icon: String) -> UIView {

@@ -44,6 +44,9 @@
 		92BCE44626E550EC00E4E929 /* ShrinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE44526E550EC00E4E929 /* ShrinkView.swift */; };
 		92BCE44C26E67F7400E4E929 /* AllExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE44B26E67F7400E4E929 /* AllExpensesViewController.swift */; };
 		92BCE44E26E67F8700E4E929 /* AllExpensesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BCE44D26E67F8700E4E929 /* AllExpensesView.storyboard */; };
+		92BCE45026E7D92600E4E929 /* CodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE44F26E7D92600E4E929 /* CodeResponse.swift */; };
+		92BCE45226E7D9B300E4E929 /* GroupDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE45126E7D9B300E4E929 /* GroupDetailsService.swift */; };
+		92BCE45426E8031700E4E929 /* CodeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCE45326E8031700E4E929 /* CodeAlertController.swift */; };
 		92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567926CED5790024F598 /* UserDefaultsKeys.swift */; };
 		92E4567C26CED67F0024F598 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4567B26CED67F0024F598 /* Authentication.swift */; };
 		92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E4568026CED7F40024F598 /* LoginViewController.swift */; };
@@ -146,6 +149,9 @@
 		92BCE44526E550EC00E4E929 /* ShrinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkView.swift; sourceTree = "<group>"; };
 		92BCE44B26E67F7400E4E929 /* AllExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExpensesViewController.swift; sourceTree = "<group>"; };
 		92BCE44D26E67F8700E4E929 /* AllExpensesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllExpensesView.storyboard; sourceTree = "<group>"; };
+		92BCE44F26E7D92600E4E929 /* CodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeResponse.swift; sourceTree = "<group>"; };
+		92BCE45126E7D9B300E4E929 /* GroupDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsService.swift; sourceTree = "<group>"; };
+		92BCE45326E8031700E4E929 /* CodeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeAlertController.swift; sourceTree = "<group>"; };
 		92E4567926CED5790024F598 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		92E4567B26CED67F0024F598 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		92E4568026CED7F40024F598 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -471,6 +477,7 @@
 			children = (
 				92E4568D26CEE9700024F598 /* LoginResponse.swift */,
 				92E456A326D107050024F598 /* GroupResponse.swift */,
+				92BCE44F26E7D92600E4E929 /* CodeResponse.swift */,
 				92BCE42526E3CC9B00E4E929 /* JoinResponse.swift */,
 				4DDEBC1A26E3CE24000894B6 /* RegisterResponse.swift */,
 				E3DE736F26E4F49000D9C9D3 /* GroupUsersResponse.swift */,
@@ -547,6 +554,8 @@
 			children = (
 				E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */,
 				E3F1EEEC26E3A78A00C6814B /* GroupDetailsView.storyboard */,
+				92BCE45126E7D9B300E4E929 /* GroupDetailsService.swift */,
+				92BCE45326E8031700E4E929 /* CodeAlertController.swift */,
 			);
 			path = GroupDetailsView;
 			sourceTree = "<group>";
@@ -829,6 +838,7 @@
 				4DDEBC1726E3C327000894B6 /* Button.swift in Sources */,
 				92E4568526CEE4A90024F598 /* Toast.swift in Sources */,
 				92E4569C26D0F8AE0024F598 /* GroupComponentView.swift in Sources */,
+				92BCE45226E7D9B300E4E929 /* GroupDetailsService.swift in Sources */,
 				E3DE737026E4F49000D9C9D3 /* GroupUsersResponse.swift in Sources */,
 				92BCE42626E3CC9B00E4E929 /* JoinResponse.swift in Sources */,
 				92E456A626D108100024F598 /* GroupListService.swift in Sources */,
@@ -836,6 +846,8 @@
 				92E4568126CED7F40024F598 /* LoginViewController.swift in Sources */,
 				E39B036226E3952C00EFE780 /* GroupDetailsViewController.swift in Sources */,
 				4DDEBC1926E3C601000894B6 /* TextWithButton.swift in Sources */,
+				92BCE45026E7D92600E4E929 /* CodeResponse.swift in Sources */,
+				92BCE45426E8031700E4E929 /* CodeAlertController.swift in Sources */,
 				4DDEBC2B26E53B16000894B6 /* AddExpenseService.swift in Sources */,
 				4DDEBC1526E3BB19000894B6 /* TextField.swift in Sources */,
 				92893E5A266BD961000CED03 /* GroupListViewController.swift in Sources */,

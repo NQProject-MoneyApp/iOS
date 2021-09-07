@@ -113,9 +113,33 @@ class GroupRepository {
             } else {
                 completion(false)
             }
-            
-            
         })
+    }
+    
+    func code(groupId: Int, completion: @escaping((Result<(String), CustomError>) -> Void)) {
         
+        _ = defaultRequest(api: .code(groupdId: groupId)) { result in
+
+            if case let .success(response) = result {
+
+                if 200 ... 299 ~= response.statusCode {
+                    
+                    do {
+                        let code = try JSONDecoder().decode(CodeResponse.self, from: response.data)
+                        completion(.success(code.code))
+                        
+                    } catch let error {
+                        print("error while decoding \(error.localizedDescription) \nData: \(String(data: response.data, encoding: .utf8) ?? "")")
+                        completion(.failure(CustomError(description: "Unknown error")))
+                    }
+
+                } else {
+                    completion(.failure(CustomError(description: "Unknown error")))
+                }
+            } else if case let .failure(error) = result {
+                print("error \(error.localizedDescription)")
+                completion(.failure(CustomError(description: error.localizedDescription)))
+            }
+        }
     }
  }

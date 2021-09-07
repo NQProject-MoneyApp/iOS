@@ -13,6 +13,7 @@ class GroupDetailsViewController: UIViewController, GroupUsersListComponentDeleg
     var group: Group?
     
     private let scrollView = ScrollView()
+    private let service = GroupDetailsService()
         
     static func loadFromStoryboard() -> GroupDetailsViewController? {
         let storyboard = UIStoryboard(name: "GroupDetailsView", bundle: nil)
@@ -62,7 +63,7 @@ class GroupDetailsViewController: UIViewController, GroupUsersListComponentDeleg
             var rightMenuItems: [UIAction] {
                 return [
                     UIAction(title: "Code", handler: { _ in
-                        // TODO
+                        self.presentCodeAlert()
                     }),
                     UIAction(title: "Add expense", handler: { _ in
                         // TODO
@@ -130,5 +131,23 @@ class GroupDetailsViewController: UIViewController, GroupUsersListComponentDeleg
         vc.members = group!.members
         vc.groupId = group!.id
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func presentCodeAlert() {
+        guard let group = group else { return }
+        
+        let alert = CodeAlertController.initial()
+        
+        service.code(groupId: group.id, completion: { result in
+            
+            switch result {
+            case .success(let code):
+                alert.code(code: code)
+            case .failure(let error):
+                Toast.shared.presentToast(error.localizedDescription)
+            }
+        })
+        
+        present(alert, animated: true, completion: nil)
     }
 }

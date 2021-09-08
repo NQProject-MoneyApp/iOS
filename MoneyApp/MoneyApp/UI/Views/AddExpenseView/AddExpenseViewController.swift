@@ -92,7 +92,9 @@ class AddExpenseViewController: UIViewController {
             amount: Double(amountTextField.text!)!,
             participants: participantsView.participants
                 .filter { $0.isSelected }
-                .map { $0.userId }
+                .map { $0.userId },
+            // todo
+            author: User(pk: 0, name: "", email: "", balance: 0)
         )
         
         service.addExpense(groupId: groupId!, expense: expense, completion: { result in

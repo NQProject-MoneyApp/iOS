@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class GroupDetailsViewController: UIViewController, GroupUsersListComponentDelegate {
+class GroupDetailsViewController: UIViewController, GroupUsersListComponentDelegate, ScrollViewRefreshDelegate {
     
     var group: Group?
     
@@ -30,10 +30,27 @@ class GroupDetailsViewController: UIViewController, GroupUsersListComponentDeleg
         setupScrollView()
         guard let group = group else { return }
         setupNavigationController(name: group.name)
-        setupContent(group: group)
-       }
+        
+        scrollView.setRefreshDelegate(delegate: self)
+   }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        scrollView.startRefresh()
+    }
+    
+    func didRefreshList(refreshCompletion: @escaping () -> Void) {
+        service.fetchGroupDetails(groupId: group!.id, completion: { result in
+            if let result = result {
+                self.group = result
+            }
+            
+            self.setupContent(group: self.group!)
+            refreshCompletion()
+        })
+    }
     
     private func setupContent(group: Group) {
+        scrollView.clearComponents()
         let icon = createIconComponent(icon: group.icon.icon())
 
         let groupValuesView = GroupValuesComponentView()

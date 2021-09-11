@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
-class AllExpensesViewController: UIViewController {
+class AllExpensesViewController: UIViewController, ExpenseComponentDelegate {
+    
+    func didPressExpenseComponent(expense: Expense) {
+        guard let vc = ExpenseDetailsViewController.loadFromStoryboard() else { return }
+        vc.expense = expense
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     static func loadFromStoryboard() -> AllExpensesViewController? {
         let storyboard = UIStoryboard(name: "AllExpensesView", bundle: nil)
@@ -31,7 +37,7 @@ class AllExpensesViewController: UIViewController {
             for (idx, expense) in result.enumerated() {
                 print("expense \(expense.name) \(idx == result.count - 1)")
                 let expenseComponent = ExpenseComponent()
-                expenseComponent.create(expense: expense)
+                expenseComponent.create(expense: expense, delegate: self)
                 self.scrollView.append(component: expenseComponent, last: idx == result.count - 1)
             }
         })

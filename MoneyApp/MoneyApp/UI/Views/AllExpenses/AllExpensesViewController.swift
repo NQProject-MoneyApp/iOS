@@ -38,6 +38,8 @@ class AllExpensesViewController: UIViewController, ScrollViewRefreshDelegate {
         view.backgroundColor = UIColor.brand.blackBackground
         title = "Expenses"
         
+        setupNavigationController()
+        
         setupScrollView()
         
         guard let group = group else { return }
@@ -53,6 +55,31 @@ class AllExpensesViewController: UIViewController, ScrollViewRefreshDelegate {
             self.scrollView.alpha = 0
             self.scrollView.fadeIn(0.5)
         })
+    }
+    
+    private func setupNavigationController() {
+        view.backgroundColor = UIColor.brand.blackBackground
+        title = "Expenses"
+        
+        if #available(iOS 14, *) {
+            var rightMenuItems: [UIAction] {
+                return [
+                    UIAction(title: "Add expense", handler: { _ in
+                        self.onNewExpenseNavigate()
+                    })
+                ]
+            }
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add"), menu: UIMenu(children: rightMenuItems))
+            navigationItem.rightBarButtonItem?.tintColor = UIColor.brand.yellow
+        }
+    }
+    
+    private func onNewExpenseNavigate() {
+        guard let group = group else { return }
+        guard let vc = AddExpenseViewController.loadFromStoryboard() else { return }
+        vc.members = group.members
+        vc.groupId = group.id
+        navigationController?.pushViewController(vc, animated: true)
     }
         
     private func createContent(expenses: [Expense]) {

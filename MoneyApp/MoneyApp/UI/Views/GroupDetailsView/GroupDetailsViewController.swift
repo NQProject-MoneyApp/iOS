@@ -76,7 +76,7 @@ class GroupDetailsViewController: UIViewController, GroupUsersListComponentDeleg
                 ]
             }
 
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add"), menu: UIMenu(children: rightMenuItems))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "hamburger"), menu: UIMenu(children: rightMenuItems))
             navigationItem.rightBarButtonItem?.tintColor = UIColor.brand.yellow
         }
     }

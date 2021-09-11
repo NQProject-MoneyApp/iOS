@@ -21,6 +21,8 @@ enum MoneyAppApi {
     case newExpense(groupId: Int, expense: Expense)
     case code(groupdId: Int)
     case expenses(groupdId: Int)
+    case friends
+    case addGroup(name: String, icon: Int, members: [Int])
 }
 
 let endpointClosure = { (target: MoneyAppApi) -> Endpoint in
@@ -109,6 +111,10 @@ extension MoneyAppApi: TargetType {
             return "/group-codes/"
         case .expenses(let groupId):
             return "/\(groupId)/expenses/"
+        case .friends:
+            return "/friends/"
+        case .addGroup:
+            return "/groups/"
         }
     }
     
@@ -165,6 +171,10 @@ extension MoneyAppApi: TargetType {
             return .post
         case .expenses:
             return .get
+        case .friends:
+            return .get
+        case .addGroup:
+            return .post
         }
     }
    
@@ -192,12 +202,19 @@ extension MoneyAppApi: TargetType {
                 "name": expense.name,
                 "amount": expense.amount,
                 "participants": expense.participants
-            ], encoding: URLEncoding.default)
+            ], encoding: JSONEncoding.default)
         case .code(let groupID):
             return .requestParameters(parameters: ["group": groupID], encoding: URLEncoding.default)
         case .expenses:
             return .requestPlain
-
+        case .friends:
+            return .requestPlain
+        case .addGroup(let name, let icon, let members):
+            return .requestParameters(parameters: [
+                "name": name,
+                "icon": icon,
+                "members": members
+            ], encoding: JSONEncoding.default)
         }
     }
 }

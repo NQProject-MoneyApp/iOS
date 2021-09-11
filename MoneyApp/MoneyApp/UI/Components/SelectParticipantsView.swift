@@ -2,7 +2,7 @@
 //  SelectParticipantsView.swift
 //  MoneyApp
 //
-//  Created by aidmed on 05/09/2021.
+//  Created by Milosz on 05/09/2021.
 //
 
 import Foundation

@@ -116,6 +116,30 @@ class GroupRepository {
         })
     }
     
+    func editExpense(groupId: Int, expense: Expense, completion: @escaping((Bool) -> Void)) {
+        
+        _ = defaultRequest(api: .editExpense(groupId: groupId, expense: expense), completion: { result in
+            
+            if case let .success(response) = result, 200 ... 299 ~= response.statusCode {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        })
+    }
+    
+    func deleteExpense(groupId: Int, expenseId: Int, completion: @escaping((Bool) -> Void)) {
+        
+        _ = defaultRequest(api: .deleteExpense(groupId: groupId, expenseId: expenseId), completion: { result in
+            
+            if case let .success(response) = result, 200 ... 299 ~= response.statusCode {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        })
+    }
+    
     func code(groupId: Int, completion: @escaping((Result<(String), CustomError>) -> Void)) {
         
         _ = defaultRequest(api: .code(groupdId: groupId)) { result in

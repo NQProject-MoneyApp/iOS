@@ -2,7 +2,7 @@
 //  TextWithButton.swift
 //  MoneyApp
 //
-//  Created by aidmed on 04/09/2021.
+//  Created by Milosz on 04/09/2021.
 //
 
 import Foundation

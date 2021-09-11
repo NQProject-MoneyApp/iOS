@@ -2,7 +2,7 @@
 //  RegisterViewController.swift
 //  MoneyApp
 //
-//  Created by aidmed on 31/08/2021.
+//  Created by Milosz on 31/08/2021.
 //
 
 import Foundation

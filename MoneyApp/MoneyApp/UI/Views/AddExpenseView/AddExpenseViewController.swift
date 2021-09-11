@@ -2,10 +2,10 @@
 //  AddExpenseView.swift
 //  MoneyApp
 //
-//  Created by aidmed on 05/09/2021.
+//  Created by Milosz on 05/09/2021.
 //
 
-import Foundation
+import FoundationO
 import UIKit
 
 class AddExpenseViewController: UIViewController {
@@ -13,12 +13,15 @@ class AddExpenseViewController: UIViewController {
     var groupId: Int?
     var members: [User]?
     
-    private let service = AddExpenseService()
+    var editedExpense: Expense?
+    
+    private let service = ExpenseService()
     
     private let expenseNameTextField = UITextField()
     private let amountTextField = UITextField()
     private let participantsView = SelectParticipantsView()
-    private let loginButton = UIButton(type: .system)
+    private let saveButton = UIButton(type: .system)
+    private var deleteButton: UIButton?
     
     static func loadFromStoryboard() -> AddExpenseViewController? {
         let storyboard = UIStoryboard(name: "AddExpenseView", bundle: nil)
@@ -31,6 +34,9 @@ class AddExpenseViewController: UIViewController {
         addTextFields()
         addParticipants()
         addSaveButton()
+        if editedExpense != nil {
+            addDeleteButton()
+        }
     }
     
     func addTextFields() {
@@ -70,14 +76,26 @@ class AddExpenseViewController: UIViewController {
         }
     }
     
+    private func addDeleteButton() {
+        
+        deleteButton = UIButton(type: .system)
+        
+        if let deleteButton = deleteButton {
+            deleteButton.defaultStyle(title: "Delete")
+            deleteButton.backgroundColor = UIColor.red
+        }
+        
+        deleteButton?.addTarget(self, action: #selector(didPressDeleteButton), for: .touchUpInside)
+    }
+    
     private func addSaveButton() {
-        view.addSubview(loginButton)
+        view.addSubview(saveButton)
         
-        loginButton.defaultStyle(title: "Save")
+        saveButton.defaultStyle(title: "Save")
 
-        loginButton.addTarget(self, action: #selector(didPressSaveButton), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(didPressSaveButton), for: .touchUpInside)
         
-        loginButton.snp.makeConstraints { make in
+        saveButton.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(participantsView.snp.bottom).offset(21)
             make.right.left.equalTo(view).inset(34)
@@ -85,20 +103,75 @@ class AddExpenseViewController: UIViewController {
         }
     }
     
+    @objc func didPressDeleteButton() {
+        setLoading(enabled: true)
+        
+        
+    }
+    
     @objc func didPressSaveButton() {
         
-        let expense = Expense(
-            name: expenseNameTextField.text!,
-            amount: Double(amountTextField.text!)!,
-            participants: participantsView.participants
-                .filter { $0.isSelected }
-                .map { $0.userId },
-            // todo
-            author: User(pk: 0, name: "", email: "", balance: 0)
-        )
+        let name = expenseNameTextField.text
+        let amountStr = amountTextField.text
         
-        service.addExpense(groupId: groupId!, expense: expense, completion: { result in
-            Toast.shared.presentToast("Expense added \(result)")
-        })
+        if name == nil || name!.isEmpty {
+            Toast.shared.presentToast("Expense name is empty")
+            return
+        }
+        if amountStr == nil || amountStr!.isEmpty {
+            Toast.shared.presentToast("Expense amount is empty")
+            return
+        }
+        
+        let amount = Double(amountStr!)
+        if amount == nil {
+            Toast.shared.presentToast("Expense amount is not a number")
+            return
+        }
+        
+        let participants = participantsView.participants
+            .filter { $0.isSelected }
+            .map { $0.userId }
+        
+        setLoading(enabled: true)
+        
+        if let editedExpense = editedExpense {
+            let expense = Expense(id: editedExpense.id, name: name!, amount: amount!, participants: participants, author: editedExpense.author)
+            
+            service.editExpense(groupId: groupId!, expense: expense, completion: { result in
+                self.onSaveResult(success: result)
+            })
+            
+        } else {
+            let expense = Expense(
+                id: 0,
+                name: name!,
+                amount: amount!,
+                participants: participantsView.participants
+                    .filter { $0.isSelected }
+                    .map { $0.userId },
+                author: User(pk: 0, name: "", email: "", balance: 0)
+            )
+            
+            service.addExpense(groupId: groupId!, expense: expense, completion: { result in
+                self.onSaveResult(success: result)
+            })
+        }
+        
+    }
+    
+    func onSaveResult(success: Bool) {
+        if !success {
+            Toast.shared.presentToast("Failed to save expense, plese check your internet connection.")
+            setLoading(enabled: false)
+        }
+        else {
+            self.navigationController!.popViewController(animated: true)
+        }
+    }
+    
+    func setLoading(enabled: Bool) {
+        saveButton.isEnabled = !enabled
+        deleteButton?.isEnabled = !enabled
     }
 }

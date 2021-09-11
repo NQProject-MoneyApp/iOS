@@ -19,6 +19,8 @@ enum MoneyAppApi {
     case fetchUser
     case updateUser(user: User)
     case newExpense(groupId: Int, expense: Expense)
+    case editExpense(groupId: Int, expense: Expense)
+    case deleteExpense(groupId: Int, expenseId: Int)
     case code(groupdId: Int)
     case expenses(groupdId: Int)
 }
@@ -105,6 +107,10 @@ extension MoneyAppApi: TargetType {
             return "/user/"
         case .newExpense(let groupId, _):
             return "/\(groupId)/expenses/"
+        case .editExpense(let groupId, let expense):
+            return "/\(groupId)/expenses/\(expense.id)"
+        case .deleteExpense(let groupId, let expenseId):
+            return "/\(groupId)/expenses/\(expenseId)"
         case .code:
             return "/group-codes/"
         case .expenses(let groupId):
@@ -161,6 +167,10 @@ extension MoneyAppApi: TargetType {
             return .patch
         case .newExpense:
             return .post
+        case .editExpense:
+            return .put
+        case .deleteExpense:
+            return .delete
         case .code:
             return .post
         case .expenses:
@@ -193,6 +203,14 @@ extension MoneyAppApi: TargetType {
                 "amount": expense.amount,
                 "participants": expense.participants
             ], encoding: URLEncoding.default)
+        case .editExpense(_, let expense):
+            return .requestParameters(parameters: [
+                "name": expense.name,
+                "amount": expense.amount,
+                "participants": expense.participants
+            ], encoding: URLEncoding.default)
+        case .deleteExpense(_, _):
+            return .requestPlain
         case .code(let groupID):
             return .requestParameters(parameters: ["group": groupID], encoding: URLEncoding.default)
         case .expenses:

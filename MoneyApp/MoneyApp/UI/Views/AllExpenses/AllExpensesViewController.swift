@@ -13,6 +13,7 @@ class AllExpensesViewController: UIViewController, ExpenseComponentDelegate, Scr
     func didPressExpenseComponent(expense: Expense) {
         guard let vc = ExpenseDetailsViewController.loadFromStoryboard() else { return }
         vc.expense = expense
+        vc.group = group!
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -48,19 +49,13 @@ class AllExpensesViewController: UIViewController, ExpenseComponentDelegate, Scr
         
         setupScrollView()
         
-        guard let group = group else { return }
-
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.color = UIColor.brand.yellow
-        activityIndicator.startAnimating()
-        scrollView.setSingleContent(content: activityIndicator)
-        
-        service.fetchExpenses(groupID: group.id, completion: { expenses in
-            self.scrollView.clearComponents()
-            self.createContent(expenses: expenses)
-            self.scrollView.alpha = 0
-            self.scrollView.fadeIn(0.5)
-        })
+        if group == nil {
+            fatalError("Group is nil")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        scrollView.startRefresh()
     }
     
     private func setupNavigationController() {

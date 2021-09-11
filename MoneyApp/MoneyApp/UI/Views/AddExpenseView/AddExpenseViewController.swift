@@ -45,6 +45,11 @@ class AddExpenseViewController: UIViewController {
         
         expenseNameTextField.defaultStyle(placeholder: "Expense name")
         amountTextField.defaultStyle(placeholder: "Amount")
+        
+        if let expense = editedExpense {
+            expenseNameTextField.text = expense.name
+            amountTextField.text = "\(expense.amount)"
+        }
  
         expenseNameTextField.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
@@ -64,7 +69,9 @@ class AddExpenseViewController: UIViewController {
     private func addParticipants() {
         participantsView.create()
         participantsView.participants = members!.map { member in
-            return ParticipantModel(userId: member.pk, username: member.name, isSelected: false)
+            
+            let found = editedExpense?.participants.first(where: { id in member.pk == id })
+            return ParticipantModel(userId: member.pk, username: member.name, isSelected: found != nil)
         }
         
         view.addSubview(participantsView)
@@ -132,6 +139,11 @@ class AddExpenseViewController: UIViewController {
         let participants = participantsView.participants
             .filter { $0.isSelected }
             .map { $0.userId }
+        
+        if participants.isEmpty {
+            Toast.shared.presentToast("Add at least one participant")
+            return
+        }
         
         setLoading(enabled: true)
         

@@ -43,7 +43,7 @@ private var lastTimeErrorDate: Date?
 
 func defaultRequest( api: MoneyAppApi, progress: ProgressBlock?, completion: @escaping Completion ) -> Cancellable? {
 
-    let defaultAPIProvider = MoyaProvider<MoneyAppApi>(endpointClosure: endpointClosure, plugins: [CompleteUrlLoggerPlugin()])
+    let defaultAPIProvider = MoyaProvider<MoneyAppApi>(endpointClosure: endpointClosure, plugins: [CompleteUrlLoggerPlugin(), VerboseLogPlugin(verbose: true)])
     
     return defaultAPIProvider.request(api, callbackQueue: DispatchQueue.main, progress: progress, completion: { result in
         
@@ -110,9 +110,9 @@ extension MoneyAppApi: TargetType {
         case .newExpense(let groupId, _):
             return "/\(groupId)/expenses/"
         case .editExpense(let groupId, let expense):
-            return "/\(groupId)/expenses/\(expense.id)"
+            return "/\(groupId)/expenses/\(expense.id)/"
         case .deleteExpense(let groupId, let expenseId):
-            return "/\(groupId)/expenses/\(expenseId)"
+            return "/\(groupId)/expenses/\(expenseId)/"
         case .code:
             return "/group-codes/"
         case .expenses(let groupId):
@@ -212,7 +212,7 @@ extension MoneyAppApi: TargetType {
                 "name": expense.name,
                 "amount": expense.amount,
                 "participants": expense.participants
-            ], encoding: URLEncoding.default)
+            ], encoding: JSONEncoding.default)
         case .editExpense(_, let expense):
             return .requestParameters(parameters: [
                 "name": expense.name,
@@ -241,5 +241,22 @@ class CompleteUrlLoggerPlugin: PluginType {
     func willSend(_ request: RequestType, target: TargetType) {
         // uncoment if you woudl like to check url
         print(request.request?.url?.absoluteString ?? "Something is wrong")
+    }
+}
+
+
+
+
+struct VerboseLogPlugin: PluginType {
+    let verbose: Bool
+
+    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+        #if DEBUG
+        if let body = request.httpBody,
+           let str = String(data: body, encoding: .utf8) {
+            print("request to send: \(str))")
+        }
+        #endif
+        return request
     }
 }

@@ -133,6 +133,7 @@ class GroupRepository {
         _ = defaultRequest(api: .deleteExpense(groupId: groupId, expenseId: expenseId), completion: { result in
             
             if case let .success(response) = result, 200 ... 299 ~= response.statusCode {
+                
                 completion(true)
             } else {
                 completion(false)

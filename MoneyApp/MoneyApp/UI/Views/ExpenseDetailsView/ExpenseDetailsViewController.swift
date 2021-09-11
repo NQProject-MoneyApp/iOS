@@ -10,8 +10,11 @@ import UIKit
 
 class ExpenseDetailsViewController: UIViewController {
     
+    var group: Group?
     var expense: Expense?
     private let scrollView = ScrollView()
+    
+    let service = ExpenseService()
     
     static func loadFromStoryboard() -> ExpenseDetailsViewController? {
         let storyboard = UIStoryboard(name: "ExpenseDetailsView", bundle: nil)
@@ -23,6 +26,9 @@ class ExpenseDetailsViewController: UIViewController {
         view.backgroundColor = UIColor.brand.blackBackground
         setupScrollView()
         guard let expense = expense else { return }
+        if group == nil {
+            fatalError("Group is nil")
+        }
         setupNavigationController(name: expense.name)
         setupContent(expense: expense)
     }
@@ -43,6 +49,40 @@ class ExpenseDetailsViewController: UIViewController {
     private func setupNavigationController(name: String) {
         title = name
         navigationController?.navigationBar.tintColor = UIColor.brand.yellow
+        
+        if #available(iOS 14, *) {
+            var rightMenuItems: [UIAction] {
+                return [
+                    UIAction(title: "Edit", handler: { _ in
+                        self.onEditExpenseNavigate()
+                    }),
+                    UIAction(title: "Delete", handler: { _ in
+                        self.onDeleteExpense()
+                    })
+                ]
+            }
+
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "hamburger"), menu: UIMenu(children: rightMenuItems))
+            navigationItem.rightBarButtonItem?.tintColor = UIColor.brand.yellow
+        }
+    }
+    
+    private func onEditExpenseNavigate() {
+        guard let vc = AddExpenseViewController.loadFromStoryboard() else { return }
+        vc.members = group!.members
+        vc.groupId = group!.id
+        vc.editedExpense = expense
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func onDeleteExpense() {
+        service.deleteExpense(groupId: group!.id, expenseId: expense!.id, completion: { result in
+            if result {
+                self.navigationController!.popViewController(animated: true)
+            } else {
+                Toast.shared.presentToast("Failed to delete expense, plese check your internet connection.")
+            }
+        })
     }
     
     private func styleLabel(label: UILabel, text: String) {

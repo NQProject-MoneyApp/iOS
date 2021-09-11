@@ -8,12 +8,13 @@
 import Foundation
 
 class Expense {
-    init(id: Int, name: String, amount: Double, participants: [Int], author: User) {
+    init(id: Int, name: String, amount: Double, participants: [Int], author: User, createDate: Date) {
         self.id = id
         self.name = name
         self.amount = amount
         self.participants = participants
         self.author = author
+        self.createDate = createDate
     }
     
     let id: Int
@@ -21,5 +22,6 @@ class Expense {
     let amount: Double
     let author: User
     let participants: [Int]
+    let createDate: Date
     
 }

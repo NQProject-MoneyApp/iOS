@@ -48,7 +48,11 @@ class ExpenseDetailsViewController: UIViewController, ScrollViewRefreshDelegate 
         let dateLabel = UILabel()
         dateLabel.textAlignment = .center
         dateLabel.numberOfLines = 2
-        styleLabel(label: dateLabel, text: "Created on \n 11.09.2021")
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+
+        styleLabel(label: dateLabel, text: "Created on \n \(dateFormatter.string(from: expense.createDate))")
         
         scrollView.append(component: valuesComponent, last: false)
         scrollView.append(component: dateLabel, last: true)

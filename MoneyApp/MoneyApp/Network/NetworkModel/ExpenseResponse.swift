@@ -17,6 +17,6 @@ class ExpenseResponse: Codable {
     let participants: [UserResponse]
     
     func mapToExpense() -> Expense {
-        return Expense(id: pk, name: name, amount: amount, participants: participants.map { $0.pk }, author: User(pk: author.pk, name: author.username, email: author.email, balance: 0))
+        return Expense(id: pk, name: name, amount: amount, participants: participants.map { $0.pk }, author: User(pk: author.pk, name: author.username, email: author.email, balance: 0), createDate: Date.fromISO(stringDate: create_date))
     }
 }

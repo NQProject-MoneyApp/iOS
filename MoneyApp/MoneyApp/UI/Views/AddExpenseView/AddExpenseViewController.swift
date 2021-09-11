@@ -123,7 +123,7 @@ class AddExpenseViewController: UIViewController {
         setLoading(enabled: true)
         
         if let editedExpense = editedExpense {
-            let expense = Expense(id: editedExpense.id, name: name!, amount: amount!, participants: participants, author: editedExpense.author)
+            let expense = Expense(id: editedExpense.id, name: name!, amount: amount!, participants: participants, author: editedExpense.author, createDate: Date())
             
             service.editExpense(groupId: groupId!, expense: expense, completion: { result in
                 self.onSaveResult(success: result)
@@ -137,7 +137,8 @@ class AddExpenseViewController: UIViewController {
                 participants: participantsView.participants
                     .filter { $0.isSelected }
                     .map { $0.userId },
-                author: User(pk: 0, name: "", email: "", balance: 0)
+                author: User(pk: 0, name: "", email: "", balance: 0),
+                createDate: Date()
             )
             
             service.addExpense(groupId: groupId!, expense: expense, completion: { result in

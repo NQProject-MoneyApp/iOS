@@ -16,9 +16,9 @@ class GroupValuesComponentView: UIView {
         self.group = group
         
         let totalCostLabel = createTitleLabel(text: "Total cost")
-        let totalCost = createNumberLabel(amount: group.totalCost)
+        let totalCost = createNumericLabel(amount: group.totalCost)
         let balanceLabel = createTitleLabel(text: "Balance")
-        let balance = createNumberLabel(amount: group.userBalance, isBalance: true)
+        let balance = createNumericLabel(amount: group.userBalance, isBalance: true)
         
         addSubview(totalCostLabel)
         addSubview(totalCost)
@@ -50,27 +50,27 @@ class GroupValuesComponentView: UIView {
     private func createTitleLabel(text: String) -> UILabel {
         let titleLabel = UILabel()
         titleLabel.text = text
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         
         return titleLabel
     }
     
-    private func createNumberLabel(amount: Double, isBalance: Bool = false) -> UILabel {
-        let numberLabel = UILabel()
-        numberLabel.text = "$ \(amount.format(".2"))"
-        numberLabel.font = UIFont.boldSystemFont(ofSize: 24)
+    private func createNumericLabel(amount: Double, isBalance: Bool = false) -> UILabel {
+        let numericLabel = UILabel()
+        numericLabel.text = "$ \(amount.format(".2"))"
+        numericLabel.font = UIFont.boldSystemFont(ofSize: 24)
         
         if isBalance {
             if amount < 0 {
-                numberLabel.textColor = UIColor.red
+                numericLabel.textColor = UIColor.red
             } else {
-                numberLabel.textColor = UIColor.green
+                numericLabel.textColor = UIColor.green
             }
         } else {
-            numberLabel.textColor = UIColor.white
+            numericLabel.textColor = UIColor.white
         }
         
-        return numberLabel
+        return numericLabel
     }
 }

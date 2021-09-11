@@ -78,6 +78,10 @@
 		92FEA70426A5ED27008BFAA3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA70326A5ED27008BFAA3 /* TableViewCell.swift */; };
 		BCE3808BC330E79B1DFBC30E /* Pods_MoneyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C28A05241A1E507FDC84C2A /* Pods_MoneyApp.framework */; };
 		E30CABB026E3CC0D00285E34 /* GroupUsersListComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30CABAF26E3CC0D00285E34 /* GroupUsersListComponentView.swift */; };
+		E342194826ECD5F300A5F866 /* ExpenseDetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E342194726ECD5F300A5F866 /* ExpenseDetailsView.storyboard */; };
+		E34EDFF326ECC897009F5701 /* ExpenseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34EDFF226ECC897009F5701 /* ExpenseDetailsViewController.swift */; };
+		E34EDFF526ECCD08009F5701 /* ExpenseDetailsComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34EDFF426ECCD08009F5701 /* ExpenseDetailsComponentView.swift */; };
+		E34EDFF726ECCDA7009F5701 /* ExpenseValuesComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34EDFF626ECCDA7009F5701 /* ExpenseValuesComponentView.swift */; };
 		E37AF72526E3CF7300BD5C0B /* GroupBalanceComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37AF72426E3CF7300BD5C0B /* GroupBalanceComponentView.swift */; };
 		E37AF72726E3DB5A00BD5C0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37AF72626E3DB5A00BD5C0B /* User.swift */; };
 		E39B036226E3952C00EFE780 /* GroupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */; };
@@ -187,6 +191,10 @@
 		C899D24842896264E2AC522C /* Pods-MoneyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp.debug.xcconfig"; path = "Target Support Files/Pods-MoneyApp/Pods-MoneyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D96D3DE344EBDFCD506A35EC /* Pods-MoneyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyAppTests/Pods-MoneyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E30CABAF26E3CC0D00285E34 /* GroupUsersListComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUsersListComponentView.swift; sourceTree = "<group>"; };
+		E342194726ECD5F300A5F866 /* ExpenseDetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExpenseDetailsView.storyboard; sourceTree = "<group>"; };
+		E34EDFF226ECC897009F5701 /* ExpenseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailsViewController.swift; sourceTree = "<group>"; };
+		E34EDFF426ECCD08009F5701 /* ExpenseDetailsComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailsComponentView.swift; sourceTree = "<group>"; };
+		E34EDFF626ECCDA7009F5701 /* ExpenseValuesComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseValuesComponentView.swift; sourceTree = "<group>"; };
 		E37AF72426E3CF7300BD5C0B /* GroupBalanceComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBalanceComponentView.swift; sourceTree = "<group>"; };
 		E37AF72626E3DB5A00BD5C0B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailsViewController.swift; sourceTree = "<group>"; };
@@ -389,6 +397,7 @@
 		92E4567626CED4B30024F598 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E34EDFF126ECC86A009F5701 /* ExpenseDetailsView */,
 				92BCE44A26E67F6400E4E929 /* AllExpenses */,
 				4DDEBC2126E4EB22000894B6 /* AddExpenseView */,
 				92BCE44026E545F100E4E929 /* About */,
@@ -404,13 +413,9 @@
 		92E4567726CED4BB0024F598 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				92E4569B26D0F8AE0024F598 /* GroupComponentView.swift */,
 				92BCE43E26E520D100E4E929 /* PrimaryButton.swift */,
 				92BCE44526E550EC00E4E929 /* ShrinkView.swift */,
-				E3F1EEEE26E3BA2300C6814B /* GroupValuesComponentView.swift */,
 				92E4569726D0F7440024F598 /* ScrollView.swift */,
-				E30CABAF26E3CC0D00285E34 /* GroupUsersListComponentView.swift */,
-				E37AF72426E3CF7300BD5C0B /* GroupBalanceComponentView.swift */,
 				4DDEBC1426E3BB19000894B6 /* TextField.swift */,
 				4DDEBC1626E3C327000894B6 /* Button.swift */,
 				4DDEBC1826E3C601000894B6 /* TextWithButton.swift */,
@@ -435,6 +440,7 @@
 		92E4567D26CED7CF0024F598 /* GroupListView */ = {
 			isa = PBXGroup;
 			children = (
+				92E4569B26D0F8AE0024F598 /* GroupComponentView.swift */,
 				92893E59266BD961000CED03 /* GroupListViewController.swift */,
 				92E4569526D0E9160024F598 /* GroupListView.storyboard */,
 				92E456A526D108100024F598 /* GroupListService.swift */,
@@ -558,9 +564,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		E34EDFF126ECC86A009F5701 /* ExpenseDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				E34EDFF226ECC897009F5701 /* ExpenseDetailsViewController.swift */,
+				E34EDFF426ECCD08009F5701 /* ExpenseDetailsComponentView.swift */,
+				E34EDFF626ECCDA7009F5701 /* ExpenseValuesComponentView.swift */,
+				E342194726ECD5F300A5F866 /* ExpenseDetailsView.storyboard */,
+			);
+			path = ExpenseDetailsView;
+			sourceTree = "<group>";
+		};
 		E39B036026E394E300EFE780 /* GroupDetailsView */ = {
 			isa = PBXGroup;
 			children = (
+				E3F1EEEE26E3BA2300C6814B /* GroupValuesComponentView.swift */,
+				E37AF72426E3CF7300BD5C0B /* GroupBalanceComponentView.swift */,
+				E30CABAF26E3CC0D00285E34 /* GroupUsersListComponentView.swift */,
 				E39B036126E3952C00EFE780 /* GroupDetailsViewController.swift */,
 				E3F1EEEC26E3A78A00C6814B /* GroupDetailsView.storyboard */,
 				92BCE45126E7D9B300E4E929 /* GroupDetailsService.swift */,
@@ -691,6 +711,7 @@
 				92FEA6F826A5E60F008BFAA3 /* ScrollView.storyboard in Resources */,
 				4DDEBC2526E4EB74000894B6 /* AddExpenseView.storyboard in Resources */,
 				92E4568326CED8220024F598 /* LoginView.storyboard in Resources */,
+				E342194826ECD5F300A5F866 /* ExpenseDetailsView.storyboard in Resources */,
 				92FEA6F626A5E604008BFAA3 /* TableView.storyboard in Resources */,
 				92893E5D266BD961000CED03 /* Main.storyboard in Resources */,
 			);
@@ -847,9 +868,11 @@
 				92BCE43426E4F9AE00E4E929 /* UIImageView+Extensions.swift in Sources */,
 				4DDEBC1726E3C327000894B6 /* Button.swift in Sources */,
 				92E4568526CEE4A90024F598 /* Toast.swift in Sources */,
+				E34EDFF726ECCDA7009F5701 /* ExpenseValuesComponentView.swift in Sources */,
 				92E4569C26D0F8AE0024F598 /* GroupComponentView.swift in Sources */,
 				92BCE45226E7D9B300E4E929 /* GroupDetailsService.swift in Sources */,
 				E3DE737026E4F49000D9C9D3 /* GroupUsersResponse.swift in Sources */,
+				E34EDFF326ECC897009F5701 /* ExpenseDetailsViewController.swift in Sources */,
 				92BCE42626E3CC9B00E4E929 /* JoinResponse.swift in Sources */,
 				92E456A626D108100024F598 /* GroupListService.swift in Sources */,
 				E37AF72526E3CF7300BD5C0B /* GroupBalanceComponentView.swift in Sources */,
@@ -889,6 +912,7 @@
 				92BCE44C26E67F7400E4E929 /* AllExpensesViewController.swift in Sources */,
 				92FEA6FC26A5E625008BFAA3 /* ControlViewController.swift in Sources */,
 				4D6342C726DEC90A0065209B /* RegisterViewController.swift in Sources */,
+				E34EDFF526ECCD08009F5701 /* ExpenseDetailsComponentView.swift in Sources */,
 				92E4567C26CED67F0024F598 /* Authentication.swift in Sources */,
 				92E456A226D1057A0024F598 /* GroupRepository.swift in Sources */,
 				4DDEBC1B26E3CE24000894B6 /* RegisterResponse.swift in Sources */,

@@ -119,7 +119,7 @@ class ParticipantView: UIView {
     }
     
     private func setButtonTitle() {
-        if participant!.isSelected {
+        if !participant!.isSelected {
             toggleButton.setTitle("+", for: .normal)
             toggleButton.setTitleColor(UIColor.brand.yellow, for: .normal)
 

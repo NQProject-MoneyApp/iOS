@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class Mock {
     static let shared = Mock()
     

@@ -48,7 +48,6 @@ class RegisterViewController: UIViewController {
     private func addHelloText() {
         label.text = "Hello"
         label.textColor = UIColor.brand.yellow
-        // todo add font
         label.font = UIFont.systemFont(ofSize: 32)
         
         view.addSubview(label)

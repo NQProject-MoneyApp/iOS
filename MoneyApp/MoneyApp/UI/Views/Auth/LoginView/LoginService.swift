@@ -9,7 +9,7 @@ import Foundation
 
 class LoginService {
     
-    func login(username: String, password: String, completion: @escaping ((Result<String, CustomError>) -> Void)) {
+    func login(username: String, password: String, completion: @escaping ((Result<String, MoneyAppError>) -> Void)) {
         
         UserRepository.shared.login(username: username, password: password) { result in
             
@@ -21,7 +21,7 @@ class LoginService {
                     Authentication.shared.setToken(token: token)
                     completion(.success("Success"))
                 } else {
-                    completion(.failure(CustomError(description: "Key = nil")))
+                    completion(.failure(MoneyAppError(description: "Key = nil")))
                 }
                 
             case .failure(let error):
@@ -30,7 +30,7 @@ class LoginService {
         }
     }
     
-    func register(username: String, email: String, password: String, completion: @escaping ((Result<String, CustomError>) -> Void)) {
+    func register(username: String, email: String, password: String, completion: @escaping ((Result<String, MoneyAppError>) -> Void)) {
         
         UserRepository.shared.register(username: username, email: email, password: password) { result in
             
@@ -42,7 +42,7 @@ class LoginService {
                     Authentication.shared.setToken(token: token)
                     completion(.success("Success"))
                 } else {
-                    completion(.failure(CustomError(description: "Key = nil")))
+                    completion(.failure(MoneyAppError(description: "Key = nil")))
                 }
                 
             case .failure(let error):

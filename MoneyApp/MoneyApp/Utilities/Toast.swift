@@ -8,7 +8,6 @@
 import Foundation
 import Toast_Swift
 
-
 class Toast {
     static let shared = Toast()
     

@@ -5,9 +5,9 @@
 //  Created by Szymon Gęsicki on 05/06/2021.
 //
 
-import UIKit
 import SGSwiftExtensions
 import SwiftDate
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

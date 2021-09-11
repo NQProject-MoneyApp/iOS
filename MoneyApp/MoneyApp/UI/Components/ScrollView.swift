@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol ScrollViewRefreshDelegate {
+protocol ScrollViewRefreshDelegate: AnyObject {
     func didRefreshList(refreshCompletion: @escaping () -> Void)
 }
 
@@ -24,7 +24,7 @@ class ScrollView: UIView {
     private var components: [UIView] = []
     private var edgeInsets: UIEdgeInsets = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
     private var axis: ScrollViewAxis = .vertical
-    private var refreshDelegate: ScrollViewRefreshDelegate?
+    private weak var refreshDelegate: ScrollViewRefreshDelegate?
 
     func create(axis: ScrollViewAxis = .vertical) {
         self.axis = axis
@@ -75,13 +75,10 @@ class ScrollView: UIView {
         
         scrollView.refreshControl = UIRefreshControl()
         scrollView.refreshControl?.tintColor = UIColor.brand.yellow
-        scrollView.refreshControl?.addTarget(self, action:
-                                              #selector(handleRefreshControl),
-                                              for: .valueChanged)
+        scrollView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
    }
     
     func startRefresh() {
-        // TODO
         let offsetPoint = CGPoint.init(x: 0, y: scrollView.contentOffset.y - scrollView.refreshControl!.frame.size.height)
         scrollView.setContentOffset(offsetPoint, animated: true)
         scrollView.refreshControl?.beginRefreshing()
@@ -137,7 +134,6 @@ class ScrollView: UIView {
         scrollView.showsVerticalScrollIndicator = false
     }
 
-    
     func setSingleContent(content: UIView) {
         clearComponents()
         

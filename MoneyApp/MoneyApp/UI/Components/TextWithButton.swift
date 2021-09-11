@@ -10,10 +10,10 @@ import UIKit
 
 class TextWithButton: UIView {
     
-    private var tapDelegate: (() -> Void)?
+    private var onTap: (() -> Void)?
     
     func create(labelText: String, buttonText: String, onTap: @escaping () -> Void) {
-        self.tapDelegate = onTap
+        self.onTap = onTap
         
         let text = UILabel()
         
@@ -46,7 +46,6 @@ class TextWithButton: UIView {
     }
     
     @objc private func onTapAction() {
-        tapDelegate?()
+        onTap?()
     }
-    
 }

@@ -10,7 +10,6 @@ import UIKit
 
 class ExpenseDetailsViewController: UIViewController, ScrollViewRefreshDelegate {
 
-    
     var group: Group?
     var expense: Expense?
     private let scrollView = ScrollView()

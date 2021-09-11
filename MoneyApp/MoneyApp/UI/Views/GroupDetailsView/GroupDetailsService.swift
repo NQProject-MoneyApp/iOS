@@ -10,7 +10,7 @@ import Foundation
 
 class GroupDetailsService {
     
-    func code(groupId: Int, completion: @escaping((Result<(String), CustomError>) -> Void)) {
+    func code(groupId: Int, completion: @escaping((Result<(String), MoneyAppError>) -> Void)) {
         GroupRepository.shared.code(groupId: groupId, completion: { result in
             completion(result)
         })
@@ -24,7 +24,7 @@ class GroupDetailsService {
                 completion(Group(id: group.pk, name: group.name, totalCost: group.total_cost, userBalance: group.user_balance, icon: MoneyAppIcon.from(id: group.icon), createDate: Date.fromISO(stringDate: group.create_date), isFavourite: group.is_favourite, members: group.members.map {
                     User(pk: $0.user.pk, name: $0.user.username, email: $0.user.email, balance: $0.balance)
                 }))
-                break;
+                
             case .failure(let error):
                 print("error \(error.localizedDescription)")
                 Toast.shared.presentToast("\(error.localizedDescription)")

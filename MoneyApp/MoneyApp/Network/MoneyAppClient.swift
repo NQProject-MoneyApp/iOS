@@ -44,7 +44,7 @@ private var lastTimeErrorDate: Date?
 
 func defaultRequest( api: MoneyAppApi, progress: ProgressBlock?, completion: @escaping Completion ) -> Cancellable? {
 
-    let defaultAPIProvider = MoyaProvider<MoneyAppApi>(endpointClosure: endpointClosure, plugins: [CompleteUrlLoggerPlugin(), VerboseLogPlugin(verbose: true)])
+    let defaultAPIProvider = MoyaProvider<MoneyAppApi>(endpointClosure: endpointClosure, plugins: [CompleteUrlLoggerPlugin()])
     
     return defaultAPIProvider.request(api, callbackQueue: DispatchQueue.main, progress: progress, completion: { result in
         
@@ -248,22 +248,5 @@ class CompleteUrlLoggerPlugin: PluginType {
     func willSend(_ request: RequestType, target: TargetType) {
         // uncoment if you woudl like to check url
         print(request.request?.url?.absoluteString ?? "Something is wrong")
-    }
-}
-
-
-
-
-struct VerboseLogPlugin: PluginType {
-    let verbose: Bool
-
-    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
-        #if DEBUG
-        if let body = request.httpBody,
-           let str = String(data: body, encoding: .utf8) {
-            print("request to send: \(str))")
-        }
-        #endif
-        return request
     }
 }

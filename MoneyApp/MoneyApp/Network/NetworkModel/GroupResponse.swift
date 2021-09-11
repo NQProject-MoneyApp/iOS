@@ -16,6 +16,4 @@ class GroupResponse: Codable {
     let icon: Int
     let is_favourite: Bool
     let members: [GroupUsersResponse]
-//        TODO
-//    @SerialName("non_field_errors") val error: String? = null,
 }

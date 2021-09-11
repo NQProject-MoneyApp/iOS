@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class ProfileService {
     
     func fetchUser(completion: @escaping ((User?) -> Void)) {

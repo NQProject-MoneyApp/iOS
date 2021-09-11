@@ -5,8 +5,8 @@
 //  Created by Szymon Gęsicki on 05/06/2021.
 //
 
-import XCTest
 @testable import MoneyApp
+import XCTest
 
 class MoneyAppTests: XCTestCase {
 

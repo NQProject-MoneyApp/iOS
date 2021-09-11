@@ -42,12 +42,10 @@ class GroupListService {
     static let shared = GroupListService()
     
     func fetchGroups(completion: @escaping (([Group]) -> Void)) {
-        // todo completion result!
+
         GroupRepository.shared.fetchGroups(completion: { result in
-            
             switch result {
             case .success(let groups):
-                // todo parse icon
                 completion(groups.map { Group(id: $0.pk, name: $0.name, totalCost: $0.total_cost, userBalance: $0.user_balance, icon: MoneyAppIcon.from(id: $0.icon), createDate: Date.fromISO(stringDate: $0.create_date), isFavourite: $0.is_favourite, members: $0.members.map {
                     User(pk: $0.user.pk, name: $0.user.username, email: $0.user.email, balance: $0.balance)
                 })})
@@ -60,7 +58,7 @@ class GroupListService {
     }
     
     func joinGroup(code: String, completion: @escaping ((String) -> Void)) {
-        // todo completion result!
+
         GroupRepository.shared.joinGroup(code: code, completion: { result in
             switch result {
             case .success:

@@ -11,7 +11,7 @@ class GroupRepository {
     
     static let shared = GroupRepository()
     
-    func fetchGroups(completion: @escaping((Result<[GroupResponse], CustomError>) -> Void)) {
+    func fetchGroups(completion: @escaping((Result<[GroupResponse], MoneyAppError>) -> Void)) {
                 
         _ = defaultRequest(api: .groups) { result in
 
@@ -26,21 +26,21 @@ class GroupRepository {
 
                     } catch let error {
                         print("error while decoding \(error.localizedDescription)")
-                        completion(.failure(CustomError(description: error.localizedDescription)))
+                        completion(.failure(MoneyAppError(description: error.localizedDescription)))
                     }
                 } else {
                     print("GroupRepository.fetch groups error: \(String(decoding: response.data, as: UTF8.self))")
-                    completion(.failure(CustomError(description: "Error check credentials")))
+                    completion(.failure(MoneyAppError(description: "Error check credentials")))
                 }
 
             } else if case let .failure(error) = result {
                 print("error \(error.localizedDescription)")
-                completion(.failure(CustomError(description: error.localizedDescription)))
+                completion(.failure(MoneyAppError(description: error.localizedDescription)))
             }
         }
     }
     
-    func fetchGroupDetails(groupId: Int, completion: @escaping((Result<GroupResponse, CustomError>) -> Void)) {
+    func fetchGroupDetails(groupId: Int, completion: @escaping((Result<GroupResponse, MoneyAppError>) -> Void)) {
         _ = defaultRequest(api: .groupDetails(groupId: groupId)) { result in
 
             if case let .success(response) = result {
@@ -54,21 +54,21 @@ class GroupRepository {
 
                     } catch let error {
                         print("error while decoding \(error.localizedDescription)")
-                        completion(.failure(CustomError(description: error.localizedDescription)))
+                        completion(.failure(MoneyAppError(description: error.localizedDescription)))
                     }
                 } else {
                     print("GroupRepository.fetch group details error: \(String(decoding: response.data, as: UTF8.self))")
-                    completion(.failure(CustomError(description: "group details fetch error")))
+                    completion(.failure(MoneyAppError(description: "group details fetch error")))
                 }
 
             } else if case let .failure(error) = result {
                 print("error \(error.localizedDescription)")
-                completion(.failure(CustomError(description: error.localizedDescription)))
+                completion(.failure(MoneyAppError(description: error.localizedDescription)))
             }
         }
     }
     
-    func joinGroup(code: String, completion: @escaping((Result<(Void), CustomError>) -> Void)) {
+    func joinGroup(code: String, completion: @escaping((Result<(Void), MoneyAppError>) -> Void)) {
                 
         _ = defaultRequest(api: .joinGroup(code: code)) { result in
 
@@ -80,15 +80,15 @@ class GroupRepository {
                     
                     do {
                         let joinResponse = try JSONDecoder().decode(JoinResponse.self, from: response.data)
-                        completion(.failure(CustomError(description: joinResponse.details)))
+                        completion(.failure(MoneyAppError(description: joinResponse.details)))
                     } catch let error {
                         print("error while decoding \(error.localizedDescription) \nData: \(String(data: response.data, encoding: .utf8) ?? "")")
-                        completion(.failure(CustomError(description: "Unknown error")))
+                        completion(.failure(MoneyAppError(description: "Unknown error")))
                     }
                 }
             } else if case let .failure(error) = result {
                 print("error \(error.localizedDescription)")
-                completion(.failure(CustomError(description: error.localizedDescription)))
+                completion(.failure(MoneyAppError(description: error.localizedDescription)))
             }
         }
     }
@@ -141,7 +141,7 @@ class GroupRepository {
         })
     }
     
-    func fetchExpense(groupId: Int, expenseId: Int, completion: @escaping((Result<ExpenseResponse, CustomError>) -> Void)) {
+    func fetchExpense(groupId: Int, expenseId: Int, completion: @escaping((Result<ExpenseResponse, MoneyAppError>) -> Void)) {
         _ = defaultRequest(api: .fetchExpense(groupId: groupId, expenseId: expenseId)) { result in
 
             if case let .success(response) = result {
@@ -155,21 +155,21 @@ class GroupRepository {
 
                     } catch let error {
                         print("error while decoding \(error.localizedDescription)")
-                        completion(.failure(CustomError(description: error.localizedDescription)))
+                        completion(.failure(MoneyAppError(description: error.localizedDescription)))
                     }
                 } else {
                     print("GroupRepository.fetch expense error: \(String(decoding: response.data, as: UTF8.self))")
-                    completion(.failure(CustomError(description: "group details fetch error")))
+                    completion(.failure(MoneyAppError(description: "group details fetch error")))
                 }
 
             } else if case let .failure(error) = result {
                 print("error \(error.localizedDescription)")
-                completion(.failure(CustomError(description: error.localizedDescription)))
+                completion(.failure(MoneyAppError(description: error.localizedDescription)))
             }
         }
     }
     
-    func code(groupId: Int, completion: @escaping((Result<(String), CustomError>) -> Void)) {
+    func code(groupId: Int, completion: @escaping((Result<(String), MoneyAppError>) -> Void)) {
         
         _ = defaultRequest(api: .code(groupdId: groupId)) { result in
 
@@ -183,20 +183,20 @@ class GroupRepository {
                         
                     } catch let error {
                         print("error while decoding \(error.localizedDescription) \nData: \(String(data: response.data, encoding: .utf8) ?? "")")
-                        completion(.failure(CustomError(description: "Unknown error")))
+                        completion(.failure(MoneyAppError(description: "Unknown error")))
                     }
 
                 } else {
-                    completion(.failure(CustomError(description: "Unknown error")))
+                    completion(.failure(MoneyAppError(description: "Unknown error")))
                 }
             } else if case let .failure(error) = result {
                 print("error \(error.localizedDescription)")
-                completion(.failure(CustomError(description: error.localizedDescription)))
+                completion(.failure(MoneyAppError(description: error.localizedDescription)))
             }
         }
     }
     
-    func fetchExpenses(groupdId: Int, completion: @escaping((Result<[ExpenseResponse], CustomError>) -> Void)) {
+    func fetchExpenses(groupdId: Int, completion: @escaping((Result<[ExpenseResponse], MoneyAppError>) -> Void)) {
                 
         _ = defaultRequest(api: .expenses(groupdId: groupdId)) { result in
 
@@ -211,21 +211,21 @@ class GroupRepository {
 
                     } catch let error {
                         print("error while decoding \(error.localizedDescription)")
-                        completion(.failure(CustomError(description: error.localizedDescription)))
+                        completion(.failure(MoneyAppError(description: error.localizedDescription)))
                     }
                 } else {
                     print("GroupRepository.fetch expenses error: \(String(decoding: response.data, as: UTF8.self))")
-                    completion(.failure(CustomError(description: "Error check credentials")))
+                    completion(.failure(MoneyAppError(description: "Error check credentials")))
                 }
 
             } else if case let .failure(error) = result {
                 print("error \(error.localizedDescription)")
-                completion(.failure(CustomError(description: error.localizedDescription)))
+                completion(.failure(MoneyAppError(description: error.localizedDescription)))
             }
         }
     }
     
-    func friends(completion: @escaping((Result<[UserResponse], CustomError>) -> Void)) {
+    func friends(completion: @escaping((Result<[UserResponse], MoneyAppError>) -> Void)) {
                 
         _ = defaultRequest(api: .friends) { result in
 
@@ -240,21 +240,21 @@ class GroupRepository {
 
                     } catch let error {
                         print("error while decoding \(error.localizedDescription)")
-                        completion(.failure(CustomError(description: error.localizedDescription)))
+                        completion(.failure(MoneyAppError(description: error.localizedDescription)))
                     }
                 } else {
                     print("GroupRepository.fetch friends error: \(String(decoding: response.data, as: UTF8.self))")
-                    completion(.failure(CustomError(description: "Error check credentials")))
+                    completion(.failure(MoneyAppError(description: "Error check credentials")))
                 }
 
             } else if case let .failure(error) = result {
                 print("error \(error.localizedDescription)")
-                completion(.failure(CustomError(description: error.localizedDescription)))
+                completion(.failure(MoneyAppError(description: error.localizedDescription)))
             }
         }
     }
     
-    func addGroup(name: String, icon: Int, members: [Int], completion: @escaping((Result<Bool, CustomError>) -> Void)) {
+    func addGroup(name: String, icon: Int, members: [Int], completion: @escaping((Result<Bool, MoneyAppError>) -> Void)) {
 
         _ = defaultRequest(api: .addGroup(name: name, icon: icon, members: members)) { result in
 
@@ -263,7 +263,7 @@ class GroupRepository {
 
             } else if case let .failure(error) = result {
                 print("error \(error.localizedDescription)")
-                completion(.failure(CustomError(description: error.localizedDescription)))
+                completion(.failure(MoneyAppError(description: error.localizedDescription)))
             }
         }
     }

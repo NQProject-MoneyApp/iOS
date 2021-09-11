@@ -22,6 +22,7 @@
 		70DFAD49855C64FAE178143B /* Pods_MoneyApp_MoneyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BE08076C189D8CC6C663A5 /* Pods_MoneyApp_MoneyAppUITests.framework */; };
 		9281D3F626ED093500793536 /* CircleProfileComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281D3F526ED093500793536 /* CircleProfileComponent.swift */; };
 		9281D3F826ED0A8B00793536 /* JoinAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281D3F726ED0A8B00793536 /* JoinAlertController.swift */; };
+		9281D3FA26ED105900793536 /* MoneyAppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281D3F926ED105900793536 /* MoneyAppError.swift */; };
 		92893E56266BD961000CED03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E55266BD961000CED03 /* AppDelegate.swift */; };
 		92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E57266BD961000CED03 /* SceneDelegate.swift */; };
 		92893E5A266BD961000CED03 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E59266BD961000CED03 /* GroupListViewController.swift */; };
@@ -70,14 +71,6 @@
 		92E456A226D1057A0024F598 /* GroupRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E456A126D1057A0024F598 /* GroupRepository.swift */; };
 		92E456A426D107050024F598 /* GroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E456A326D107050024F598 /* GroupResponse.swift */; };
 		92E456A626D108100024F598 /* GroupListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E456A526D108100024F598 /* GroupListService.swift */; };
-		92FEA6F126A5E5D0008BFAA3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA6F026A5E5D0008BFAA3 /* TableViewController.swift */; };
-		92FEA6F626A5E604008BFAA3 /* TableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FEA6F526A5E604008BFAA3 /* TableView.storyboard */; };
-		92FEA6F826A5E60F008BFAA3 /* ScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FEA6F726A5E60F008BFAA3 /* ScrollView.storyboard */; };
-		92FEA6FA26A5E61B008BFAA3 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA6F926A5E61B008BFAA3 /* ScrollViewController.swift */; };
-		92FEA6FC26A5E625008BFAA3 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA6FB26A5E625008BFAA3 /* ControlViewController.swift */; };
-		92FEA6FE26A5E62F008BFAA3 /* ControlView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FEA6FD26A5E62F008BFAA3 /* ControlView.storyboard */; };
-		92FEA70226A5E856008BFAA3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA70126A5E856008BFAA3 /* UIViewController+Extensions.swift */; };
-		92FEA70426A5ED27008BFAA3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA70326A5ED27008BFAA3 /* TableViewCell.swift */; };
 		BCE3808BC330E79B1DFBC30E /* Pods_MoneyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C28A05241A1E507FDC84C2A /* Pods_MoneyApp.framework */; };
 		E30CABB026E3CC0D00285E34 /* GroupUsersListComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30CABAF26E3CC0D00285E34 /* GroupUsersListComponentView.swift */; };
 		E342194826ECD5F300A5F866 /* ExpenseDetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E342194726ECD5F300A5F866 /* ExpenseDetailsView.storyboard */; };
@@ -130,6 +123,7 @@
 		885B49F1E65C483526CF41DA /* Pods-MoneyApp-MoneyAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp-MoneyAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyApp-MoneyAppUITests/Pods-MoneyApp-MoneyAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9281D3F526ED093500793536 /* CircleProfileComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfileComponent.swift; sourceTree = "<group>"; };
 		9281D3F726ED0A8B00793536 /* JoinAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinAlertController.swift; sourceTree = "<group>"; };
+		9281D3F926ED105900793536 /* MoneyAppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyAppError.swift; sourceTree = "<group>"; };
 		92893E52266BD961000CED03 /* MoneyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92893E55266BD961000CED03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92893E57266BD961000CED03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,14 +178,6 @@
 		92E456A126D1057A0024F598 /* GroupRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRepository.swift; sourceTree = "<group>"; };
 		92E456A326D107050024F598 /* GroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupResponse.swift; sourceTree = "<group>"; };
 		92E456A526D108100024F598 /* GroupListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListService.swift; sourceTree = "<group>"; };
-		92FEA6F026A5E5D0008BFAA3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		92FEA6F526A5E604008BFAA3 /* TableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableView.storyboard; sourceTree = "<group>"; };
-		92FEA6F726A5E60F008BFAA3 /* ScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScrollView.storyboard; sourceTree = "<group>"; };
-		92FEA6F926A5E61B008BFAA3 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
-		92FEA6FB26A5E625008BFAA3 /* ControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
-		92FEA6FD26A5E62F008BFAA3 /* ControlView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ControlView.storyboard; sourceTree = "<group>"; };
-		92FEA70126A5E856008BFAA3 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		92FEA70326A5ED27008BFAA3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C899D24842896264E2AC522C /* Pods-MoneyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp.debug.xcconfig"; path = "Target Support Files/Pods-MoneyApp/Pods-MoneyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D96D3DE344EBDFCD506A35EC /* Pods-MoneyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyAppTests/Pods-MoneyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E30CABAF26E3CC0D00285E34 /* GroupUsersListComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUsersListComponentView.swift; sourceTree = "<group>"; };
@@ -304,7 +290,6 @@
 		92893E54266BD961000CED03 /* MoneyApp */ = {
 			isa = PBXGroup;
 			children = (
-				92FEA6EF26A5E5B7008BFAA3 /* Example */,
 				92893E55266BD961000CED03 /* AppDelegate.swift */,
 				92893E5B266BD961000CED03 /* Main.storyboard */,
 				92893E57266BD961000CED03 /* SceneDelegate.swift */,
@@ -434,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				92E4567926CED5790024F598 /* UserDefaultsKeys.swift */,
+				9281D3F926ED105900793536 /* MoneyAppError.swift */,
 				92E4567B26CED67F0024F598 /* Authentication.swift */,
 				92E4568426CEE4A90024F598 /* Toast.swift */,
 				92E4569126CEED5C0024F598 /* Brand.swift */,
@@ -513,61 +499,6 @@
 				92E4569F26D0F9BA0024F598 /* Mock.swift */,
 			);
 			path = Mock;
-			sourceTree = "<group>";
-		};
-		92FEA6EF26A5E5B7008BFAA3 /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				92FEA6FF26A5E839008BFAA3 /* Utils */,
-				92FEA6F426A5E5E8008BFAA3 /* Control */,
-				92FEA6F326A5E5DD008BFAA3 /* ScrollView */,
-				92FEA6F226A5E5D5008BFAA3 /* TableView */,
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
-		92FEA6F226A5E5D5008BFAA3 /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				92FEA6F026A5E5D0008BFAA3 /* TableViewController.swift */,
-				92FEA6F526A5E604008BFAA3 /* TableView.storyboard */,
-				92FEA70326A5ED27008BFAA3 /* TableViewCell.swift */,
-			);
-			path = TableView;
-			sourceTree = "<group>";
-		};
-		92FEA6F326A5E5DD008BFAA3 /* ScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				92FEA6F926A5E61B008BFAA3 /* ScrollViewController.swift */,
-				92FEA6F726A5E60F008BFAA3 /* ScrollView.storyboard */,
-			);
-			path = ScrollView;
-			sourceTree = "<group>";
-		};
-		92FEA6F426A5E5E8008BFAA3 /* Control */ = {
-			isa = PBXGroup;
-			children = (
-				92FEA6FB26A5E625008BFAA3 /* ControlViewController.swift */,
-				92FEA6FD26A5E62F008BFAA3 /* ControlView.storyboard */,
-			);
-			path = Control;
-			sourceTree = "<group>";
-		};
-		92FEA6FF26A5E839008BFAA3 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				92FEA70026A5E83E008BFAA3 /* Extensions */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		92FEA70026A5E83E008BFAA3 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				92FEA70126A5E856008BFAA3 /* UIViewController+Extensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E34EDFF126ECC86A009F5701 /* ExpenseDetailsView */ = {
@@ -707,18 +638,15 @@
 				92BCE44E26E67F8700E4E929 /* AllExpensesView.storyboard in Resources */,
 				4D6342C926DEC9240065209B /* RegisterView.storyboard in Resources */,
 				92893E62266BD963000CED03 /* LaunchScreen.storyboard in Resources */,
-				92FEA6FE26A5E62F008BFAA3 /* ControlView.storyboard in Resources */,
 				92893E5F266BD963000CED03 /* Assets.xcassets in Resources */,
 				92BCE44426E5460900E4E929 /* AboutView.storyboard in Resources */,
 				92BCE42D26E3D69F00E4E929 /* AddGroupView.storyboard in Resources */,
 				92BCE43926E50C5100E4E929 /* ProfileView.storyboard in Resources */,
 				E3F1EEED26E3A78A00C6814B /* GroupDetailsView.storyboard in Resources */,
 				92E4569626D0E9160024F598 /* GroupListView.storyboard in Resources */,
-				92FEA6F826A5E60F008BFAA3 /* ScrollView.storyboard in Resources */,
 				4DDEBC2526E4EB74000894B6 /* AddExpenseView.storyboard in Resources */,
 				92E4568326CED8220024F598 /* LoginView.storyboard in Resources */,
 				E342194826ECD5F300A5F866 /* ExpenseDetailsView.storyboard in Resources */,
-				92FEA6F626A5E604008BFAA3 /* TableView.storyboard in Resources */,
 				92893E5D266BD961000CED03 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -892,25 +820,22 @@
 				4DDEBC1526E3BB19000894B6 /* TextField.swift in Sources */,
 				92893E5A266BD961000CED03 /* GroupListViewController.swift in Sources */,
 				92BCE43726E50B8A00E4E929 /* ProfileViewController.swift in Sources */,
-				92FEA6FA26A5E61B008BFAA3 /* ScrollViewController.swift in Sources */,
 				92E4567A26CED5790024F598 /* UserDefaultsKeys.swift in Sources */,
 				92BCE44226E545FE00E4E929 /* AboutViewController.swift in Sources */,
 				92893E86266BDD28000CED03 /* Config.swift in Sources */,
 				92E456A026D0F9BA0024F598 /* Mock.swift in Sources */,
+				9281D3FA26ED105900793536 /* MoneyAppError.swift in Sources */,
 				E3DE737226E50A8600D9C9D3 /* UserResponse.swift in Sources */,
 				E30CABB026E3CC0D00285E34 /* GroupUsersListComponentView.swift in Sources */,
 				92E4568E26CEE9700024F598 /* LoginResponse.swift in Sources */,
 				92BCE44626E550EC00E4E929 /* ShrinkView.swift in Sources */,
 				E37AF72726E3DB5A00BD5C0B /* User.swift in Sources */,
 				92BCE42B26E3D67400E4E929 /* AddGroupService.swift in Sources */,
-				92FEA70426A5ED27008BFAA3 /* TableViewCell.swift in Sources */,
 				92893E56266BD961000CED03 /* AppDelegate.swift in Sources */,
 				4DDEBC2326E4EB42000894B6 /* AddExpenseViewController.swift in Sources */,
 				92E4568B26CEE81F0024F598 /* UserRepository.swift in Sources */,
 				92BCE42926E3D65F00E4E929 /* AddGroupViewController.swift in Sources */,
 				4DDEBC2926E535BD000894B6 /* Expense.swift in Sources */,
-				92FEA70226A5E856008BFAA3 /* UIViewController+Extensions.swift in Sources */,
-				92FEA6F126A5E5D0008BFAA3 /* TableViewController.swift in Sources */,
 				92BCE43F26E520D100E4E929 /* PrimaryButton.swift in Sources */,
 				92E456A426D107050024F598 /* GroupResponse.swift in Sources */,
 				92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */,
@@ -918,7 +843,6 @@
 				92BCE43226E4F56E00E4E929 /* Date+Extensions.swift in Sources */,
 				92E4568826CEE6520024F598 /* MoneyAppClient.swift in Sources */,
 				92BCE44C26E67F7400E4E929 /* AllExpensesViewController.swift in Sources */,
-				92FEA6FC26A5E625008BFAA3 /* ControlViewController.swift in Sources */,
 				4D6342C726DEC90A0065209B /* RegisterViewController.swift in Sources */,
 				E34EDFF526ECCD08009F5701 /* ExpenseDetailsComponentView.swift in Sources */,
 				92E4567C26CED67F0024F598 /* Authentication.swift in Sources */,

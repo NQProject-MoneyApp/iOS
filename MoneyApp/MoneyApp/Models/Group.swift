@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class Group {
     
     let id: Int

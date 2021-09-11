@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class LoginResponse: Codable {
     let key: String?
 }

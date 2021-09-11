@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class GroupDetailsService {
     
     func code(groupId: Int, completion: @escaping((Result<(String), MoneyAppError>) -> Void)) {

@@ -96,10 +96,6 @@ class AddGroupViewController: UIViewController {
         
         groupNameTextField.defaultStyle(placeholder: "Group name")
         groupNameTextField.text = group?.name ?? ""
- 
-        groupNameTextField.snp.makeConstraints { make in
-            make.height.equalTo(49)
-        }
     }
     
     private func appendSaveButton() {
@@ -107,7 +103,7 @@ class AddGroupViewController: UIViewController {
         saveButton.setTitle("Save", for: .normal)
         saveButton.backgroundColor = UIColor.brand.yellow
         saveButton.setTitleColor(UIColor.brand.blackBackground, for: .normal)
-        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        saveButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
         saveButton.layer.cornerRadius = 12
         saveButton.addTarget(self, action: #selector(didPressSaveButton), for: .touchUpInside)
         scrollView.append(component: saveButton, last: true)

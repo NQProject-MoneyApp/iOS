@@ -70,14 +70,12 @@ class LoginViewController: UIViewController {
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(label.snp.bottom).offset(39)
             make.right.left.equalTo(view).inset(34)
-            make.height.equalTo(49)
         }
         
         passwordTextField.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(usernameTextField.snp.bottom).offset(21)
             make.right.left.equalTo(view).inset(34)
-            make.height.equalTo(49)
         }
     }
 
@@ -92,7 +90,6 @@ class LoginViewController: UIViewController {
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(passwordTextField.snp.bottom).offset(21)
             make.right.left.equalTo(view).inset(34)
-            make.height.equalTo(49)
         }
     }
     

@@ -35,7 +35,6 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     func didRefreshList(refreshCompletion: @escaping () -> Void) {
         service.fetchGroups(completion: { result in
             self.updateGroupsList(groups: result)
-            
             refreshCompletion()
         })
     }
@@ -43,6 +42,10 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     static func loadFromStoryboard() -> GroupListViewController? {
         let storyboard = UIStoryboard(name: "GroupListView", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: "GroupListView") as? GroupListViewController
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        scrollView.startRefresh()
     }
 
     override func viewDidLoad() {
@@ -67,7 +70,6 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     @objc private func onLogout() {
         guard let vc = LoginViewController.loadFromStoryboard() else { return }
         let controller = UINavigationController(rootViewController: vc)
-        
         controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true, completion: nil)
     }
@@ -109,108 +111,24 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
 
     private func setupObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(onLogout), name: NSNotification.Name("logout"), object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(didEnterFromBackground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     private func setupNavigationController() {
-
         navigationController?.setBackgroundColor(color: UIColor.brand.blackBackground)
         title = "Groups"
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
-        if #available(iOS 14, *) {
-            createContextMenu()
-
-        } else {
-            let leftBarItem = UIBarButtonItem(image: UIImage(named: "userProfile"), style: .plain, target: self, action: #selector(onProfileButtonTapped))
-            leftBarItem.tintColor = UIColor.white
-            
-            let rightBarItem = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: self, action: #selector(onAddButtonTapped))
-            rightBarItem.tintColor = UIColor.brand.yellow
-            
-            navigationItem.leftBarButtonItem = leftBarItem
-            navigationItem.rightBarButtonItem = rightBarItem
-        }
+        createContextMenu()
     }
     
-    @objc func onProfileButtonTapped() {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-        
-        let profileAction = UIAlertAction(title: "Profile", style: .default) { _ in
-            guard let vc = ProfileViewController.loadFromStoryBoard() else { return }
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-
-        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
-            Authentication.shared.logout()
-        }
-
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.view.tintColor = UIColor.brand.yellow
-        
-        alert.addAction(profileAction)
-        alert.addAction(logoutAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    @objc func onAddButtonTapped() {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-
-        let joinAction = UIAlertAction(title: "Join a group", style: .default) { _ in
-            self.showJoinAlert()
-        }
-        
-        let addAction = UIAlertAction(title: "Create a new group", style: .default) { _ in
-            guard let vc = AddGroupViewController.loadFromStoryboard() else { return }
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.view.tintColor = UIColor.brand.yellow
-
-        alert.addAction(joinAction)
-        alert.addAction(addAction)
-        alert.addAction(cancelAction)
-        self.present(alert, animated: true, completion: nil)
-    }
-        
     private func showJoinAlert() {
-        let alert = UIAlertController(title: "Enter the code", message: nil, preferredStyle: .alert)
-        alert.view.tintColor = UIColor.brand.yellow
-        
-        alert.addTextField { textField in
-            textField.placeholder = "Code"
-            textField.tintColor = UIColor.brand.yellow
-            textField.addTarget(self, action: #selector(self.textChanged), for: .editingChanged)
-        }
-        
-        alert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
-        
-        let joinAction = UIAlertAction(title: "Join", style: .default, handler: { _ in
-            self.joinToGroup(code: alert.textFields?.first?.text)
+        let joinAlert = JoinAlertController.create(onJoin: { code in
+            self.joinToGroup(code: code)
         })
-        
-        joinAction.isEnabled = false
-        
-        alert.addAction(joinAction)
-         
-        present(alert, animated: true)
+        present(joinAlert, animated: true)
     }
-    
-    @objc func textChanged(_ sender: Any) {
-        // todo refactor
-        if let textField = sender as? UITextField {
-            
-            var resp: UIResponder! = textField
-            while !(resp is UIAlertController) { resp = resp.next }
-            (resp as? UIAlertController)?.actions[1].isEnabled = (textField.text != "")
-        }
-    }
-    
+        
     private func joinToGroup(code: String?) {
         if let code = code, !code.isEmpty {
             GroupListService.shared.joinGroup(code: code) { result in
@@ -221,40 +139,40 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
     }
     
     private func createContextMenu() {
-            if #available(iOS 14, *) {
-                var leftMenuItems: [UIAction] {
-                    return [
-                        UIAction(title: "Profile", handler: { _ in
-                            guard let vc = ProfileViewController.loadFromStoryBoard() else { return }
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }),
-                        UIAction(title: "About", handler: { _ in
-                            guard let vc = AboutViewController.loadFromStoryBoard() else { return }
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }),
-                        UIAction(title: "Logout", handler: { _ in
-                            Authentication.shared.logout()
-                        })
-                    ]
-                }
-                
-                var rightMenuItems: [UIAction] {
-                    return [
-                        UIAction(title: "Join", handler: { _ in
-                            self.showJoinAlert()
-                        }),
-                        UIAction(title: "Create a new group", handler: { _ in
-                            guard let vc = AddGroupViewController.loadFromStoryboard() else { return }
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        })
-                    ]
-                }
-
-                navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add"), menu: UIMenu(children: rightMenuItems))
-                navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "userProfile"), menu: UIMenu(children: leftMenuItems))
-                
-                navigationItem.rightBarButtonItem?.tintColor = UIColor.brand.yellow
-                navigationItem.leftBarButtonItem?.tintColor = UIColor.brand.yellow
+        if #available(iOS 14, *) {
+            var leftMenuItems: [UIAction] {
+                return [
+                    UIAction(title: "Profile", handler: { _ in
+                        guard let vc = ProfileViewController.loadFromStoryBoard() else { return }
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }),
+                    UIAction(title: "About", handler: { _ in
+                        guard let vc = AboutViewController.loadFromStoryBoard() else { return }
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }),
+                    UIAction(title: "Logout", handler: { _ in
+                        Authentication.shared.logout()
+                    })
+                ]
             }
+            
+            var rightMenuItems: [UIAction] {
+                return [
+                    UIAction(title: "Join", handler: { _ in
+                        self.showJoinAlert()
+                    }),
+                    UIAction(title: "Create a new group", handler: { _ in
+                        guard let vc = AddGroupViewController.loadFromStoryboard() else { return }
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    })
+                ]
+            }
+
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add"), menu: UIMenu(children: rightMenuItems))
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "userProfile"), menu: UIMenu(children: leftMenuItems))
+            
+            navigationItem.rightBarButtonItem?.tintColor = UIColor.brand.yellow
+            navigationItem.leftBarButtonItem?.tintColor = UIColor.brand.yellow
         }
+    }
 }

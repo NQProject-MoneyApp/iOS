@@ -51,14 +51,12 @@ class AddExpenseViewController: UIViewController {
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(view.snp.top).offset(39)
             make.right.left.equalTo(view).inset(34)
-            make.height.equalTo(49)
         }
         
         amountTextField.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(expenseNameTextField.snp.bottom).offset(21)
             make.right.left.equalTo(view).inset(34)
-            make.height.equalTo(49)
         }
     }
     
@@ -90,7 +88,6 @@ class AddExpenseViewController: UIViewController {
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(participantsView.snp.bottom).offset(21)
             make.right.left.equalTo(view).inset(34)
-            make.height.equalTo(49)
         }
     }
     

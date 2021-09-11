@@ -23,6 +23,8 @@ extension UITextField {
 
         snp.makeConstraints { make in
             make.edges.equalTo(self.snp.edges)
+            make.height.equalTo(49)
+
         }
     }
     

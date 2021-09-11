@@ -20,6 +20,8 @@
 		4DDEBC2926E535BD000894B6 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC2826E535BD000894B6 /* Expense.swift */; };
 		4DDEBC2B26E53B16000894B6 /* ExpenseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEBC2A26E53B16000894B6 /* ExpenseService.swift */; };
 		70DFAD49855C64FAE178143B /* Pods_MoneyApp_MoneyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BE08076C189D8CC6C663A5 /* Pods_MoneyApp_MoneyAppUITests.framework */; };
+		9281D3F626ED093500793536 /* CircleProfileComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281D3F526ED093500793536 /* CircleProfileComponent.swift */; };
+		9281D3F826ED0A8B00793536 /* JoinAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281D3F726ED0A8B00793536 /* JoinAlertController.swift */; };
 		92893E56266BD961000CED03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E55266BD961000CED03 /* AppDelegate.swift */; };
 		92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E57266BD961000CED03 /* SceneDelegate.swift */; };
 		92893E5A266BD961000CED03 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92893E59266BD961000CED03 /* GroupListViewController.swift */; };
@@ -126,6 +128,8 @@
 		81DE3A7461FB20B90373FFF4 /* Pods-MoneyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyAppTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyAppTests/Pods-MoneyAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		8827E214D6520A96C0AE83D5 /* Pods-MoneyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp.release.xcconfig"; path = "Target Support Files/Pods-MoneyApp/Pods-MoneyApp.release.xcconfig"; sourceTree = "<group>"; };
 		885B49F1E65C483526CF41DA /* Pods-MoneyApp-MoneyAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyApp-MoneyAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyApp-MoneyAppUITests/Pods-MoneyApp-MoneyAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9281D3F526ED093500793536 /* CircleProfileComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfileComponent.swift; sourceTree = "<group>"; };
+		9281D3F726ED0A8B00793536 /* JoinAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinAlertController.swift; sourceTree = "<group>"; };
 		92893E52266BD961000CED03 /* MoneyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92893E55266BD961000CED03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92893E57266BD961000CED03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -414,12 +418,14 @@
 			isa = PBXGroup;
 			children = (
 				92BCE43E26E520D100E4E929 /* PrimaryButton.swift */,
+				9281D3F726ED0A8B00793536 /* JoinAlertController.swift */,
 				92BCE44526E550EC00E4E929 /* ShrinkView.swift */,
 				92E4569726D0F7440024F598 /* ScrollView.swift */,
 				4DDEBC1426E3BB19000894B6 /* TextField.swift */,
 				4DDEBC1626E3C327000894B6 /* Button.swift */,
 				4DDEBC1826E3C601000894B6 /* TextWithButton.swift */,
 				4DDEBC2626E4FF0E000894B6 /* SelectParticipantsView.swift */,
+				9281D3F526ED093500793536 /* CircleProfileComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -861,6 +867,7 @@
 				92E4569026CEE9C60024F598 /* LoginService.swift in Sources */,
 				92BCE43B26E50EC200E4E929 /* ProfileService.swift in Sources */,
 				92E4569826D0F7440024F598 /* ScrollView.swift in Sources */,
+				9281D3F826ED0A8B00793536 /* JoinAlertController.swift in Sources */,
 				E3F1EEEF26E3BA2300C6814B /* GroupValuesComponentView.swift in Sources */,
 				92BCE45626E804C200E4E929 /* ExpenseComponent.swift in Sources */,
 				92E4569226CEED5C0024F598 /* Brand.swift in Sources */,
@@ -907,6 +914,7 @@
 				92BCE43F26E520D100E4E929 /* PrimaryButton.swift in Sources */,
 				92E456A426D107050024F598 /* GroupResponse.swift in Sources */,
 				92893E58266BD961000CED03 /* SceneDelegate.swift in Sources */,
+				9281D3F626ED093500793536 /* CircleProfileComponent.swift in Sources */,
 				92BCE43226E4F56E00E4E929 /* Date+Extensions.swift in Sources */,
 				92E4568826CEE6520024F598 /* MoneyAppClient.swift in Sources */,
 				92BCE44C26E67F7400E4E929 /* AllExpensesViewController.swift in Sources */,

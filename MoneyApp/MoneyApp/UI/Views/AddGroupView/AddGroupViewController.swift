@@ -10,10 +10,13 @@ import UIKit
 class AddGroupViewController: UIViewController {
     
     private let scrollView = ScrollView()
-    private let service = GroupListService()
+    private let service = AddGroupService()
     private var imagePickerAlert: UIAlertController?
     private var icon: MoneyAppIcon?
     private var iconView = UIImageView()
+    private let groupNameTextField = UITextField()
+    private let participantsView = SelectParticipantsView()
+    var group: Group?
     
     static func loadFromStoryboard() -> AddGroupViewController? {
         let storyboard = UIStoryboard(name: "AddGroupView", bundle: nil)
@@ -25,10 +28,32 @@ class AddGroupViewController: UIViewController {
         view.backgroundColor = UIColor.brand.blackBackground
         setupNavigationController()
         setupScrollView()
-        appendIcon()
         
-        // remove
-        scrollView.append(component: UIView(), last: true)
+        if group != nil {
+            createContent(friends: [])
+        } else {
+            let activityIndicator = UIActivityIndicatorView()
+            activityIndicator.color = UIColor.brand.yellow
+            activityIndicator.startAnimating()
+            scrollView.setSingleContent(content: activityIndicator)
+            
+            service.fetchFriends(completion: { friends in
+                self.scrollView.clearComponents()
+                self.createContent(friends: friends)
+            })
+        }
+    }
+    
+    private func createContent(friends: [User]) {
+        appendIcon()
+        appendNameTextField()
+        if !friends.isEmpty {
+            appendFriendsComponent(friends: friends)
+        }
+        appendSaveButton()
+        
+        scrollView.alpha = 0
+        scrollView.fadeIn(0.5)
     }
     
     private func appendIcon() {
@@ -47,10 +72,15 @@ class AddGroupViewController: UIViewController {
             make.top.bottom.equalTo(container)
         }
         
-        if let icon = icon {
-            iconView.image = UIImage(named: icon.icon())
-            iconView.imageColor = UIColor.brand.yellow
+        if let group = group {
+            icon = group.icon
+        } else {
+            icon = MoneyAppIcon.randomElement()
         }
+        
+        iconView.image = UIImage(named: icon!.icon())
+
+        iconView.imageColor = UIColor.brand.yellow
 
         imageContainer.addSubview(iconView)
         iconView.snp.makeConstraints { make in
@@ -58,6 +88,63 @@ class AddGroupViewController: UIViewController {
         }
         
         scrollView.append(component: container, last: false)
+    }
+    
+    private func appendNameTextField() {
+        
+        scrollView.append(component: groupNameTextField, last: false)
+        
+        groupNameTextField.defaultStyle(placeholder: "Group name")
+        groupNameTextField.text = group?.name ?? ""
+ 
+        groupNameTextField.snp.makeConstraints { make in
+            make.height.equalTo(49)
+        }
+    }
+    
+    private func appendSaveButton() {
+        let saveButton = PrimaryButton()
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.backgroundColor = UIColor.brand.yellow
+        saveButton.setTitleColor(UIColor.brand.blackBackground, for: .normal)
+        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        saveButton.layer.cornerRadius = 12
+        saveButton.addTarget(self, action: #selector(didPressSaveButton), for: .touchUpInside)
+        scrollView.append(component: saveButton, last: true)
+    }
+    
+    @objc private func didPressSaveButton() {
+        
+        if !validate() {
+            return
+        }
+        
+        if let group = group {
+            group.name = groupNameTextField.text!
+            group.icon = icon!
+            service.editGroup(group: group, completion: { result in
+                if !result {
+                    Toast.shared.presentToast("Error")
+                } else {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+            
+        } else {
+            
+            service.addGroup(
+                name: groupNameTextField.text!,
+                icon: icon!,
+                members: participantsView.participants.filter { $0.isSelected }.map { $0.userId },
+                completion: { result in
+                    if !result {
+                        Toast.shared.presentToast("Error")
+                    } else {
+                        self.navigationController?.popViewController(animated: true)
+
+                    }
+            })
+        }
     }
     
     @objc private func didPressChooseImage() {
@@ -128,5 +215,23 @@ class AddGroupViewController: UIViewController {
             iconView.imageColor = UIColor.brand.yellow
         }
         imagePickerAlert?.dismiss(animated: true, completion: nil)
+    }
+    
+    private func appendFriendsComponent(friends: [User]) {
+        scrollView.append(component: participantsView, last: false)
+        participantsView.create()
+        
+        participantsView.participants = friends.map { friend in
+            return ParticipantModel(userId: friend.pk, username: friend.name, isSelected: true)
+        }
+    }
+    
+    private func validate() -> Bool {
+        if groupNameTextField.text == nil || groupNameTextField.text!.isEmpty {
+            Toast.shared.presentToast("Group name can't be empty")
+            return false
+        }
+        
+        return true
     }
 }

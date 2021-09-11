@@ -31,6 +31,10 @@ enum MoneyAppIcon: Int, CaseIterable {
     static func from(id: Int) -> MoneyAppIcon {
         return MoneyAppIcon.init(rawValue: id) ?? .hamburger
     }
+    
+    static func randomElement() -> MoneyAppIcon {
+        return allCases[(0..<allCases.count).randomElement() ?? 0]
+    }
 }
 
 class GroupListService {
@@ -69,7 +73,7 @@ class GroupListService {
     }
     
     func markAsFavourite(group: Group, completion: @escaping ((Bool) -> Void)) {
-        GroupRepository.shared.markAsFavourite(group: group, completion: { result in
+        GroupRepository.shared.editGroup(group: group, completion: { result in
             completion(result)
         })
     }

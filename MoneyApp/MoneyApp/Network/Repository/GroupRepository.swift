@@ -93,7 +93,7 @@ class GroupRepository {
         }
     }
     
-    func markAsFavourite(group: Group, completion: @escaping((Bool) -> Void)) {
+    func editGroup(group: Group, completion: @escaping((Bool) -> Void)) {
         _ = defaultRequest(api: .editGroup(group: group)) { result in
             
             if case let .success(response) = result, 200 ... 299 ~= response.statusCode {
@@ -171,5 +171,47 @@ class GroupRepository {
             }
         }
     }
+    
+    func friends(completion: @escaping((Result<[UserResponse], CustomError>) -> Void)) {
+                
+        _ = defaultRequest(api: .friends) { result in
 
+            if case let .success(response) = result {
+
+                if 200 ... 299 ~= response.statusCode {
+
+                    do {
+
+                        let friends = try JSONDecoder().decode([UserResponse].self, from: response.data)
+                        completion(.success(friends))
+
+                    } catch let error {
+                        print("error while decoding \(error.localizedDescription)")
+                        completion(.failure(CustomError(description: error.localizedDescription)))
+                    }
+                } else {
+                    print("GroupRepository.fetch friends error: \(String(decoding: response.data, as: UTF8.self))")
+                    completion(.failure(CustomError(description: "Error check credentials")))
+                }
+
+            } else if case let .failure(error) = result {
+                print("error \(error.localizedDescription)")
+                completion(.failure(CustomError(description: error.localizedDescription)))
+            }
+        }
+    }
+    
+    func addGroup(name: String, icon: Int, members: [Int], completion: @escaping((Result<Bool, CustomError>) -> Void)) {
+
+        _ = defaultRequest(api: .addGroup(name: name, icon: icon, members: members)) { result in
+
+            if case let .success(response) = result, 200 ... 299 ~= response.statusCode {
+                completion(.success(true))
+
+            } else if case let .failure(error) = result {
+                print("error \(error.localizedDescription)")
+                completion(.failure(CustomError(description: error.localizedDescription)))
+            }
+        }
+    }
  }

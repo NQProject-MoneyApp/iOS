@@ -68,7 +68,9 @@ class GroupDetailsViewController: UIViewController, GroupUsersListComponentDeleg
                         self.onNewExpenseNavigate()
                     }),
                     UIAction(title: "Edit", handler: { _ in
-                        // TODO
+                        guard let vc = AddGroupViewController.loadFromStoryboard() else { return }
+                        vc.group = self.group
+                        self.navigationController?.pushViewController(vc, animated: true)
                     }),
                     UIAction(title: "All expenses", handler: { _ in
                         self.navigateToAllExpense()
@@ -76,7 +78,7 @@ class GroupDetailsViewController: UIViewController, GroupUsersListComponentDeleg
                 ]
             }
 
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add"), menu: UIMenu(children: rightMenuItems))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "hamburger"), menu: UIMenu(children: rightMenuItems))
             navigationItem.rightBarButtonItem?.tintColor = UIColor.brand.yellow
         }
     }

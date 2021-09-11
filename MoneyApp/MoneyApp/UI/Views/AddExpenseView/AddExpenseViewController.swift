@@ -21,7 +21,6 @@ class AddExpenseViewController: UIViewController {
     private let amountTextField = UITextField()
     private let participantsView = SelectParticipantsView()
     private let saveButton = UIButton(type: .system)
-    private var deleteButton: UIButton?
     
     static func loadFromStoryboard() -> AddExpenseViewController? {
         let storyboard = UIStoryboard(name: "AddExpenseView", bundle: nil)
@@ -34,9 +33,6 @@ class AddExpenseViewController: UIViewController {
         addTextFields()
         addParticipants()
         addSaveButton()
-        if editedExpense != nil {
-            addDeleteButton()
-        }
     }
     
     func addTextFields() {
@@ -83,18 +79,6 @@ class AddExpenseViewController: UIViewController {
         }
     }
     
-    private func addDeleteButton() {
-        
-        deleteButton = UIButton(type: .system)
-        
-        if let deleteButton = deleteButton {
-            deleteButton.defaultStyle(title: "Delete")
-            deleteButton.backgroundColor = UIColor.red
-        }
-        
-        deleteButton?.addTarget(self, action: #selector(didPressDeleteButton), for: .touchUpInside)
-    }
-    
     private func addSaveButton() {
         view.addSubview(saveButton)
         
@@ -108,12 +92,6 @@ class AddExpenseViewController: UIViewController {
             make.right.left.equalTo(view).inset(34)
             make.height.equalTo(49)
         }
-    }
-    
-    @objc func didPressDeleteButton() {
-        setLoading(enabled: true)
-        
-        
     }
     
     @objc func didPressSaveButton() {
@@ -176,14 +154,12 @@ class AddExpenseViewController: UIViewController {
         if !success {
             Toast.shared.presentToast("Failed to save expense, plese check your internet connection.")
             setLoading(enabled: false)
-        }
-        else {
+        } else {
             self.navigationController!.popViewController(animated: true)
         }
     }
     
     func setLoading(enabled: Bool) {
         saveButton.isEnabled = !enabled
-        deleteButton?.isEnabled = !enabled
     }
 }

@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-class ExpenseDetailsViewController: UIViewController {
+class ExpenseDetailsViewController: UIViewController, ScrollViewRefreshDelegate {
+
     
     var group: Group?
     var expense: Expense?
@@ -33,7 +34,14 @@ class ExpenseDetailsViewController: UIViewController {
         setupContent(expense: expense)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        scrollView.startRefresh()
+    }
+    
     private func setupContent(expense: Expense) {
+        title = expense.name
+        scrollView.clearComponents()
+        
         let valuesComponent = ExpenseDetailsComponentView()
         valuesComponent.create(expense: expense)
         
@@ -67,6 +75,17 @@ class ExpenseDetailsViewController: UIViewController {
         }
     }
     
+    func didRefreshList(refreshCompletion: @escaping () -> Void) {
+        service.fetchExpense(groupId: group!.id, expenseId: expense!.id, completion: { result in
+            
+            if let result = result {
+                self.expense = result
+            }
+            self.setupContent(expense: self.expense!)
+            refreshCompletion()
+        })
+    }
+    
     private func onEditExpenseNavigate() {
         guard let vc = AddExpenseViewController.loadFromStoryboard() else { return }
         vc.members = group!.members
@@ -94,6 +113,7 @@ class ExpenseDetailsViewController: UIViewController {
     private func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.create()
+        scrollView.setRefreshDelegate(delegate: self)
         
         scrollView.snp.makeConstraints { make in
             make.left.equalTo(view.snp.left)

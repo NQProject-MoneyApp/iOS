@@ -26,4 +26,18 @@ class ExpenseService {
             completion(result)
         })
     }
+    
+    func fetchExpense(groupId: Int, expenseId: Int, completion: @escaping((Expense?) -> Void)) {
+        GroupRepository.shared.fetchExpense(groupId: groupId, expenseId: expenseId, completion: { result in
+            
+            switch result {
+            case .success(let expense):
+                completion(expense.mapToExpense())
+            case .failure(let error):
+                print("error \(error.localizedDescription)")
+                Toast.shared.presentToast("\(error.localizedDescription)")
+                completion(nil)
+            }
+        })
+    }
 }

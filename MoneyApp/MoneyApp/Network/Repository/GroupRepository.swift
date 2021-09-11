@@ -141,6 +141,34 @@ class GroupRepository {
         })
     }
     
+    func fetchExpense(groupId: Int, expenseId: Int, completion: @escaping((Result<ExpenseResponse, CustomError>) -> Void)) {
+        _ = defaultRequest(api: .fetchExpense(groupId: groupId, expenseId: expenseId)) { result in
+
+            if case let .success(response) = result {
+
+                if 200 ... 299 ~= response.statusCode {
+
+                    do {
+
+                        let expense = try JSONDecoder().decode(ExpenseResponse.self, from: response.data)
+                        completion(.success(expense))
+
+                    } catch let error {
+                        print("error while decoding \(error.localizedDescription)")
+                        completion(.failure(CustomError(description: error.localizedDescription)))
+                    }
+                } else {
+                    print("GroupRepository.fetch expense error: \(String(decoding: response.data, as: UTF8.self))")
+                    completion(.failure(CustomError(description: "group details fetch error")))
+                }
+
+            } else if case let .failure(error) = result {
+                print("error \(error.localizedDescription)")
+                completion(.failure(CustomError(description: error.localizedDescription)))
+            }
+        }
+    }
+    
     func code(groupId: Int, completion: @escaping((Result<(String), CustomError>) -> Void)) {
         
         _ = defaultRequest(api: .code(groupdId: groupId)) { result in

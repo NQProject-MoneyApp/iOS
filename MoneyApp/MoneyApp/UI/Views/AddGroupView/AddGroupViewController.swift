@@ -26,6 +26,8 @@ class AddGroupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.brand.blackBackground
+        // from SGSwiftExtensions
+        hideKeyboardWhenTappedOutside()
         setupNavigationController()
         setupScrollView()
         
@@ -100,11 +102,7 @@ class AddGroupViewController: UIViewController {
     
     private func appendSaveButton() {
         let saveButton = PrimaryButton()
-        saveButton.setTitle("Save", for: .normal)
-        saveButton.backgroundColor = UIColor.brand.yellow
-        saveButton.setTitleColor(UIColor.brand.blackBackground, for: .normal)
-        saveButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
-        saveButton.layer.cornerRadius = 12
+        saveButton.defaultStyle(title: "Save")
         saveButton.addTarget(self, action: #selector(didPressSaveButton), for: .touchUpInside)
         scrollView.append(component: saveButton, last: true)
     }
@@ -150,7 +148,8 @@ class AddGroupViewController: UIViewController {
     private func setupNavigationController() {
         navigationController?.navigationBar.tintColor = UIColor.brand.yellow
         navigationController?.setBackgroundColor(color: UIColor.brand.blackBackground)
-        title = "Add Group"
+
+        title = group != nil ? "Edit group" : "Add Group"
     }
     
     private func setupScrollView() {
@@ -218,7 +217,7 @@ class AddGroupViewController: UIViewController {
         participantsView.create()
         
         participantsView.participants = friends.map { friend in
-            return ParticipantModel(userId: friend.pk, username: friend.name, isSelected: true)
+            return ParticipantModel(userId: friend.pk, username: friend.name, isSelected: false)
         }
     }
     

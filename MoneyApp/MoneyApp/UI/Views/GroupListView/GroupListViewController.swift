@@ -174,12 +174,12 @@ class GroupListViewController: UIViewController, GroupComponentDelegate, ScrollV
                     })
                 ]
             }
-
+            
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add"), menu: UIMenu(children: rightMenuItems))
             navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "userProfile"), menu: UIMenu(children: leftMenuItems))
             
             navigationItem.rightBarButtonItem?.tintColor = UIColor.brand.yellow
-            navigationItem.leftBarButtonItem?.tintColor = UIColor.brand.yellow
+            navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         }
     }
 }

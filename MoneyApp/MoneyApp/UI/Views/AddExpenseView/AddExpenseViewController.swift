@@ -20,7 +20,7 @@ class AddExpenseViewController: UIViewController {
     private let expenseNameTextField = UITextField()
     private let amountTextField = UITextField()
     private let participantsView = SelectParticipantsView()
-    private let saveButton = UIButton(type: .system)
+    private let saveButton = PrimaryButton()
     
     static func loadFromStoryboard() -> AddExpenseViewController? {
         let storyboard = UIStoryboard(name: "AddExpenseView", bundle: nil)
@@ -29,7 +29,9 @@ class AddExpenseViewController: UIViewController {
 
     override func viewDidLoad() {
         view.backgroundColor = UIColor.brand.blackBackground
-        title = "New expense"
+        // from SGSwiftExtensions
+        hideKeyboardWhenTappedOutside()
+        title = editedExpense != nil ? "Edit expense" : "New expense"
         addTextFields()
         addParticipants()
         addSaveButton()
@@ -41,6 +43,7 @@ class AddExpenseViewController: UIViewController {
         
         expenseNameTextField.defaultStyle(placeholder: "Expense name")
         amountTextField.defaultStyle(placeholder: "Amount")
+        amountTextField.keyboardType = .numberPad
         
         if let expense = editedExpense {
             expenseNameTextField.text = expense.name
@@ -64,8 +67,13 @@ class AddExpenseViewController: UIViewController {
         participantsView.create()
         participantsView.participants = members!.map { member in
             
-            let found = editedExpense?.participants.first(where: { id in member.pk == id })
-            return ParticipantModel(userId: member.pk, username: member.name, isSelected: found != nil)
+            if let editedExpense = editedExpense {
+                let found = editedExpense.participants.first(where: { id in member.pk == id })
+                return ParticipantModel(userId: member.pk, username: member.name, isSelected: found != nil)
+
+            } else {
+                return ParticipantModel(userId: member.pk, username: member.name, isSelected: true)
+            }
         }
         
         view.addSubview(participantsView)

@@ -15,6 +15,10 @@ extension UIButton {
         backgroundColor = UIColor.brand.yellow
         setTitleColor(UIColor.black, for: .normal)
         layer.cornerRadius = 10.0
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+        
+        snp.makeConstraints { make in
+            make.height.equalTo(49)
+        }
     }
-    
 }

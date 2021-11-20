@@ -50,6 +50,7 @@ class GroupDetailsViewController: UIViewController, GroupUsersListComponentDeleg
     }
     
     private func setupContent(group: Group) {
+        title = group.name
         scrollView.clearComponents()
         let icon = createIconComponent(icon: group.icon.icon())
 

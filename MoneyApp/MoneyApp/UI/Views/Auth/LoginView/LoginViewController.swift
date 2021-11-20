@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
     private let label = UILabel()
     private let usernameTextField = UITextField()
     private let passwordTextField = UITextField()
-    private let loginButton = UIButton()
+    private let loginButton = PrimaryButton()
     private let service = LoginService()
     
     private func addIcon() {
@@ -64,6 +64,7 @@ class LoginViewController: UIViewController {
         
         usernameTextField.defaultStyle(placeholder: "Username")
         passwordTextField.defaultStyle(placeholder: "Password")
+        passwordTextField.isSecureTextEntry = true
  
         usernameTextField.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
@@ -93,24 +94,14 @@ class LoginViewController: UIViewController {
     }
     
     private func addBottomTexts() {
-        let forgotPasswordView = TextWithButton()
-        forgotPasswordView.create(
-            labelText: "Forgot password?", buttonText: "Reset", onTap: { [self] in self.navigateToForgot() })
-        view.addSubview(forgotPasswordView)
-        forgotPasswordView.snp.makeConstraints { make in
-            make.centerX.equalTo(view.snp.centerX)
-            make.top.equalTo(loginButton.snp.bottom).offset(20)
-        
-        }
-        
         let registerView = TextWithButton()
         registerView.create(
             labelText: "No account yet?", buttonText: "Register", onTap: { [self] in self.navigateToRegister() })
         view.addSubview(registerView)
+        
         registerView.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
-            make.top.equalTo(forgotPasswordView.snp.bottom).offset(20)
-        
+            make.top.equalTo(loginButton.snp.bottom).offset(20)
         }
     }
     

@@ -23,6 +23,9 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        // from SGSwiftExtensions
+        hideKeyboardWhenTappedOutside()
+
         view.backgroundColor = UIColor.brand.blackBackground
         setupNavigationController()
         setupScrollView()
@@ -47,7 +50,6 @@ class ProfileViewController: UIViewController {
     @objc private func didPressSaveButton() {
         guard let user = user else { return }
         user.name = nameTextField.text ?? ""
-        user.email = emailTextField.text ?? ""
         service.updateUser(user: user, completion: { result in
             Toast.shared.presentToast(result)
         })
@@ -55,7 +57,7 @@ class ProfileViewController: UIViewController {
     
     @objc private func textFieldDidChange(_ sender: Any) {
         
-        if emailTextField.text != user?.email || nameTextField.text != user?.name {
+        if nameTextField.text != user?.name {
             saveButton.isEnabled = true
             saveButton.backgroundColor = UIColor.brand.yellow
             saveButton.setTitleColor(UIColor.brand.blackBackground, for: .normal)
@@ -94,12 +96,14 @@ class ProfileViewController: UIViewController {
         
         nameTextField.defaultStyle(placeholder: "Name")
         emailTextField.defaultStyle(placeholder: "Email")
-        
+        // we can't change email
+        emailTextField.isEnabled = false
+        emailTextField.textColor = UIColor.brand.middleGray
+
         nameTextField.text = name
         emailTextField.text = email
         
         nameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
 
         scrollView.append(component: nameTextField, last: false)
         scrollView.append(component: emailTextField, last: false)

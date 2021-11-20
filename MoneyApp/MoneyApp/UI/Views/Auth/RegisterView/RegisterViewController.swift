@@ -16,7 +16,7 @@ class RegisterViewController: UIViewController {
     private let usernameTextField = UITextField()
     private let emailTextField = UITextField()
     private let passwordTextField = UITextField()
-    private let registerButton = UIButton()
+    private let registerButton = PrimaryButton()
     
     static func loadFromStoryboard() -> RegisterViewController? {
         let storyboard = UIStoryboard(name: "RegisterView", bundle: nil)
@@ -97,7 +97,6 @@ class RegisterViewController: UIViewController {
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(passwordTextField.snp.bottom).offset(21)
             make.right.left.equalTo(view).inset(34)
-            make.height.equalTo(49)
         }
     }
     

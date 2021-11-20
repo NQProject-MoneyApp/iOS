@@ -49,7 +49,7 @@ class ExpenseDetailsViewController: UIViewController, ScrollViewRefreshDelegate 
         dateLabel.numberOfLines = 2
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        dateFormatter.dateFormat = "dd-MM-yyyy"
 
         styleLabel(label: dateLabel, text: "Created on \n \(dateFormatter.string(from: expense.createDate))")
         

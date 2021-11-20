@@ -1320,8 +1320,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -1423,8 +1423,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1208E81DA8B532D0646D627B50290EB6 /* AFError.swift in Sources */,
-				C6D5A4B4028B2C43380C9FA58BD5C8CA /* Alamofire-dummy.m in Sources */,
 				C1F1DB6A9CBDE584D09BA1613AAD4F9D /* Alamofire.swift in Sources */,
+				C6D5A4B4028B2C43380C9FA58BD5C8CA /* Alamofire-dummy.m in Sources */,
 				72EC2712926E6D28B52360D9AC41668F /* AlamofireExtended.swift in Sources */,
 				DC627AFC5B585686898B014184AFCABD /* AuthenticationInterceptor.swift in Sources */,
 				ABA85887A41495358C83CE3F3030EDEA /* CachedResponseHandler.swift in Sources */,
@@ -1465,8 +1465,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B326644BB08AEDF697A82A0F1A66D68 /* Toast-Swift-dummy.m in Sources */,
 				4753716AE7A1AB22FB6BA61AA74D942F /* Toast.swift in Sources */,
+				6B326644BB08AEDF697A82A0F1A66D68 /* Toast-Swift-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1485,8 +1485,8 @@
 				21AB1101BBE4D28D74ED4EDF0D59025A /* ConstraintInsets.swift in Sources */,
 				2C06F2E972444D359754D21AC46BFFE2 /* ConstraintInsetTarget.swift in Sources */,
 				99B5296A5EDECE0557B9DA53D9E19CA1 /* ConstraintItem.swift in Sources */,
-				1AFB1E9136716C0B61D6C700FF1E60FD /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				A270CD9EC3C541FE86E65AEDCEF500CF /* ConstraintLayoutGuide.swift in Sources */,
+				1AFB1E9136716C0B61D6C700FF1E60FD /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				77C9889055A3B32EA13A9616824DB0ED /* ConstraintLayoutGuideDSL.swift in Sources */,
 				57B1876F2BE4168E5BFDB63D8CC849A0 /* ConstraintLayoutSupport.swift in Sources */,
 				01C550A53C9E2047C83F8E85BBB558E6 /* ConstraintLayoutSupportDSL.swift in Sources */,
@@ -1502,8 +1502,8 @@
 				E8F2429683B3015CBD39CE883770BCA7 /* ConstraintPriorityTarget.swift in Sources */,
 				69E3A06BBDFDC7D06A9D4BDC4E895E73 /* ConstraintRelatableTarget.swift in Sources */,
 				CE62FEABA57B2B53EABF8C7DCCC6B2C4 /* ConstraintRelation.swift in Sources */,
-				3E5285F4F36EAD77ECABBFB7F36BB1BB /* ConstraintView+Extensions.swift in Sources */,
 				BECA67DFB5E0984DFAEFCB775C31972E /* ConstraintView.swift in Sources */,
+				3E5285F4F36EAD77ECABBFB7F36BB1BB /* ConstraintView+Extensions.swift in Sources */,
 				EB1726F5E0D0EEBA20E4528B1E37A8FA /* ConstraintViewDSL.swift in Sources */,
 				B780B272106411CBE258BB60FFC45410 /* Debugging.swift in Sources */,
 				039EAFE7935113805F3FC21BF1B7C9D5 /* LayoutConstraint.swift in Sources */,
@@ -1521,17 +1521,17 @@
 				C9640B05AE5E0A380992369794CCB425 /* AssociatedValues.swift in Sources */,
 				678E43954A4EB360F356B90A6B68C460 /* Calendars.swift in Sources */,
 				F4771B5E9728FE589F1888C720412D09 /* Commons.swift in Sources */,
+				CFE7E115030F13234F3F77C78C7503A0 /* Date.swift in Sources */,
 				2B5E07B521E4AADF4E24EC39B7014080 /* Date+Compare.swift in Sources */,
 				D10A1A0A15865E50C5BA2CA55ABB8AAC /* Date+Components.swift in Sources */,
 				D8ABDEA1D615E22488ABB57529375E7B /* Date+Create.swift in Sources */,
 				B41D94BED7BD2B2728C80F0479BFAFBA /* Date+Math.swift in Sources */,
-				CFE7E115030F13234F3F77C78C7503A0 /* Date.swift in Sources */,
 				1465B023003B74FD145CC3F01AE65F8C /* DateComponents+Extras.swift in Sources */,
+				B0A6A57A2E8CA1E4BB466357A82DB9D7 /* DateInRegion.swift in Sources */,
 				D409D03A3F401A6086CB0C233BA0E27A /* DateInRegion+Compare.swift in Sources */,
 				5C2B11AD3706F2A828F267B8AF5FA1F4 /* DateInRegion+Components.swift in Sources */,
 				9529A27CA5D248AACAEE97F7A95F49DB /* DateInRegion+Create.swift in Sources */,
 				72B3FA09072C7DCA75B0D2B9C6D7C570 /* DateInRegion+Math.swift in Sources */,
-				B0A6A57A2E8CA1E4BB466357A82DB9D7 /* DateInRegion.swift in Sources */,
 				E1318F32BB098EFC1AFE64F9A0E9725F /* DateRepresentable.swift in Sources */,
 				0995D153EBE26BFC566FF3336F1ECA5E /* DotNetParserFormatter.swift in Sources */,
 				AF24D9B52BF1DEA3111A00651265E016 /* Formatter+Protocols.swift in Sources */,
@@ -1540,15 +1540,15 @@
 				EEFBB9B0DDD2FADB095080F3B644303E /* ISOParser.swift in Sources */,
 				36BEC5617259C56934C39D350DE32F17 /* Locales.swift in Sources */,
 				835BAD832AAFBA5CB9A1A75FE631D338 /* Region.swift in Sources */,
-				D628A133D9E57D91B60A89D7157E97AA /* RelativeFormatter+Style.swift in Sources */,
 				6A15282F3FCAC7CF4154B5155001A63D /* RelativeFormatter.swift in Sources */,
+				D628A133D9E57D91B60A89D7157E97AA /* RelativeFormatter+Style.swift in Sources */,
 				073D58C924EBAC5DF59D87938F543A02 /* RelativeFormatterLanguage.swift in Sources */,
 				D3A85838CBDD5655BE4558D57C7F053B /* String+Parser.swift in Sources */,
-				6AA458D361CB0B6A6424318191046CA3 /* SwiftDate-dummy.m in Sources */,
 				C61CF6456D99FE9DF78D9CCD6DED8D8B /* SwiftDate.swift in Sources */,
+				6AA458D361CB0B6A6424318191046CA3 /* SwiftDate-dummy.m in Sources */,
 				636DB433A183CC26D8902AE2B18A8E5A /* TimeInterval+Formatter.swift in Sources */,
-				14E1BE8EDA1E323BB8AAD5212B9FFB12 /* TimePeriod+Support.swift in Sources */,
 				4793C5306D63A8A6194AEBE87931A624 /* TimePeriod.swift in Sources */,
+				14E1BE8EDA1E323BB8AAD5212B9FFB12 /* TimePeriod+Support.swift in Sources */,
 				CC736B7DD8C04BD1A09F4C129DA7E826 /* TimePeriodChain.swift in Sources */,
 				38EABE62E192B1BA56147AEDA7944007 /* TimePeriodCollection.swift in Sources */,
 				44CCF26D36C6F2A2A6C7E547B0BB26CE /* TimePeriodGroup.swift in Sources */,
@@ -1612,9 +1612,9 @@
 				BF35ED4A558BEC06D6A176C76129A4DD /* Moya+Alamofire.swift in Sources */,
 				9558C251165A9B17B3EBE2778ABAD04E /* Moya-dummy.m in Sources */,
 				508783EF3077382F85362930BA87EBFE /* MoyaError.swift in Sources */,
+				7CE0911040FB99158182B6131E9BA60A /* MoyaProvider.swift in Sources */,
 				9AA8337991A99D52AB4909F797F29319 /* MoyaProvider+Defaults.swift in Sources */,
 				522DB7B1FE8A14E82A35602C06303223 /* MoyaProvider+Internal.swift in Sources */,
-				7CE0911040FB99158182B6131E9BA60A /* MoyaProvider.swift in Sources */,
 				22EA0B74EE7190BBD94DAB298901DB11 /* MultipartFormData.swift in Sources */,
 				5E13589E564DF35414E2D26F0D25B1F6 /* MultiTarget.swift in Sources */,
 				599D1E6464DDED0DAAF45680E7C51EC5 /* NetworkActivityPlugin.swift in Sources */,

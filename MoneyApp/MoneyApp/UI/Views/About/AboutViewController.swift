@@ -28,6 +28,7 @@ class AboutViewController: UIViewController {
         appendConent(text: "Danielle Saldanha", attribute: "danielle.saldanha98@gmail.com")
         appendConent(text: "Szymon Gęsicki", attribute: "szym.gesicki@gmail.com")
         appendConent(text: "Jędrzej Głowaczewski", attribute: "x.speerit@gmail.com")
+        appendConent(text: "Miłosz Głowaczewski", attribute: "milosz.glowaczewski@gmail.com")
         appendHeader(text: "Source code")
         appendUrlButton(url: sourceUrl, last: true)
 

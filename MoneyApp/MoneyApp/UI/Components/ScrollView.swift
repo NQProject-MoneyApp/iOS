@@ -22,7 +22,7 @@ class ScrollView: UIView {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private var components: [UIView] = []
-    private var edgeInsets: UIEdgeInsets = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
+    private var edgeInsets: UIEdgeInsets = UIEdgeInsets(top: 16, left: 24, bottom: 16, right: 24)
     private var axis: ScrollViewAxis = .vertical
     private weak var refreshDelegate: ScrollViewRefreshDelegate?
 

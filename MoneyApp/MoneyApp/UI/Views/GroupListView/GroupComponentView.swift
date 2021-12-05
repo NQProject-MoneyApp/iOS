@@ -105,7 +105,7 @@ class GroupComponentView: ShrinkView {
     private func createTitleLabel(text: String) -> UILabel {
         let titleLabel = UILabel()
         titleLabel.text = text
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 28)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.textColor = UIColor.white
         titleLabel.numberOfLines = 2
         return titleLabel

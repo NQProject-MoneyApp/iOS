@@ -66,7 +66,8 @@ class RegisterViewController: UIViewController {
         usernameTextField.defaultStyle(placeholder: "Username")
         emailTextField.defaultStyle(placeholder: "Email")
         passwordTextField.defaultStyle(placeholder: "Password")
- 
+        passwordTextField.isSecureTextEntry = true
+
         usernameTextField.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(label.snp.bottom).offset(39)

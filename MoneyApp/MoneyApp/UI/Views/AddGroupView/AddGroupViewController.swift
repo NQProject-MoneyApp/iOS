@@ -177,7 +177,7 @@ class AddGroupViewController: UIViewController {
         let scroll = ScrollView()
         scroll.hideScrollIdicator()
         imagePickerAlert.view.addSubview(scroll)
-        scroll.create(axis: .horizontal)
+        scroll.create(axis: .horizontal, edgeInsets: UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32))
         
         scroll.snp.makeConstraints { make in
             make.left.equalTo(imagePickerAlert.view.snp.left)

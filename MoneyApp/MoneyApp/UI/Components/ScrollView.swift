@@ -26,8 +26,11 @@ class ScrollView: UIView {
     private var axis: ScrollViewAxis = .vertical
     private weak var refreshDelegate: ScrollViewRefreshDelegate?
 
-    func create(axis: ScrollViewAxis = .vertical) {
+    func create(axis: ScrollViewAxis = .vertical, edgeInsets: UIEdgeInsets? = nil) {
         self.axis = axis
+        if let edgeInsets = edgeInsets {
+            self.edgeInsets = edgeInsets
+        }
         
         addSubview(scrollView)
         
